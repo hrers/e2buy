@@ -1,0 +1,18 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: e2buy-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+      #拉取服务间隔时间
+    registry-fetch-interval-seconds: 5
+
+zuul:
+  prefix: /api # 路由路径前缀
+  routes:
+    item-service: /item/** # 商品微服务的映射路径
+
