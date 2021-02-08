@@ -13,9 +13,14 @@
         分享一些pojo，接口，异常等
     </description>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+
+    <dependencies>
+     <!--   通用mapper里面的依赖，使用这个而不是tkmapper可以减少很多不必要的依赖-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
