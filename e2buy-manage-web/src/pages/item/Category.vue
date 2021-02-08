@@ -2,7 +2,6 @@
   <v-card>
       <v-flex xs12 sm10>
         <v-tree url="/item/category/list"
-                :treeData="treeData"
                 :isEdit="isEdit"
                 @handleAdd="handleAdd"
                 @handleEdit="handleEdit"
@@ -21,7 +20,6 @@
     data() {
       return {
         isEdit:true,
-        treeData
       }
     },
     methods: {
