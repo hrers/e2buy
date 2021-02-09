@@ -1,8 +1,13 @@
 package com.e2buy.upload.service.impl;
 
 import com.e2buy.upload.service.UploadService;
+import com.github.tobato.fastdfs.domain.StorePath;
+import com.github.tobato.fastdfs.service.FastFileStorageClient;
+import com.netflix.discovery.converters.Auto;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +31,12 @@ public class UploadServiceImpl implements UploadService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UploadService.class);
 
+    @Autowired
+    private FastFileStorageClient storageClient;
+
+
+
+
     @Override
     public String uploadImage(MultipartFile file) {
         String originalFilename = file.getOriginalFilename();
@@ -45,10 +56,14 @@ public class UploadServiceImpl implements UploadService {
             }
 
             // 保存到服务器
-            file.transferTo(new File("C:\\Users\\Administrator\\Desktop\\image\\" + originalFilename));
+            //
+
+            //file.transferTo(new File("C:\\Users\\Administrator\\Desktop\\image\\" + originalFilename));
+            String ext = StringUtils.substringAfter(originalFilename, ".");
+            StorePath storePath = storageClient.uploadFile(file.getInputStream(),file.getSize(),ext,null);
 
             // 生成url地址，返回
-            return "http://image.e2buy.com/" + originalFilename;
+            return "http://image.e2buy.com:9999/" + storePath.getFullPath();
         } catch (IOException e) {
             LOGGER.info("服务器内部错误：{}", originalFilename);
             e.printStackTrace();
