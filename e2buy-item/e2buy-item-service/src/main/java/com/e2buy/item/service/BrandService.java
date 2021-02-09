@@ -3,6 +3,8 @@ package com.e2buy.item.service;
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.item.pojo.Brand;
 
+import java.util.List;
+
 /**
  * @Author: zjwawu@163.com
  * @Date: 2021/2/8 23:47
@@ -19,4 +21,11 @@ public interface BrandService {
      * @return
      */
     PageResult<Brand> queryBrandsByPage(String key, Integer page, Integer rows, String sortBy, Boolean desc);
+
+    /**
+     * 新增品牌
+     * @param brand
+     * @param cids
+     */
+    void saveBrand(Brand brand, List<Long> cids);
 }

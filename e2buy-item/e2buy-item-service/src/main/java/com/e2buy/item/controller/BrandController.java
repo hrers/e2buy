@@ -5,12 +5,16 @@ import com.e2buy.item.pojo.Brand;
 import com.e2buy.item.service.BrandService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * @Author: zjwawu@163.com
@@ -47,6 +51,20 @@ public class BrandController {
         }
         return ResponseEntity.ok(result);
     }
+
+
+
+  /*
+   //老师测试错误，我的成功了.......   */
+   @PostMapping
+    public ResponseEntity<Void> saveBrand(Brand brand,@RequestParam("cids") List<Long> cids){
+        this.brandService.saveBrand(brand,cids);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+
+
 
 
 }
