@@ -13,6 +13,7 @@
         <module>e2buy-gateway</module>
         <module>e2buy-item</module>
         <module>e2buy-common</module>
+        <module>e2buy-upload</module>
     </modules>
 
     <name>e2buy</name>
