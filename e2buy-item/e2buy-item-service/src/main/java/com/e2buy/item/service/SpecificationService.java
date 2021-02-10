@@ -7,6 +7,7 @@ package com.e2buy.item.service;
  **/
 
 import com.e2buy.item.pojo.SpecGroup;
+import com.e2buy.item.pojo.SpecParam;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ import java.util.List;
  */
 public interface SpecificationService {
     List<SpecGroup> queryGroupsByCid(Long cid);
+
+    List<SpecParam> queryParams(Long gid);
 }
