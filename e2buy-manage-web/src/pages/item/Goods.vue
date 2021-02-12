@@ -147,13 +147,14 @@
         })
       },
       addGoods() {
-        // 修改标记
+        // 修改标记  false不是修改---修改也是用同一个页面
         this.isEdit = false;
         // 控制弹窗可见：
         this.show = true;
         // 把oldBrand变为null
         this.oldGoods = {};
       },
+      //async 将js默认的异步操作改为同步操作
       async editGoods(oldGoods) {
         // 发起请求，查询商品详情和skus
         oldGoods.spuDetail = await this.$http.loadData("/item/spu/detail/" + oldGoods.id);

@@ -17,5 +17,13 @@ import java.util.List;
 public interface SpecificationService {
     List<SpecGroup> queryGroupsByCid(Long cid);
 
-    List<SpecParam> queryParams(Long gid);
+    /**
+     * 根据条件查询规格参数
+     * @param gid
+     * @param cid
+     * @param generic
+     * @param searching
+     * @return
+     */
+    List<SpecParam> queryParams(Long gid, Long cid, Boolean generic, Boolean searching);
 }

@@ -5,7 +5,6 @@ import com.e2buy.item.mapper.SpecParamMapper;
 import com.e2buy.item.pojo.SpecGroup;
 import com.e2buy.item.pojo.SpecParam;
 import com.e2buy.item.service.SpecificationService;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,12 +42,19 @@ public class SpecificationServiceImpl implements SpecificationService {
     /**
      * 根据条件查询规格参数
      * @param gid
+     * @param cid
+     * @param generic
+     * @param searching
      * @return
      */
     @Override
-    public List<SpecParam> queryParams(Long gid) {
+    public List<SpecParam> queryParams(Long gid, Long cid, Boolean generic, Boolean searching) {
+
         SpecParam record= new SpecParam();
+        record.setCid(cid);
         record.setGroupId(gid);
+        record.setGeneric(generic);
+        record.setSearching(searching);
         return specParamMapper.select(record);
     }
 

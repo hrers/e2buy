@@ -1,14 +1,18 @@
 package com.e2buy.item.controller;
 
 import com.e2buy.common.pojo.PageResult;
+import com.e2buy.item.pojo.Sku;
 import com.e2buy.item.pojo.SpuBo;
+import com.e2buy.item.pojo.SpuDetail;
 import com.e2buy.item.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: zjwawu@163.com
@@ -45,6 +49,60 @@ public class GoodsController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 新增商品
+     * @param spuBo
+     * @return
+     */
+    @PostMapping("goods")
+    public ResponseEntity<Void> saveGoods(@RequestBody SpuBo spuBo){
+        goodsService.saveGoods(spuBo);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+    /**
+     * 更新商品信息
+     * @param spuBo
+     * @return
+     */
+    @PutMapping("goods")
+    public ResponseEntity<Void> updateGoods(@RequestBody SpuBo spuBo){
+        goodsService.updateGoods(spuBo);
+        return  ResponseEntity.noContent().build();
+    }
+
+
+    /**
+     * 根据spuId查询spuDetail
+     * @param spuId
+     * @return
+     */
+    @GetMapping("spu/detail/{spuId}")
+    public ResponseEntity<SpuDetail> querySpuDetailBySpuId(@PathVariable("spuId")Long spuId){
+        SpuDetail spuDetail=goodsService.querySpuDetailBySpuId(spuId);
+        if(spuDetail == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(spuDetail);
+    }
+
+
+    /**
+     *
+     * @param spuId
+     * @return
+     */
+    @GetMapping("sku/list")
+    public ResponseEntity<List<Sku>> querySkusBySpuId(@RequestParam("id") Long spuId){
+        List<Sku> skus=goodsService.querySkusBySpuId(spuId);
+        if(CollectionUtils.isEmpty(skus)){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(skus);
+
     }
 
 
