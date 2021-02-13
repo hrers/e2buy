@@ -1,16 +1,25 @@
 package com.e2buy.search.service;
 
+import com.e2buy.common.pojo.PageResult;
 import com.e2buy.search.client.BrandClient;
 import com.e2buy.search.client.CategoryClient;
 import com.e2buy.search.client.GoodsClient;
 import com.e2buy.search.client.SpecificationClient;
 import com.e2buy.item.pojo.*;
 import com.e2buy.search.pojo.Goods;
+import com.e2buy.search.pojo.SearchRequest;
+import com.e2buy.search.repository.GoodsRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
+import org.elasticsearch.index.query.Operator;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -36,6 +45,9 @@ public class SearchService {
 
     @Autowired
     private SpecificationClient specificationClient;
+
+    @Autowired
+    private GoodsRepository goodsRepository;
 
     private static final ObjectMapper MAPPER=new ObjectMapper();
 
@@ -144,5 +156,24 @@ public class SearchService {
             }
         }
         return result;
+    }
+
+    public PageResult<Goods> search(SearchRequest request) {
+        if(StringUtils.isBlank(request.getKey())){
+            return null;
+        }
+        //自定义查询构建器
+        NativeSearchQueryBuilder queryBuilder= new NativeSearchQueryBuilder();
+        //添加查询条件
+        queryBuilder.withQuery(QueryBuilders.matchQuery("all",request.getKey()).operator(Operator.AND));
+        //添加分页，分页页码从0开始
+        queryBuilder.withPageable(PageRequest.of(request.getPage()-1,request.getSize()));
+        //添加结果集过滤
+        queryBuilder.withSourceFilter(new FetchSourceFilter(new String[]{"id","skus","subTitle"},null));
+
+        //执行查询，获取结果集
+        Page<Goods> goodsPage= goodsRepository.search(queryBuilder.build());
+
+        return new PageResult<>(goodsPage.getTotalElements(),goodsPage.getTotalPages(), goodsPage.getContent());
     }
 }
