@@ -13,7 +13,7 @@ import java.util.List;
  * @Desc:
  **/
 public interface GoodsService{
-    PageResult<SpuBo> querySpuByPage(String key, Boolean saleable, Integer page, Integer rows);
+    PageResult<SpuBo> querySpuBoByPage(String key, Boolean saleable, Integer page, Integer rows);
 
     void saveGoods(SpuBo spuBo);
 

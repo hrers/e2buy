@@ -14,6 +14,7 @@
         <module>e2buy-item</module>
         <module>e2buy-common</module>
         <module>e2buy-upload</module>
+        <module>e2buy-search</module>
     </modules>
 
     <name>e2buy</name>

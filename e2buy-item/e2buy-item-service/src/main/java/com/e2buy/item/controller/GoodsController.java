@@ -43,7 +43,7 @@ public class GoodsController {
             @RequestParam(value = "page",defaultValue = "1") Integer page,
             @RequestParam(value = "rows",defaultValue = "5") Integer rows
     ){
-        PageResult<SpuBo> result=goodsService.querySpuByPage(key,saleable,page,rows);
+        PageResult<SpuBo> result=goodsService.querySpuBoByPage(key,saleable,page,rows);
 
         if(result == null || CollectionUtils.isEmpty(result.getItems())){
             return ResponseEntity.notFound().build();

@@ -49,4 +49,20 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
         //500 不用try-catch响应，默认遇到错误就会响应500
     }
+
+
+    @GetMapping
+    public ResponseEntity<List<String>> queryNamesByIds(@RequestParam("ids")List<Long> ids){
+        List<String> names= categoryService.queryNamesByIds(ids);
+        if(CollectionUtils.isEmpty(names)){
+            // 404 资源服务器未找到
+            //return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
+        }
+        // 200 查询成功
+        return ResponseEntity.ok(names);
+    }
+
+
+
 }

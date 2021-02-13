@@ -51,7 +51,7 @@ public class GoodsServiceImpl implements GoodsService {
 
 
     @Override
-    public PageResult<SpuBo> querySpuByPage(String key, Boolean saleable, Integer page, Integer rows) {
+    public PageResult<SpuBo> querySpuBoByPage(String key, Boolean saleable, Integer page, Integer rows) {
         Example example = new Example(Spu.class);
         Example.Criteria criteria = example.createCriteria();
         //搜索条件
