@@ -946,6 +946,53 @@ jackson:  default-property-inclusion: non_null
 
 
 
+### 商品展示前台代码
+
+```
+       //vue只监控一开始就有值的属性变化，goodslist要增加属性载赋值给goodslist
+        loadData(){
+                //查询条件较多，使用post请求（请求参数参请求体中）
+                e2b.http.post("/search/page",this.search).then(({data})=>{
+                    //成功操作
+                    data.items.forEach(goods=>{
+                        goods.skus=JSON.parse(goods.skus);
+                        //默认第一个被选中
+                        goods.selected=goods.skus[0];
+                    });
+                    this.goodsList=data.items;
+                }).catch(err=>{
+                    //失败操作
+                });
+            }
+```
+
+
+
+* 字符串截取(substring)还有一个subst也可以用
+
+  ```jsx
+  <em>
+  {{goods.selected.title.length>20?goods.selected.title.substring(0,20):goods.selected.title}}
+  </em>
+  <em>{{goods.subTitle.length>17?goods.subTitle.substring(0,17):goods.subTitle}}</em>
+  ```
+
+  
+
+* 想要在html模板中使用已定义的一些实例，要在当前页面的vue实例引入才能使用，在js文件中不需要
+
+  ```js
+   data: {
+              e2b,//映入e2b对象
+              search: {
+                  key: ""
+              },
+              goodsList: []
+          },
+      <i>{{e2b.formatPrice(goods.selected.price)}}</i>
+  ```
+
+  
 
 
 
@@ -953,12 +1000,50 @@ jackson:  default-property-inclusion: non_null
 
 
 
+* 分页
+
+  ```html
+  //获取地址栏参数后吧location(只有一个key字段)覆盖了，需要重新给search增加page字段
+  const search=e2b.parse(location.search.substring(1));
+  search.page = 1;
+  
+  data: {
+          e2b,
+      search: {
+          key: "",
+          page:1
+      },
+          goodsList: [],
+          totalPage: 1
+  },
+  
+          
+  index(i){
+      if(this.search.page<=3||this.totalPage<=5){
+          return i;
+      } else if (this.search.page>=this.totalPage-2){
+          return this.totalPage-5+i;
+      }else {
+          return this.search.page-3+i;
+      }
+  }
+              
+  <li class="active" v-for="i in Math.min(5,totalPage)">
+      <a href="#">{{index(i)}}</a>
+  </li>
+  ```
+
+  
+
+  
+
+  
 
 
 
+### 在html页面上打断点
 
-
-
+![1613308223926](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1613308223926.png)
 
 
 
