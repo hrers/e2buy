@@ -8,6 +8,7 @@ import com.e2buy.search.client.SpecificationClient;
 import com.e2buy.item.pojo.*;
 import com.e2buy.search.pojo.Goods;
 import com.e2buy.search.pojo.SearchRequest;
+import com.e2buy.search.pojo.SearchResult;
 import com.e2buy.search.repository.GoodsRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,15 +16,21 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.aggregations.Aggregation;
+import org.elasticsearch.search.aggregations.AggregationBuilder;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.bucket.terms.LongTerms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Author: zjwawu@163.com
@@ -158,8 +165,10 @@ public class SearchService {
         return result;
     }
 
-    public PageResult<Goods> search(SearchRequest request) {
+    public SearchResult search(SearchRequest request) {
+        //判断查询条件
         if(StringUtils.isBlank(request.getKey())){
+            //返回默认结果集
             return null;
         }
         //自定义查询构建器
@@ -171,9 +180,65 @@ public class SearchService {
         //添加结果集过滤
         queryBuilder.withSourceFilter(new FetchSourceFilter(new String[]{"id","skus","subTitle"},null));
 
-        //执行查询，获取结果集
-        Page<Goods> goodsPage= goodsRepository.search(queryBuilder.build());
+        //设置分页参数
+        Integer page = request.getPage();
+        Integer size = request.getSize();
+        //添加分页
+        queryBuilder.withPageable(PageRequest.of(page-1,size));
 
-        return new PageResult<>(goodsPage.getTotalElements(),goodsPage.getTotalPages(), goodsPage.getContent());
+        //执行查询，获取结果集
+        //Page<Goods> goodsPage= goodsRepository.search(queryBuilder.build());
+
+        //添加分类和品牌的聚合
+        String categoryAggname="categories";
+        String brandAggName="brands";
+        queryBuilder.addAggregation(AggregationBuilders.terms(categoryAggname).field("cid3"));
+        queryBuilder.addAggregation(AggregationBuilders.terms(brandAggName).field("brandId"));
+
+        //执行查询，获取结果集
+        AggregatedPage<Goods> goodsPage= (AggregatedPage<Goods>) this.goodsRepository.search(queryBuilder.build());
+
+        //获取聚合结果集并解析
+        List<Map<String,Object>> categories=getCategoryAggResult(goodsPage.getAggregation(categoryAggname));
+        List<Brand> brands=getBrandAggResult(goodsPage.getAggregation(brandAggName));
+
+
+        //封装成需要的返回结果集
+        return new SearchResult(goodsPage.getTotalElements(),goodsPage.getTotalPages(), goodsPage.getContent(),categories,brands);
+    }
+
+    /**
+     * 解析品牌的聚合结果集
+     * @param aggregation
+     * @return
+     */
+    private List<Brand> getBrandAggResult(Aggregation aggregation) {
+        LongTerms terms= (LongTerms) aggregation;
+
+        //获取聚合中的桶
+        return terms.getBuckets().stream().map(bucket -> {
+           return this.brandClient.queryBrandById(bucket.getKeyAsNumber().longValue());
+        }).collect(Collectors.toList());
+    }
+
+    /**
+     * 解析分类的聚合结果集
+     * @param aggregation
+     * @return
+     */
+    private List<Map<String, Object>> getCategoryAggResult(Aggregation aggregation) {
+        LongTerms terms= (LongTerms) aggregation;
+        //获取桶的集合，转化成List<Map>
+        return terms.getBuckets().stream().map(bucket -> {
+            //初始化一个map
+            Map<String, Object> map= new HashMap<>();
+            //获取桶中的分类id(key)
+            long id = bucket.getKeyAsNumber().longValue();
+            //根据分类id查询分类名称
+            List<String> names= this.categoryClient.queryNamesByIds(Arrays.asList(id));
+            map.put("id",id);
+            map.put("name",names.get(0));
+            return map;
+        }).collect(Collectors.toList());
     }
 }

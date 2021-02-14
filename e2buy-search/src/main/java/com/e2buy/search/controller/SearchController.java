@@ -3,6 +3,7 @@ package com.e2buy.search.controller;
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.search.pojo.Goods;
 import com.e2buy.search.pojo.SearchRequest;
+import com.e2buy.search.pojo.SearchResult;
 import com.e2buy.search.service.SearchService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class SearchController {
      * @return
      */
     @PostMapping("page")
-    public ResponseEntity<PageResult<Goods>> search(@RequestBody SearchRequest request){
-        PageResult<Goods> result=searchService.search(request);
+    public ResponseEntity<SearchResult> search(@RequestBody SearchRequest request){
+        SearchResult result=searchService.search(request);
         if(result==null|| CollectionUtils.isEmpty(result.getItems())){
             return ResponseEntity.notFound().build();
         }
