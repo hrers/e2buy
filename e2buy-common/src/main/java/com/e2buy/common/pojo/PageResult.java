@@ -9,7 +9,6 @@ import java.util.List;
  **/
 public class PageResult<T> {
 
-
     private Long total;
     private Integer totalPage;
     private List<T> items;
