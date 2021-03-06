@@ -2,8 +2,10 @@ package com.e2buy.search.api;
 
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.item.pojo.Sku;
+import com.e2buy.item.pojo.Spu;
 import com.e2buy.item.pojo.SpuBo;
 import com.e2buy.item.pojo.SpuDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +57,7 @@ public interface GoodsApi {
     public List<Sku> querySkusBySpuId(@RequestParam("id") Long spuId);
 
 
-
-
+    @GetMapping("{id}")
+    public Spu querySpuById(@PathVariable("id") Long id);
 
 }

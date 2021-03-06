@@ -2,6 +2,7 @@ package com.e2buy.item.service;
 
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.item.pojo.Sku;
+import com.e2buy.item.pojo.Spu;
 import com.e2buy.item.pojo.SpuBo;
 import com.e2buy.item.pojo.SpuDetail;
 
@@ -22,4 +23,6 @@ public interface GoodsService{
     List<Sku> querySkusBySpuId(Long spuId);
 
     void updateGoods(SpuBo spuBo);
+
+    Spu querySpuById(Long id);
 }

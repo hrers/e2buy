@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @Author: zjwawu@163.com
@@ -58,7 +59,15 @@ public class SpecificationServiceImpl implements SpecificationService {
         return specParamMapper.select(record);
     }
 
-
+    @Override
+    public List<SpecGroup> queryGroupsWithParam(Long cid) {
+        List<SpecGroup> groups = this.queryGroupsByCid(cid);
+        groups.forEach(group->{
+            List<SpecParam> params= this.queryParams(group.getId(), null, null, null);
+            group.setParams(params);
+        });
+        return groups;
+    }
 
 
 }

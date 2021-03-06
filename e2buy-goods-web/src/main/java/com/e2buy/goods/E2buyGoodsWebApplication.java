@@ -1,4 +1,4 @@
-package com.e2buy;
+package com.e2buy.goods;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

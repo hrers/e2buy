@@ -1,9 +1,7 @@
 package com.e2buy.item.controller;
 
 import com.e2buy.common.pojo.PageResult;
-import com.e2buy.item.pojo.Sku;
-import com.e2buy.item.pojo.SpuBo;
-import com.e2buy.item.pojo.SpuDetail;
+import com.e2buy.item.pojo.*;
 import com.e2buy.item.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -104,6 +102,24 @@ public class GoodsController {
         return ResponseEntity.ok(skus);
 
     }
+
+
+    /**
+     * 根据id查找spu
+     * @param id
+     * @return
+     */
+    //@GetMapping("spu/{id}")
+    @GetMapping("{id}")
+    public ResponseEntity<Spu> querySpuById(@PathVariable("id") Long id){
+        Spu spu=this.goodsService.querySpuById(id);
+        if(spu== null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(spu);
+    }
+
+
 
 
 

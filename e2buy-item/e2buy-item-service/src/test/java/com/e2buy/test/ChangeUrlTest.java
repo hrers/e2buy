@@ -27,7 +27,7 @@ public class ChangeUrlTest {
             String images = sku.getImages();
             //String replace = images.replace("image.leyou.com", "image.e2buy.com");
             //不知道是不是switchhosts的bug还是，域名访问不了图片
-            String replace = images.replace("image.e2buy.com", "106.52.158.23");
+            String replace = images.replace("image.leyou.com", "106.52.158.23");
             System.out.println(replace);
 
 
