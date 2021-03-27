@@ -47,11 +47,10 @@ public class GoodsHtmlService{
                printWriter.close();
             }
         }
-
-
-
-
-
     }
 
+    public void deleteHtml(Long id) {
+        File file = new File("C:\\Users\\Admini\\Desktop\\2020javaUtils\\nginx-1.14.0\\nginx-1.14.0\\html\\item\\" + id + ".html");
+        file.deleteOnExit();
+    }
 }

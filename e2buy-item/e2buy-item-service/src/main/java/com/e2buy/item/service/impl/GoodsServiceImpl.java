@@ -9,6 +9,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.netflix.discovery.converters.Auto;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,8 +49,8 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private StockMapper stockMapper;
 
-
-
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public PageResult<SpuBo> querySpuBoByPage(String key, Boolean saleable, Integer page, Integer rows) {
@@ -122,7 +124,16 @@ public class GoodsServiceImpl implements GoodsService {
 
         //新增sku
         saveSkuAndStock(spuBo);
+        //发送消息
+        sendMsg("item.insert",spuBo.getId());
+    }
 
+    private void sendMsg(String type,Long id) {
+        try {
+            amqpTemplate.convertAndSend(type,id);
+        }catch (AmqpException e){
+            e.printStackTrace();
+        }
     }
 
     private void saveSkuAndStock(SpuBo spuBo) {
@@ -207,7 +218,8 @@ public class GoodsServiceImpl implements GoodsService {
 
         //更新spu详情
         spuDetailMapper.updateByPrimaryKeySelective(spuBo.getSpuDetail());
-
+        //发送消息
+        sendMsg("item.update",spuBo.getId());
     }
 
     @Override

@@ -660,7 +660,7 @@
 				e2buy.verify().then(res => {
 				    // 登陆状态下的购物车
 					e2buy.http.post("/cart", {skuId: this.sku.id, num: this.num}).then(res => {
-                        window.location = "http://www.leyou.com/cart.html";
+                        window.location = "http://www.e2buy.com/cart.html";
 					});
 				}).catch(()=>{
 				    // 未登录状态的购物车

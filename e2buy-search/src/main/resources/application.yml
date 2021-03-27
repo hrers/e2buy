@@ -9,6 +9,15 @@ spring:
       cluster-nodes: 106.52.158.23:9300
   jackson:
     default-property-inclusion: non_null
+
+  rabbitmq:
+    host: localhost
+    port: 5672 #默认就是5672
+    virtual-host: /e2buy
+    username: e2buy
+    password: e2buy
+    template:
+      exchange: E2BUY.ITEM.EXCHANGE
 eureka:
   client:
     service-url:
