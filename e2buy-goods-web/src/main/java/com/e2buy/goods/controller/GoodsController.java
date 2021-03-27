@@ -1,6 +1,8 @@
 package com.e2buy.goods.controller;
 
+import com.e2buy.goods.service.GoodsHtmlService;
 import com.e2buy.goods.service.GoodsService;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +23,20 @@ public class GoodsController {
 
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private GoodsHtmlService goodsHtmlService;
+
+
+
+
    @GetMapping("item/{id}.html")
    public String toItemPage(@PathVariable("id") Long id, Model model){
+        //加载所需的数据
        Map<String, Object> map= goodsService.loadData(id);
+        //把数据放入数据模型
        model.addAllAttributes(map);
+       goodsHtmlService.createHtml(id);
+        //页面静态化
         return "item";
    }
 
