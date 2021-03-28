@@ -1037,7 +1037,20 @@ jackson:  default-property-inclusion: non_null
 
   
 
+## 第十六天 阿里短信
+### navicat使用sql使用MD5工具
+
+![](https://gitee.com/dlulianzi/blog-image/raw/master/img/20210328211128.png)
   
+* 加盐:加salt加密，但是使用的salt要保存好，解密的时候也要用
+
+### Idea工具去掉波浪线
+![](https://gitee.com/dlulianzi/blog-image/raw/master/img/20210328223329.png)
+
+
+### 关于枚举和接口静态常量的学习
+* 枚举和静态接口设置常量的功能类似，就是提供已定义好的常量供开发使用。提高代码可读性，可维护性等
+
 
 
 

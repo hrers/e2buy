@@ -17,6 +17,8 @@
         <module>e2buy-search</module>
         <module>e2buy-goods-web</module>
         <module>e2buy-goods-web</module>
+        <module>e2buy-user</module>
+        <module>e2buy-sms-service</module>
     </modules>
 
     <name>e2buy</name>
