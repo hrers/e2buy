@@ -16,5 +16,7 @@ zuul:
   routes:
     item-service: /item/** # 商品微服务的映射路径
     search-service: /search/** #路由到搜索微服务
-    user-service: /user/** #路由到商品微服务
+    user-service: # 为什么/user/** 没法自动指定端口
+      path: /user/**
+      url: http://localhost:8085/user
 

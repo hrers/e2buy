@@ -903,6 +903,7 @@ private String chooseSegment(String value, SpecParam p) {
 * xshell连接断开后，前台启动的elasticsearch也会关闭，
   * 解决办法：使用后台启动elasticsearch
     *  ./elasticsearch -d 
+  * 
 
 
 
@@ -1051,7 +1052,8 @@ jackson:  default-property-inclusion: non_null
 ### 关于枚举和接口静态常量的学习
 * 枚举和静态接口设置常量的功能类似，就是提供已定义好的常量供开发使用。提高代码可读性，可维护性等
 
-
+### RabbitMQ
+![](https://gitee.com/dlulianzi/blog-image/raw/master/img/20210401230035.png)
 
 
 ### 在html页面上打断点

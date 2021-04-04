@@ -1,5 +1,7 @@
 package com.e2buy.user.service;
 
+import com.e2buy.user.pojo.User;
+
 /**
  * @Author: zhangjianwu
  * @Date: 2021/3/28 22:49
@@ -8,4 +10,10 @@ package com.e2buy.user.service;
 public interface UserService {
 
     Boolean checkUser(String data, Integer type);
+
+    Boolean sendVerifyCode(String phone);
+
+    void sendTest();
+
+    Boolean register(User user, String code);
 }

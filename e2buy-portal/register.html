@@ -186,7 +186,7 @@
             createVerifyCode() {// 生成短信验证码
                 this.$validator.validate("phone").then(r => {
                     if (r) {
-                        e2buy.http.post("/user/send", "phone=" + this.user.phone);
+                        e2buy.http.post("/user/code", "phone=" + this.user.phone);
                     }
                 });
 
