@@ -64,6 +64,22 @@ public class UserController {
         userService.sendTest();
     }
 
-
+    /**
+     * 根据用户名和密码查询用户
+     * @param username
+     * @param password
+     * @return
+     */
+    @GetMapping("query")
+    public ResponseEntity<User> queryUser(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password
+    ) {
+        User user = this.userService.queryUser(username, password);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.ok(user);
+    }
 
 }

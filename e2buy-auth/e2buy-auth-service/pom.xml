@@ -3,32 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>e2buy</artifactId>
-        <groupId>com.e2buy.parent</groupId>
+        <artifactId>e2buy-auth</artifactId>
+        <groupId>com.e2buy.auth</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.e2buy.user</groupId>
-    <artifactId>e2buy-user</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>e2buy-user-interface</module>
-        <module>e2buy-user-service</module>
-    </modules>
+    <artifactId>e2buy-auth-service</artifactId>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.e2buy.auth</groupId>
+            <artifactId>e2buy-auth-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.e2buy.common</groupId>
             <artifactId>e2buy-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <groupId>com.e2buy.user</groupId>
+            <artifactId>e2buy-user-interface</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

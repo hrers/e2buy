@@ -109,7 +109,7 @@
         },
         methods:{
             login(){
-                e2buy.http.post("/user/login",e2buy.stringify(this.form))
+                e2buy.http.post("/auth/accredit",e2buy.stringify(this.form))
                     .then(resp => {
                         if(resp.status === 200){
                             const url = e2buy.getUrlParam("returnUrl");

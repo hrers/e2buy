@@ -16,4 +16,6 @@ public interface UserService {
     void sendTest();
 
     Boolean register(User user, String code);
+
+    User queryUser(String username, String password);
 }
