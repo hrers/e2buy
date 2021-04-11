@@ -1045,6 +1045,33 @@ jackson:  default-property-inclusion: non_null
   
 * 加盐:加salt加密，但是使用的salt要保存好，解密的时候也要用
 
+## 第十七天 jwt
+### 登录
+* 有状态登录
+  * 服务端需要记录每次回话的客户端信息，从而识别客户端身份，根据用户身份进行请求的处理。典型如tomcat的session
+    * 用户登录后，我们把登录者的信息保存在服务端session中，并且给用户一个cookie值，记录对应的session。然后下次请求，用户携带cookie值来，我们就能识别到对应session，从而找到用户的信息。
+  
+* 无状态登录
+  * rest风格：服务的无状态性，即：服务端不保存客户端请求者的信息，每次请求都必须具备自描述信息，通过这些信息识别客户端身份
+    * 好处：不用处理如tomcat中的session共享等问题，客户端请求不依赖于服务端的信息,
+  服务端的集群和状态对客户端透明，服务端可以任意迁移和延伸，减少服务端压力等
+  * 如何实现无状态登录
+    * 当客户端第一次请求服务时，服务端对用户进行信息认证(登录),认真通过，将用户信息进行加密处理形成token,返回给
+  客户端，作为登录凭证。以后每次请求，客户端携带登录凭证，服务对token进行解密，判断是否有效
+      
+* 加密策略
+  * jwt+rsa
+  * jwt是token的一种实现方式。
+  
+
+
+
+
+
+
+
+
+
 ### Idea工具去掉波浪线
 ![](https://gitee.com/dlulianzi/blog-image/raw/master/img/20210328223329.png)
 
@@ -1105,6 +1132,7 @@ jackson:  default-property-inclusion: non_null
 ## 
 
 # 一些待解决的问题
+![](https://gitee.com/dlulianzi/blog-image/raw/master/img/20210411225633.png)
 
 
 
@@ -1134,3 +1162,6 @@ get post put ....
 
 * 品牌的改，删未完成
 * thymeleaf 页面根据选择情况改变价格，图片的变换未完成
+
+
+## 商品详情页 商品选择加入购物车不能正确匹配特殊参数的问题

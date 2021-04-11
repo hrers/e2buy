@@ -1,6 +1,6 @@
 package com.e2buy.goods.client;
 
-import com.e2buy.search.api.GoodsApi;
+import com.e2buy.item.api.GoodsApi;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

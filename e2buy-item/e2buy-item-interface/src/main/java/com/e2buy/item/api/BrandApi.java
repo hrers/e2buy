@@ -1,7 +1,9 @@
-package com.e2buy.search.api;
+package com.e2buy.item.api;
 
 import com.e2buy.item.pojo.Brand;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @Author: zjwawu@163.com

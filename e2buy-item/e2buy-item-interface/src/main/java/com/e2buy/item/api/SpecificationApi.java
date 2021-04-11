@@ -1,8 +1,7 @@
-package com.e2buy.search.api;
+package com.e2buy.item.api;
 
 import com.e2buy.item.pojo.SpecGroup;
 import com.e2buy.item.pojo.SpecParam;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

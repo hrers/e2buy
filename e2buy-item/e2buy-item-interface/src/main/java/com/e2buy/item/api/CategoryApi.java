@@ -1,4 +1,4 @@
-package com.e2buy.search.api;
+package com.e2buy.item.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

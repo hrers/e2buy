@@ -206,7 +206,8 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="#" @click.prevent="addCart()" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+<!--										href="javascript:void(0)	-->
+										<a href="javascript:void(0)" @click.prevent="addCart()" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
 									</li>
 								</ul>
 							</div>
@@ -658,6 +659,7 @@
 		methods: {
             addCart(){
 				e2buy.verify().then(res => {
+				//e2buy.http.get("/auth/verifty").then(res=>{
 				    // 登陆状态下的购物车
 					e2buy.http.post("/cart", {skuId: this.sku.id, num: this.num}).then(res => {
                         window.location = "http://www.e2buy.com/cart.html";
@@ -665,7 +667,7 @@
 				}).catch(()=>{
 				    // 未登录状态的购物车
 					// 查询已有的购物车
-					const carts = e2buy.store.get("LY_CART") || [];
+					const carts = e2buy.store.get("E2BUY_CART") || [];
 					// 查看有没有该条记录
 					let cart = carts.find(cart => cart.skuId == this.sku.id);
 					// 判断cart是否为null
@@ -681,7 +683,7 @@
                             ownSpec: this.sku.ownSpec
 						})
 					}
-					e2buy.store.set("LY_CART", carts);
+					e2buy.store.set("E2BUY_CART", carts);
 
 					// 跳转到购物车页面
 					window.location = "http://www.e2buy.com/cart.html";

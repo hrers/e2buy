@@ -7,7 +7,6 @@ import com.e2buy.item.service.CategoryService;
 import com.e2buy.item.service.GoodsService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.netflix.discovery.converters.Auto;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -225,5 +223,11 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Spu querySpuById(Long id) {
         return spuMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public Sku querySkuBySkuId(Long skuId) {
+        Sku sku = skuMapper.selectByPrimaryKey(skuId);
+        return sku;
     }
 }

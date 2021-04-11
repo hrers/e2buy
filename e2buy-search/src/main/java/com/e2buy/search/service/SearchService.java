@@ -1,11 +1,10 @@
 package com.e2buy.search.service;
 
-import com.e2buy.common.pojo.PageResult;
+import com.e2buy.item.pojo.*;
 import com.e2buy.search.client.BrandClient;
 import com.e2buy.search.client.CategoryClient;
 import com.e2buy.search.client.GoodsClient;
 import com.e2buy.search.client.SpecificationClient;
-import com.e2buy.item.pojo.*;
 import com.e2buy.search.pojo.Goods;
 import com.e2buy.search.pojo.SearchRequest;
 import com.e2buy.search.pojo.SearchResult;
@@ -17,11 +16,9 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.Aggregation;
-import org.elasticsearch.search.aggregations.AggregationBuilder;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.LongTerms;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
@@ -115,8 +112,6 @@ public class SearchService {
             }
 
         });
-
-
         goods.setId(spu.getId());
         goods.setCid1(spu.getCid1());
         goods.setCid2(spu.getCid2());
@@ -132,8 +127,6 @@ public class SearchService {
         goods.setSkus(MAPPER.writeValueAsString(skuMapList));
         //获取所有查询的规格参数
         goods.setSpecs(specs);
-
-
         return goods;
     }
 
