@@ -4,10 +4,10 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/e2buy
+    url: jdbc:mysql://localhost:3306/e2buy?characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 106.52.158.23
   rabbitmq:

@@ -308,7 +308,7 @@
             }
         },
         created() {
-            const token = Cookies.get("LY_TOKEN");
+            const token = Cookies.get("E2BUY_TOKEN");
             if (token) {
                 // 有token，曾经登录过，查询用户信息
                 e2buy.http.get("/user/" + token)
@@ -329,7 +329,7 @@
         methods: {
             logout() {
                 // 删除cookie中的token即可
-                Cookies.remove("LY_TOKEN",{
+                Cookies.remove("E2BUY_TOKEN",{
                     path:"/",
                     domain:"e2buy.com"
                 });

@@ -25,6 +25,13 @@ public class OrderController {
     @Autowired
     private PayHelper payHelper;
 
+
+    @PostMapping("test")
+    public String test(){
+        System.out.println("hello this is test");
+        return "hello test";
+    }
+
     /**
      * 创建订单
      *

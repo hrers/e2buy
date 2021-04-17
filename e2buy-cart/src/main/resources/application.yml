@@ -15,5 +15,5 @@ eureka:
     lease-expiration-duration-in-seconds: 15 # 过期时间
 e2buy:
   jwt:
-    pubKeyPath: C:\\Users\\Admini\\Desktop\\temp\\rsa\\rsa.pub # 公钥地址
+    pubKeyPath: D:\\personnalcode\\rsa\\rsa.pub # 公钥地址
     cookieName: E2BUY_TOKEN

@@ -24,11 +24,14 @@ zuul:
       url: http://localhost:8087/auth
     cart-service: /cart/** # 购物车微服务
       #url: http://localhost:8088/cart
+    order-service:
+      path: /order/**
+      url: http://localhost:8089/order
   add-host-header: true # 携带域名信息
   sensitive-headers:  #覆盖默认敏感头信息
 e2buy:
   jwt:
-    pubKeyPath: C:\\Users\\Admini\\Desktop\\temp\\rsa\\rsa.pub # 公钥地址
+    pubKeyPath: D:\\personnalcode\\rsa\\rsa.pub # 公钥地址
     cookieName: E2BUY_TOKEN
   filter:
     allowPaths:

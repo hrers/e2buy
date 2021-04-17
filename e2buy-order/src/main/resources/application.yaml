@@ -5,10 +5,10 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/e2buy?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/e2buy?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&serverTimezone=UTC
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       initial-size: 5
       min-idle: 5
@@ -26,7 +26,7 @@ spring:
         initial-interval: 10000ms
         max-interval: 300000ms
         multiplier: 2
-      exchange: leyou.item.exchange
+      exchange: e2buy.item.exchange
     publisher-confirms: true
   redis:
     host: 106.52.158.23
@@ -35,9 +35,9 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
   instance:
-    prefer-ip-address: true
-    ip-address: 127.0.0.1
-    instance-id: ${eureka.instance.ip-address}.${server.port}
+    #prefer-ip-address: true
+    #ip-address: 127.0.0.1
+    #instance-id: ${eureka.instance.ip-address}.${server.port}
     lease-renewal-interval-in-seconds: 3
     lease-expiration-duration-in-seconds: 10
 
@@ -54,7 +54,7 @@ e2buy:
     workerId: 1
     datacenterId: 1
   jwt:
-    pubKeyPath: C:\\Users\\Admini\\Desktop\\temp\\rsa\\rsa.pub # 公钥地址
+    pubKeyPath: D:\\personnalcode\\rsa\\rsa.pub # 公钥地址
     cookieName: E2BUY_TOKEN # cookie的名称
   pay:
     appId: wx8397f8696b538317

@@ -14,7 +14,7 @@ eureka:
 e2buy:
   jwt:
     secret: e2buy@Login(Auth}*^31)&heiMa% # 登录校验的密钥
-    pubKeyPath: C:\\Users\\Admini\\Desktop\\temp\\rsa\\rsa.pub # 公钥地址
-    priKeyPath: C:\\Users\\Admini\\Desktop\\temp\\rsa\\rsa.pri # 私钥地址
+    pubKeyPath: D:\\personnalcode\\rsa\\rsa.pub # 公钥地址
+    priKeyPath: D:\personnalcode\rsa\\rsa.pri # 私钥地址
     expire: 30 # 过期时间,单位分钟
     cookieName: E2BUY_TOKEN
