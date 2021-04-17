@@ -21,6 +21,7 @@
         <module>e2buy-sms-service</module>
         <module>e2buy-auth</module>
         <module>e2buy-cart</module>
+        <module>e2buy-order</module>
     </modules>
 
     <name>e2buy</name>
