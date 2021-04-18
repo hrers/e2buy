@@ -1068,7 +1068,9 @@ jackson:  default-property-inclusion: non_null
 
 
 
-
+## 第十九天
+关于javascript window.location提交表单跳转到空白页面的问题
+去掉target="_blank"
 
 
 

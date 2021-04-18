@@ -5,17 +5,20 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-	<title>易趣买商城--结算页</title>
+	<title>乐优商城--结算页</title>
 
     <link rel="stylesheet" type="text/css" href="css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="css/pages-getOrderInfo.css" />
 </head>
+
 <body>
 	<!--head-->
 	<div id="orderInfoApp">
 		<div class="top">
 			<shortcut />
-		</div<div  class="cart py-container">
+		</div>
+	
+	<div  class="cart py-container">
 		
 			<!--logoArea-->
 			<div class="logoArea">
@@ -113,8 +116,8 @@
 					</div>
 					<div class="step-cont">
 						<ul class="payType">
-							<li class="" >微信付款<span title="点击取消选择"></span></li>
-							<li class="selected">货到付款<span title="点击取消选择"></span></li>
+							<li :class="{selected: order.paymentType == 1}" @click="order.paymentType = 1" >微信付款<span title="点击取消选择"></span></li>
+							<li :class="{selected: order.paymentType == 2}" @click="order.paymentType = 2" >货到付款<span title="点击取消选择"></span></li>
 						</ul>
 					</div>
 					<div class="hr"></div>
@@ -123,21 +126,21 @@
 					</div>
 					<div class="step-cont">
 						<ul class="send-detail">
-							<li >
+							<li v-for="cart in carts" :key="cart.skuId">
 								<div class="sendGoods">
 									<ul class="yui3-g">
 										<li class="yui3-u-1-6">
-											<span><img width="70px" height="70px" src="img/goods.png"/></span>
+											<span><img width="70px" height="70px" :src="cart.image"/></span>
 										</li>
 										<li class="yui3-u-7-12">
-											<div class="desc">macbook air 2017新款，带bar 顺畅装逼体验</div>
+											<div class="desc">{{cart.title}}</div>
 											<div class="seven">7天无理由退货</div>
 										</li>
 										<li class="yui3-u-1-12">
-											<div class="price">￥8848.00</div>
+											<div class="price">￥{{e2buy.formatPrice(cart.price)}}</div>
 										</li>
 										<li class="yui3-u-1-12">
-											<div class="num">X1</div>
+											<div class="num">X{{cart.num}}</div>
 										</li>
 										<li class="yui3-u-1-12">
 											<div class="exit">有货</div>
@@ -169,28 +172,28 @@
 		<div class="order-summary">
 			<div class="static fr">
 				<div class="list">
-					<span><i class="number">1</i>件商品，总商品金额</span>
-					<em class="allprice">¥8848.00</em>
+					<span><i class="number">{{total}}</i>件商品，总商品金额</span>
+					<em class="allprice">¥{{e2buy.formatPrice(totalPrice)}}</em>
 				</div>
 				<div class="list">
 					<span>返现：</span>
-					<em class="money">0.00</em>
+					<em class="money">{{e2buy.formatPrice(fanxian)}}</em>
 				</div>
 				<div class="list">
 					<span>运费：</span>
-					<em class="transport">0.00</em>
+					<em class="transport">{{e2buy.formatPrice(order.postFee)}}</em>
 				</div>
 			</div>
 		</div>
 		<div class="clearfix trade">
-			<div class="fc-price">应付金额:　<span class="price">¥8848</span></div>
+			<div class="fc-price">应付金额:　<span class="price">¥{{e2buy.formatPrice(actualPrice)}}</span></div>
 			<div class="fc-receiverInfo">
 				寄送至:{{addresses[selectedAddress].address}}
 				收货人：{{addresses[selectedAddress].name}} {{addresses[selectedAddress].phone}}
 			</div>
 		</div>
 		<div class="submit">
-			<a class="sui-btn btn-danger btn-xlarge" href="pay.html">提交订单</a>
+			<a class="sui-btn btn-danger btn-xlarge" href="#" @click.prevent="submit()">提交订单</a>
 		</div>
 	</div>
 
@@ -202,6 +205,7 @@
         var orderInfoVm = new Vue({
             el:"#orderInfoApp",
             data:{
+                e2buy,
                 addresses:[// 可选地址列表,假数据，需要从后台查询
 					{
 					    name:"锋哥",// 收件人姓名
@@ -225,8 +229,68 @@
                     }
 				],
 				selectedAddress: 0,
-
+				order: {
+                    paymentType: 1,
+					postFee: 0
+				},
+				fanxian: 0,
+				carts: []
             },
+			created(){
+				e2buy.verify().then(res => {
+					this.carts = e2buy.store.get("E2BUY_SELECTED");
+				}).catch(() => {
+                    window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
+				})
+			},
+			computed:{
+                total(){
+                    return this.carts.reduce((c1, c2) => c1 + c2.num, 0);
+				},
+				totalPrice(){
+                    return this.carts.reduce((c1, c2) => c1 + c2.num * c2.price, 0);
+				},
+				actualPrice(){
+                    return this.totalPrice + this.order.postFee - this.fanxian;
+				}
+			},
+			methods: {
+                submit(){
+                    e2buy.verify().then(res => {
+                        // 构建数据模型
+						const address = this.addresses[this.selectedAddress];
+						const addr = {
+                            receiver: address.name,
+                            receiverMobile: address.phone,
+                            receiverState: address.state,
+                            receiverCity: address.city,
+                            receiverDistrict: address.district,
+                            receiverAddress: address.address,
+                            receiverZip: address.zipCode,
+                            invoiceType: 0,
+                            sourceType: 1,
+						};
+						const orderDetails = this.carts.map(cart => {
+						    const {userId, ...rest} = cart;
+						    return rest;
+						});
+						Object.assign(this.order, {orderDetails: orderDetails}, addr, {totalPay: this.totalPrice, actualPay: this.actualPrice});
+
+						e2buy.http.post("/order", this.order, {
+						    transformResponse: [
+								function(data){
+						        	return data;
+								}
+							]
+						}).then(({data})=>{
+						    // console.log(data);
+						    window.location = "http://www.e2buy.com/pay.html?orderId=" + data+"&actualprice="+e2buy.formatPrice(this.actualPrice);
+						})
+                    }).catch(() => {
+                        window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
+                    })
+				}
+			},
 			components:{
                 shortcut: () => import("/js/pages/shortcut.js")
 			}
