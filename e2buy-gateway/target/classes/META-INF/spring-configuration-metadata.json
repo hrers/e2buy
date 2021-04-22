@@ -1,0 +1,37 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.e2buy.config.FilterProperties",
+      "name": "e2buy.filter",
+      "type": "com.e2buy.config.FilterProperties"
+    },
+    {
+      "sourceType": "com.e2buy.config.JwtProperties",
+      "name": "e2buy.jwt",
+      "type": "com.e2buy.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.e2buy.config.FilterProperties",
+      "name": "e2buy.filter.allow-paths",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.e2buy.config.JwtProperties",
+      "name": "e2buy.jwt.cookie-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.e2buy.config.JwtProperties",
+      "name": "e2buy.jwt.pub-key-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.e2buy.config.JwtProperties",
+      "name": "e2buy.jwt.public-key",
+      "type": "java.security.PublicKey"
+    }
+  ]
+}

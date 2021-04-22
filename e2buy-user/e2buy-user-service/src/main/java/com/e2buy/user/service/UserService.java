@@ -13,8 +13,6 @@ public interface UserService {
 
     Boolean sendVerifyCode(String phone);
 
-    void sendTest();
-
     Boolean register(User user, String code);
 
     User queryUser(String username, String password);

@@ -16,7 +16,6 @@
         <module>e2buy-upload</module>
         <module>e2buy-search</module>
         <module>e2buy-goods-web</module>
-        <module>e2buy-goods-web</module>
         <module>e2buy-user</module>
         <module>e2buy-sms-service</module>
         <module>e2buy-auth</module>

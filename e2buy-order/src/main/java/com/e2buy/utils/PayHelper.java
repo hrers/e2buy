@@ -48,14 +48,14 @@ public class PayHelper {
         try {
             Map<String, String> data = new HashMap<>();
             // 商品描述
-            data.put("body", "乐优商城测试");
+            data.put("body", "E2BUY商城测试");
             // 订单号
             data.put("out_trade_no", orderId.toString());
             //货币
             data.put("fee_type", "CNY");
             //金额，单位是分
             data.put("total_fee", "1");
-            //调用微信支付的终端IP（乐优商城的IP）
+            //调用微信支付的终端IP（E2BUY商城的IP）
             data.put("spbill_create_ip", "127.0.0.1");
             //回调地址，付款成功后的接口
             data.put("notify_url", "http://test.leyou.com/wxpay/notify");

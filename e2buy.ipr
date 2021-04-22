@@ -55,7 +55,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/e2buy-auth/e2buy-auth-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-auth/e2buy-auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/e2buy-auth/e2buy-auth-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-cart/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/e2buy-cart/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-gateway/src/main/resources" charset="UTF-8" />
@@ -71,10 +73,12 @@
     <file url="file://$PROJECT_DIR$/e2buy-search/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-search/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-sms-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/e2buy-sms-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-upload/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-upload/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-user/e2buy-user-interface/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/resources" charset="UTF-8" />
   </component>
   <component name="ExportToHTMLSettings">
     <option name="PRINT_LINE_NUMBERS" value="false" />
@@ -116,12 +120,8 @@
     </option>
   </component>
   <component name="JavadocGenerationManager">
-    <option name="OPTION_HIERARCHY" value="false" />
-    <option name="OPTION_NAVIGATOR" value="false" />
-    <option name="OPTION_INDEX" value="false" />
-    <option name="OPTION_SEPARATE_INDEX" value="false" />
-    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false" />
-    <option name="OPTION_DEPRECATED_LIST" value="false" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/e2buy代码文档" />
+    <option name="OTHER_OPTIONS" value=" -encoding UTF-8 -charset UTF-8 " />
     <option name="OPEN_IN_BROWSER" value="false" />
   </component>
   <component name="JikesSettings">

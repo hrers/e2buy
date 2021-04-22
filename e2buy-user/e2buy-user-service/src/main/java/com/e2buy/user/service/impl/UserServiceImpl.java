@@ -78,16 +78,6 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public void sendTest() {
-        try {
-            redisTemplate.opsForValue().set("key1","xxx",5,TimeUnit.MINUTES);
-            this.amqpTemplate.convertAndSend("e2buy.sms.exchange", "sms.verify.code", "hhh");
-        }catch (Exception e){
-            logger.error("发送短信失败。phone：{}， code：{}");
-        }
-
-    }
 
     @Override
     public Boolean register(User user, String code) {

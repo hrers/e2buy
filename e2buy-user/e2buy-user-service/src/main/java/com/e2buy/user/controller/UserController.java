@@ -13,7 +13,7 @@ import javax.validation.Valid;
 /**
  * @Author: zhangjianwu
  * @Date: 2021/3/28 22:48
- * @Desc:
+ * @Desc: 用户管理API
  **/
 @Controller
 @RequestMapping("/user")
@@ -21,7 +21,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
 
     /**
      * 检查类型
@@ -41,6 +40,11 @@ public class UserController {
         return ResponseEntity.ok(bool);
     }
 
+    /**
+     * 发送验证码
+     * @param phone
+     * @return
+     */
     @PostMapping("/code")
     public ResponseEntity<Void> sendVerifyCode(String phone){
         Boolean boo=userService.sendVerifyCode(phone);
@@ -50,6 +54,12 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    /**
+     * 用户注册接口
+     * @param user
+     * @param code
+     * @return
+     */
     @PostMapping("/register")
     public ResponseEntity<Void> register(@Valid User user, @RequestParam("code") String code){
        Boolean boo=userService.register(user,code);
@@ -59,10 +69,6 @@ public class UserController {
        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/test")
-    public void sendTest(){
-        userService.sendTest();
-    }
 
     /**
      * 根据用户名和密码查询用户

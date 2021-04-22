@@ -1,0 +1,236 @@
+Index: e2buy.ipr
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<!--\r\nLicensed to the Apache Software Foundation (ASF) under one\r\nor more contributor license agreements.  See the NOTICE file\r\ndistributed with this work for additional information\r\nregarding copyright ownership.  The ASF licenses this file\r\nto you under the Apache License, Version 2.0 (the\r\n\"License\"); you may not use this file except in compliance\r\nwith the License.  You may obtain a copy of the License at\r\n\r\n  http://www.apache.org/licenses/LICENSE-2.0\r\n\r\nUnless required by applicable law or agreed to in writing,\r\nsoftware distributed under the License is distributed on an\r\n\"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\r\nKIND, either express or implied.  See the License for the\r\nspecific language governing permissions and limitations\r\nunder the License.\r\n-->\r\n<project version=\"4\" relativePaths=\"false\"> \r\n  <component name=\"ProjectRootManager\" version=\"2\" assert-keyword=\"true\" project-jdk-name=\"1.8\" jdk-15=\"true\"/>  \r\n  <component name=\"CodeStyleManager\"> \r\n    <option name=\"USE_DEFAULT_CODE_STYLE_SCHEME\" value=\"true\"/>  \r\n    <option name=\"CODE_STYLE_SCHEME\" value=\"\"/> \r\n  </component>  \r\n  <component name=\"libraryTable\"/>  \r\n  <component name=\"CompilerConfiguration\"> \r\n    <option name=\"DEFAULT_COMPILER\" value=\"Javac\"/>  \r\n    <option name=\"CLEAR_OUTPUT_DIRECTORY\" value=\"false\"/>  \r\n    <!--\r\n    <wildcardResourcePatterns>\r\n      <entry name=\"${wildcardResourcePattern}\"/>\r\n    </wildcardResourcePatterns>\r\n    -->  \r\n    <wildcardResourcePatterns>\r\n      <entry name=\"!?*.java\"/>\r\n    </wildcardResourcePatterns>\r\n  </component>  \r\n  <component name=\"JavacSettings\"> \r\n    <option name=\"DEBUGGING_INFO\" value=\"true\"/>  \r\n    <option name=\"GENERATE_NO_WARNINGS\" value=\"false\"/>  \r\n    <option name=\"DEPRECATION\" value=\"true\"/>  \r\n    <option name=\"ADDITIONAL_OPTIONS_STRING\" value=\"\"/>  \r\n    <option name=\"MAXIMUM_HEAP_SIZE\" value=\"128\"/>  \r\n    <option name=\"USE_GENERICS_COMPILER\" value=\"false\"/> \r\n  </component>  \r\n  <component name=\"JikesSettings\"> \r\n    <option name=\"DEBUGGING_INFO\" value=\"true\"/>  \r\n    <option name=\"DEPRECATION\" value=\"true\"/>  \r\n    <option name=\"GENERATE_NO_WARNINGS\" value=\"false\"/>  \r\n    <option name=\"GENERATE_MAKE_FILE_DEPENDENCIES\" value=\"false\"/>  \r\n    <option name=\"DO_FULL_DEPENDENCE_CHECK\" value=\"false\"/>  \r\n    <option name=\"IS_INCREMENTAL_MODE\" value=\"false\"/>  \r\n    <option name=\"IS_EMACS_ERRORS_MODE\" value=\"true\"/>  \r\n    <option name=\"ADDITIONAL_OPTIONS_STRING\" value=\"\"/>  \r\n    <option name=\"MAXIMUM_HEAP_SIZE\" value=\"128\"/> \r\n  </component>  \r\n  <component name=\"AntConfiguration\"> \r\n    <option name=\"IS_AUTOSCROLL_TO_SOURCE\" value=\"false\"/>  \r\n    <option name=\"FILTER_TARGETS\" value=\"false\"/> \r\n  </component>  \r\n  <component name=\"JavadocGenerationManager\"> \r\n    <option name=\"OUTPUT_DIRECTORY\"/>  \r\n    <option name=\"OPTION_SCOPE\" value=\"protected\"/>  \r\n    <option name=\"OPTION_HIERARCHY\" value=\"false\"/>  \r\n    <option name=\"OPTION_NAVIGATOR\" value=\"false\"/>  \r\n    <option name=\"OPTION_INDEX\" value=\"false\"/>  \r\n    <option name=\"OPTION_SEPARATE_INDEX\" value=\"false\"/>  \r\n    <option name=\"OPTION_USE_1_1\" value=\"false\"/>  \r\n    <option name=\"OPTION_DOCUMENT_TAG_USE\" value=\"false\"/>  \r\n    <option name=\"OPTION_DOCUMENT_TAG_AUTHOR\" value=\"false\"/>  \r\n    <option name=\"OPTION_DOCUMENT_TAG_VERSION\" value=\"false\"/>  \r\n    <option name=\"OPTION_DOCUMENT_TAG_DEPRECATED\" value=\"false\"/>  \r\n    <option name=\"OPTION_DEPRECATED_LIST\" value=\"false\"/>  \r\n    <option name=\"OTHER_OPTIONS\"/>  \r\n    <option name=\"HEAP_SIZE\"/>  \r\n    <option name=\"OPEN_IN_BROWSER\" value=\"false\"/> \r\n  </component>  \r\n  <component name=\"JUnitProjectSettings\"> \r\n    <option name=\"TEST_RUNNER\" value=\"UI\"/> \r\n  </component>  \r\n  <component name=\"EntryPointsManager\"> \r\n    <entry_points/> \r\n  </component>  \r\n  <component name=\"DataSourceManager\"/>  \r\n  <component name=\"ExportToHTMLSettings\"> \r\n    <option name=\"PRINT_LINE_NUMBERS\" value=\"false\"/>  \r\n    <option name=\"OPEN_IN_BROWSER\" value=\"false\"/>  \r\n    <option name=\"OUTPUT_DIRECTORY\"/> \r\n  </component>  \r\n  <component name=\"ImportConfiguration\"> \r\n    <option name=\"VENDOR\"/>  \r\n    <option name=\"RELEASE_TAG\"/>  \r\n    <option name=\"LOG_MESSAGE\"/>  \r\n    <option name=\"CHECKOUT_AFTER_IMPORT\" value=\"true\"/> \r\n  </component>  \r\n  <component name=\"ProjectModuleManager\"> \r\n    <modules> \r\n      <!-- module filepath=\"$$PROJECT_DIR$$/${pom.artifactId}.iml\"/ -->  \r\n      <module filepath=\"$PROJECT_DIR$/e2buy.iml\"/>\r\n    </modules> \r\n  </component>  \r\n  <UsedPathMacros> \r\n    <!--<macro name=\"cargo\"></macro>--> \r\n  </UsedPathMacros> \r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/e2buy.ipr b/e2buy.ipr
+--- a/e2buy.ipr	
++++ b/e2buy.ipr	
+@@ -1,107 +1,120 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-
+-<!--
+-Licensed to the Apache Software Foundation (ASF) under one
+-or more contributor license agreements.  See the NOTICE file
+-distributed with this work for additional information
+-regarding copyright ownership.  The ASF licenses this file
+-to you under the Apache License, Version 2.0 (the
+-"License"); you may not use this file except in compliance
+-with the License.  You may obtain a copy of the License at
+-
+-  http://www.apache.org/licenses/LICENSE-2.0
+-
+-Unless required by applicable law or agreed to in writing,
+-software distributed under the License is distributed on an
+-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+-KIND, either express or implied.  See the License for the
+-specific language governing permissions and limitations
+-under the License.
+--->
+-<project version="4" relativePaths="false"> 
+-  <component name="ProjectRootManager" version="2" assert-keyword="true" project-jdk-name="1.8" jdk-15="true"/>  
+-  <component name="CodeStyleManager"> 
+-    <option name="USE_DEFAULT_CODE_STYLE_SCHEME" value="true"/>  
+-    <option name="CODE_STYLE_SCHEME" value=""/> 
+-  </component>  
+-  <component name="libraryTable"/>  
+-  <component name="CompilerConfiguration"> 
+-    <option name="DEFAULT_COMPILER" value="Javac"/>  
+-    <option name="CLEAR_OUTPUT_DIRECTORY" value="false"/>  
+-    <!--
+-    <wildcardResourcePatterns>
+-      <entry name="${wildcardResourcePattern}"/>
+-    </wildcardResourcePatterns>
+-    -->  
++<project version="4">
++  <component name="CodeStyleManager">
++    <option name="USE_DEFAULT_CODE_STYLE_SCHEME" value="true" />
++    <option name="CODE_STYLE_SCHEME" value="" />
++  </component>
++  <component name="CompilerConfiguration">
+     <wildcardResourcePatterns>
+-      <entry name="!?*.java"/>
++      <entry name="!?*.java" />
+     </wildcardResourcePatterns>
+-  </component>  
+-  <component name="JavacSettings"> 
+-    <option name="DEBUGGING_INFO" value="true"/>  
+-    <option name="GENERATE_NO_WARNINGS" value="false"/>  
+-    <option name="DEPRECATION" value="true"/>  
+-    <option name="ADDITIONAL_OPTIONS_STRING" value=""/>  
+-    <option name="MAXIMUM_HEAP_SIZE" value="128"/>  
+-    <option name="USE_GENERICS_COMPILER" value="false"/> 
+-  </component>  
+-  <component name="JikesSettings"> 
+-    <option name="DEBUGGING_INFO" value="true"/>  
+-    <option name="DEPRECATION" value="true"/>  
+-    <option name="GENERATE_NO_WARNINGS" value="false"/>  
+-    <option name="GENERATE_MAKE_FILE_DEPENDENCIES" value="false"/>  
+-    <option name="DO_FULL_DEPENDENCE_CHECK" value="false"/>  
+-    <option name="IS_INCREMENTAL_MODE" value="false"/>  
+-    <option name="IS_EMACS_ERRORS_MODE" value="true"/>  
+-    <option name="ADDITIONAL_OPTIONS_STRING" value=""/>  
+-    <option name="MAXIMUM_HEAP_SIZE" value="128"/> 
+-  </component>  
+-  <component name="AntConfiguration"> 
+-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false"/>  
+-    <option name="FILTER_TARGETS" value="false"/> 
+-  </component>  
+-  <component name="JavadocGenerationManager"> 
+-    <option name="OUTPUT_DIRECTORY"/>  
+-    <option name="OPTION_SCOPE" value="protected"/>  
+-    <option name="OPTION_HIERARCHY" value="false"/>  
+-    <option name="OPTION_NAVIGATOR" value="false"/>  
+-    <option name="OPTION_INDEX" value="false"/>  
+-    <option name="OPTION_SEPARATE_INDEX" value="false"/>  
+-    <option name="OPTION_USE_1_1" value="false"/>  
+-    <option name="OPTION_DOCUMENT_TAG_USE" value="false"/>  
+-    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false"/>  
+-    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false"/>  
+-    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false"/>  
+-    <option name="OPTION_DEPRECATED_LIST" value="false"/>  
+-    <option name="OTHER_OPTIONS"/>  
+-    <option name="HEAP_SIZE"/>  
+-    <option name="OPEN_IN_BROWSER" value="false"/> 
+-  </component>  
+-  <component name="JUnitProjectSettings"> 
+-    <option name="TEST_RUNNER" value="UI"/> 
+-  </component>  
+-  <component name="EntryPointsManager"> 
+-    <entry_points/> 
+-  </component>  
+-  <component name="DataSourceManager"/>  
+-  <component name="ExportToHTMLSettings"> 
+-    <option name="PRINT_LINE_NUMBERS" value="false"/>  
+-    <option name="OPEN_IN_BROWSER" value="false"/>  
+-    <option name="OUTPUT_DIRECTORY"/> 
+-  </component>  
+-  <component name="ImportConfiguration"> 
+-    <option name="VENDOR"/>  
+-    <option name="RELEASE_TAG"/>  
+-    <option name="LOG_MESSAGE"/>  
+-    <option name="CHECKOUT_AFTER_IMPORT" value="true"/> 
+-  </component>  
+-  <component name="ProjectModuleManager"> 
+-    <modules> 
+-      <!-- module filepath="$$PROJECT_DIR$$/${pom.artifactId}.iml"/ -->  
+-      <module filepath="$PROJECT_DIR$/e2buy.iml"/>
+-    </modules> 
+-  </component>  
+-  <UsedPathMacros> 
+-    <!--<macro name="cargo"></macro>--> 
+-  </UsedPathMacros> 
+-</project>
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="e2buy-goods-web" />
++        <module name="e2buy-common" />
++        <module name="e2buy-item-service" />
++        <module name="e2buy-gateway" />
++        <module name="e2buy-registry" />
++        <module name="e2buy-item-interface" />
++        <module name="e2buy-upload" />
++        <module name="e2buy-search" />
++      </profile>
++    </annotationProcessing>
++    <bytecodeTargetLevel>
++      <module name="e2buy" target="1.5" />
++      <module name="e2buy-common" target="8" />
++      <module name="e2buy-gateway" target="1.5" />
++      <module name="e2buy-goods-web" target="8" />
++      <module name="e2buy-item" target="1.5" />
++      <module name="e2buy-item-interface" target="1.5" />
++      <module name="e2buy-item-service" target="8" />
++      <module name="e2buy-registry" target="8" />
++      <module name="e2buy-search" target="1.5" />
++      <module name="e2buy-upload" target="1.5" />
++    </bytecodeTargetLevel>
++  </component>
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/e2buy-common/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-gateway/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-gateway/src/main/resources" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-goods-web/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-goods-web/src/main/resources" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-item/e2buy-item-interface/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/resources" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-registry/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-registry/src/main/resources" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-search/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-search/src/main/resources" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-upload/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/e2buy-upload/src/main/resources" charset="UTF-8" />
++  </component>
++  <component name="ExportToHTMLSettings">
++    <option name="PRINT_LINE_NUMBERS" value="false" />
++    <option name="OPEN_IN_BROWSER" value="false" />
++    <option name="OUTPUT_DIRECTORY" />
++  </component>
++  <component name="ImportConfiguration">
++    <option name="VENDOR" />
++    <option name="RELEASE_TAG" />
++    <option name="LOG_MESSAGE" />
++    <option name="CHECKOUT_AFTER_IMPORT" value="true" />
++  </component>
++  <component name="InspectionProjectProfileManager">
++    <profile version="1.0">
++      <option name="myName" value="Project Default" />
++    </profile>
++    <version value="1.0" />
++  </component>
++  <component name="JUnitProjectSettings">
++    <option name="TEST_RUNNER" value="UI" />
++  </component>
++  <component name="JavadocGenerationManager">
++    <option name="OPTION_HIERARCHY" value="false" />
++    <option name="OPTION_NAVIGATOR" value="false" />
++    <option name="OPTION_INDEX" value="false" />
++    <option name="OPTION_SEPARATE_INDEX" value="false" />
++    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false" />
++    <option name="OPTION_DEPRECATED_LIST" value="false" />
++    <option name="OPEN_IN_BROWSER" value="false" />
++  </component>
++  <component name="JikesSettings">
++    <option name="DEBUGGING_INFO" value="true" />
++    <option name="DEPRECATION" value="true" />
++    <option name="GENERATE_NO_WARNINGS" value="false" />
++    <option name="GENERATE_MAKE_FILE_DEPENDENCIES" value="false" />
++    <option name="DO_FULL_DEPENDENCE_CHECK" value="false" />
++    <option name="IS_INCREMENTAL_MODE" value="false" />
++    <option name="IS_EMACS_ERRORS_MODE" value="true" />
++    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
++    <option name="MAXIMUM_HEAP_SIZE" value="128" />
++  </component>
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/e2buy.iml" filepath="$PROJECT_DIR$/e2buy.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-common/e2buy-common.iml" filepath="$PROJECT_DIR$/e2buy-common/e2buy-common.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-gateway/e2buy-gateway.iml" filepath="$PROJECT_DIR$/e2buy-gateway/e2buy-gateway.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-goods-web/e2buy-goods-web.iml" filepath="$PROJECT_DIR$/e2buy-goods-web/e2buy-goods-web.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-item/e2buy-item.iml" filepath="$PROJECT_DIR$/e2buy-item/e2buy-item.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-item/e2buy-item-interface/e2buy-item-interface.iml" filepath="$PROJECT_DIR$/e2buy-item/e2buy-item-interface/e2buy-item-interface.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/e2buy-item-service.iml" filepath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/e2buy-item-service.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-registry/e2buy-registry.iml" filepath="$PROJECT_DIR$/e2buy-registry/e2buy-registry.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-search/e2buy-search.iml" filepath="$PROJECT_DIR$/e2buy-search/e2buy-search.iml" />
++      <module fileurl="file://$PROJECT_DIR$/e2buy-upload/e2buy-upload.iml" filepath="$PROJECT_DIR$/e2buy-upload/e2buy-upload.iml" />
++    </modules>
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" />
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file

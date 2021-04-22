@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="集成微信支付 支付成功跳转支付成功页面，暂时还未开发订单生成后展示页面的处理">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-auth/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-auth/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/utils/PayHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/utils/PayHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/getOrderInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/getOrderInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/config/E2BuyCorsConfiguration.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/E2buyItemApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/menu.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Layout.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Login.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/service/impl/UserServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/E2buyUserApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/E2buyGatewayApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-portal/register.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-registry/src/main/java/com/e2buy/E2buyRegistryApplication.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\work\tools\apache-maven-3.6.3\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../work/tools/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\work\tools\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rCTGaghUcyvBb3LoBcCdjb3Htt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/e2buy-portal/js" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\personnalcode\e2buy\e2buy-portal\js" />
+      <recent name="D:\personnalcode\e2buy\e2buy-portal" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.E2buyOrderApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTest.testGenerateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e2buy-auth-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.e2buy.common.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
+      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
+      <option name="METHOD_NAME" value="testGenerateToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTest.testParseToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e2buy-auth-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.e2buy.common.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
+      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
+      <option name="METHOD_NAME" value="testParseToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTest.testRsa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e2buy-auth-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.e2buy.common.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
+      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
+      <option name="METHOD_NAME" value="testRsa" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pay.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/e2buy/e2buy-portal/pay.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="paysuccess.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/e2buy/e2buy-portal/paysuccess.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="E2buyAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-auth-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.auth.E2buyAuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyCartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-cart" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyCartApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyGoodsWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-goods-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.goods.E2buyGoodsWebApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyItemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-item-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyItemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyOrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyOrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyRegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-registry" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyRegistryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buySearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-search" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.search.E2buySearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-upload" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.E2buyUploadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2buyUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.user.E2buyUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="e2buy-sms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.e2buy.sms.SmsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.pay.html" />
+      <item itemvalue="JavaScript Debug.paysuccess.html" />
+      <item itemvalue="JUnit.JwtTest.testGenerateToken" />
+      <item itemvalue="JUnit.JwtTest.testRsa" />
+      <item itemvalue="JUnit.JwtTest.testParseToken" />
+      <item itemvalue="Spring Boot.E2buyAuthApplication" />
+      <item itemvalue="Spring Boot.E2buyOrderApplication" />
+      <item itemvalue="Spring Boot.SmsServiceApplication" />
+      <item itemvalue="Spring Boot.E2buySearchApplication" />
+      <item itemvalue="Spring Boot.E2buyRegistryApplication" />
+      <item itemvalue="Spring Boot.E2buyCartApplication" />
+      <item itemvalue="Spring Boot.E2buyGoodsWebApplication" />
+      <item itemvalue="Spring Boot.E2buyGatewayApplication" />
+      <item itemvalue="Spring Boot.E2buyItemApplication" />
+      <item itemvalue="Spring Boot.E2buyUploadApplication" />
+      <item itemvalue="Spring Boot.E2buyUserApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.paysuccess.html" />
+        <item itemvalue="JavaScript Debug.pay.html" />
+        <item itemvalue="JUnit.JwtTest.testParseToken" />
+        <item itemvalue="JUnit.JwtTest.testGenerateToken" />
+        <item itemvalue="JUnit.JwtTest.testRsa" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="" />
+      <created>1618478976450</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618478976450</updated>
+      <workItem from="1618478978693" duration="2378000" />
+      <workItem from="1618488894547" duration="992000" />
+      <workItem from="1618494249949" duration="13000" />
+      <workItem from="1618582901008" duration="1393000" />
+      <workItem from="1618584318811" duration="4058000" />
+      <workItem from="1618589966273" duration="1000" />
+      <workItem from="1618619777433" duration="499000" />
+      <workItem from="1618620291387" duration="8530000" />
+      <workItem from="1618629368523" duration="734000" />
+      <workItem from="1618659692162" duration="1220000" />
+      <workItem from="1618660973757" duration="10687000" />
+      <workItem from="1618676034547" duration="2728000" />
+      <workItem from="1618710093616" duration="11105000" />
+      <workItem from="1618721969032" duration="352000" />
+      <workItem from="1618722334689" duration="381000" />
+      <workItem from="1618722732513" duration="1589000" />
+      <workItem from="1618741507221" duration="79000" />
+      <workItem from="1618743041757" duration="73000" />
+      <workItem from="1618759145497" duration="436000" />
+      <workItem from="1619017127455" duration="1181000" />
+      <workItem from="1619056904263" duration="15000" />
+      <workItem from="1619100319411" duration="3019000" />
+    </task>
+    <task id="LOCAL-00001" summary="讲数据库mysql5.x改为8.x">
+      <created>1618665764576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618665764576</updated>
+    </task>
+    <task id="LOCAL-00002" summary="讲数据库mysql5.x改为8.x">
+      <created>1618665901002</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618665901002</updated>
+    </task>
+    <task id="LOCAL-00003" summary="集成微信支付 支付成功跳转支付成功页面，暂时还未开发订单生成后展示页面的处理">
+      <created>1618720919896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618720919896</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="讲数据库mysql5.x改为8.x" />
+    <MESSAGE value="集成微信支付 支付成功跳转支付成功页面，暂时还未开发订单生成后展示页面的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="集成微信支付 支付成功跳转支付成功页面，暂时还未开发订单生成后展示页面的处理" />
+  </component>
+</project>

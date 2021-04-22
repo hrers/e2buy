@@ -1,0 +1,18 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  redis:
+    host: 106.52.158.23
+  rabbitmq:
+    host: 127.0.0.1
+    username: e2buy
+    password: e2buy
+    virtual-host: /e2buy
+e2buy:
+  sms:
+    secretId: AKIDEHwHLBcEPKxE0bBr54rMMr76lBhyHPjq  # 你的accessKeyId
+    secretKey: 3lABxv4xZtxxiCQd2BG4i7C0e4FuJ0f5 # 你的accessKeySecret
+    templateld: 908978 # 签名名称
+    smsSdkAppld: 1400502929 #模板名称
