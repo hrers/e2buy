@@ -22,6 +22,12 @@ public class CartController {
     private CartService cartService;
 
     //网关那里已经定义了 "/cart"的全局路径
+
+    /**
+     *  加入购物车
+     * @param cart
+     * @return
+     */
     @PostMapping
     public ResponseEntity<Void> addCart(@RequestBody Cart cart){
        cartService.addCart(cart);
@@ -41,11 +47,22 @@ public class CartController {
         return ResponseEntity.ok(carts);
     }
 
+    /**
+     * 更新购物车商品数量
+     * @param cart
+     * @return
+     */
     @PutMapping
     public ResponseEntity<Void> updateNum(@RequestBody Cart cart){
        cartService.updateNum(cart);
        return ResponseEntity.noContent().build();
     }
+
+    /**
+     * 删除购物车商品
+     * @param skuId
+     * @return
+     */
     @DeleteMapping("/{skuId}")
     public ResponseEntity<Void> deleteCart(@PathVariable("skuId") String skuId) {
         System.out.println("test");
