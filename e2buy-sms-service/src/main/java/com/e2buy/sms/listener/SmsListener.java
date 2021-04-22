@@ -28,6 +28,11 @@ public class SmsListener {
     @Autowired
     private SmsProperties smsProperties;
 
+    /**
+     * 往Redis中写入验证码，待用户接收到验证码后提交时和redis中的比较是否一致
+     * @param msg
+     * @throws Exception
+     */
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "e2buy.sms.queue",durable = "true"),
             exchange = @Exchange(value = "e2buy.sms.exchange"),

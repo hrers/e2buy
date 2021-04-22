@@ -30,7 +30,6 @@ public class SmsUtils {
 //            Credential cred = new Credential("AKIDEHwHLBcEPKxE0bBr54rMMr76lBhyHPjq", "3lABxv4xZtxxiCQd2BG4i7C0e4FuJ0f5");
             Credential cred = new Credential(smsProperties.getSecretId(), smsProperties.getSecretKey());
 
-
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
