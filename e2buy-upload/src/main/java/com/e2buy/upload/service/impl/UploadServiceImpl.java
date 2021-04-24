@@ -63,7 +63,8 @@ public class UploadServiceImpl implements UploadService {
             StorePath storePath = storageClient.uploadFile(file.getInputStream(),file.getSize(),ext,null);
 
             // 生成url地址，返回
-            return "http://image.e2buy.com:9999/" + storePath.getFullPath();
+//            return "http://image.e2buy.com:9999/" + storePath.getFullPath();
+            return "http://106.52.158.23:9999/" + storePath.getFullPath();
         } catch (IOException e) {
             LOGGER.info("服务器内部错误：{}", originalFilename);
             e.printStackTrace();
