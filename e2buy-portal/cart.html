@@ -328,7 +328,7 @@
                }
            },
           deleteCart(i){
-               alert("hello world");
+               // alert("hello world");
                e2buy.verify().then(res=>{
                    //已登录购物车
                    e2buy.http.delete("/cart/"+this.carts[i].skuId).then(()=>{
