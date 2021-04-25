@@ -36,7 +36,7 @@ public class GoodsHtmlService{
         context.setVariables(goodsService.loadData(spuId));
         PrintWriter printWriter =null;
         try {
-            File file = new File("C:\\Users\\Admini\\Desktop\\2020javaUtils\\nginx-1.14.0\\nginx-1.14.0\\html\\item\\" + spuId + ".html");
+            File file = new File("D:\\work\\tools\\nginx-1.14.0\\nginx-1.14.0\\nginx-1.14.0\\html\\item\\" + spuId + ".html");
             printWriter = new PrintWriter(file);
             engine.process("item",context,printWriter);
 
