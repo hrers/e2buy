@@ -1146,7 +1146,13 @@ get post put ....
 
 ### reponsebody和reponseentity返回Json注解的原理
 
+### RabbitMq启动报错
+org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException
+org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException: Listener method 'public void com.macro.mall.portal.component.PaySuccessReceiver.handle(java.util.HashMap)' threw exception
 
+启动报错
+
+解决方法：我直接去浏览器打开http://192.168.0.100:15672/#/把之前项目的信息队列删除，再次启动不报错了
 
 ### 总结状态吗
 

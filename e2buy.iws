@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="检查短信模块，写一些注释">
-      <change beforePath="$PROJECT_DIR$/e2buy-cart/src/main/java/com/e2buy/cart/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-cart/src/main/java/com/e2buy/cart/controller/CartController.java" afterDir="false" />
+    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="更新一下thymeleaf本地html存放目錄">
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Merge_at_2021_4_18_13_04__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Merge_at_2021_4_18_13_04__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e2buy.iws" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy.md" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +23,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -30,22 +34,22 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/config/E2BuyCorsConfiguration.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/E2buyItemApplication.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/menu.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Layout.vue" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Login.vue" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/service/impl/UserServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/E2buyUserApplication.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/E2buyGatewayApplication.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-portal/register.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/E2buyItemApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-registry/src/main/java/com/e2buy/E2buyRegistryApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Layout.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/menu.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/E2buyGatewayApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Login.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/config/E2BuyCorsConfiguration.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/E2buyUserApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-portal/register.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -94,17 +98,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.E2buyOrderApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="JwtTest.testGenerateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="e2buy-auth-common" />
       <extension name="coverage">
