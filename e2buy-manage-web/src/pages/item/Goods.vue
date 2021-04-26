@@ -35,8 +35,15 @@
       :total-items="totalGoods"
       :loading="loading"
       class="elevation-1"
+      select-all
+      v-model="selected"
     >
       <template slot="items" slot-scope="props">
+<!--        <td class="text-xs-center">
+          <v-checkbox v-model="props.selected" primary hide-details>
+
+          </v-checkbox>
+        </td>-->
         <td class="text-xs-center">{{ props.item.id }}</td>
         <td class="text-xs-center">{{ props.item.title }}</td>
         <td class="text-xs-center">{{props.item.cname}}</td>
@@ -48,8 +55,8 @@
           <v-btn icon>
             <i class="el-icon-delete"/>
           </v-btn>
-          <v-btn icon v-if="props.item.saleable">下架</v-btn>
-          <v-btn icon v-else>上架</v-btn>
+          <v-btn icon small v-if="props.item.saleable" @click="soldOutPut(props.item.id)">下架</v-btn>
+          <v-btn icon small v-else @click="soldOutPut(props.item.id)">上架</v-btn>
         </td>
       </template>
     </v-data-table>
@@ -96,6 +103,7 @@
         totalGoods: 0, // 总条数
         goodsList: [], // 当前页品牌数据
         loading: true, // 是否在加载中
+        selected:[], //选择的条目
         pagination: {}, // 分页信息
         headers: [
           {text: 'id', align: 'center', sortable: false, value: 'id'},
@@ -165,6 +173,50 @@
         this.show = true;
         // 获取要编辑的goods
         this.oldGoods = oldGoods;
+      },
+      soldOutPut(id){
+        const selectId = this.selected.map( s => {
+          return s.id;
+        });
+        // if (selectId.length === 1 && selectId[0] === id) {
+        //   this.verify().then(() => {
+            this.$http.put("/item/spu/out/" + id).then(() => {
+              this.$message.success("操作成功！");
+              this.getDataFromServer();
+              this.selected = [];
+            }).catch(() => {
+              this.$message.error("操作失败！");
+            });
+          // }).catch(() => {
+          //   this.$router.push("/login");
+          // });
+        // }else {
+        //   this.$message.info("选中后再进行操作！");
+        // }
+      },
+      soldOutPutAll(){
+        const Ids = this.selected.map(s => {
+          return s.id;
+        });
+
+        if (Ids.length > 0){
+          // this.verify().then(() => {
+            this.$message.confirm(this.filter.saleable?"全部下架,，不可恢复！":"全部上架,，不可恢复！").then(() => {
+              this.$http.put("/item/spu/out/"+Ids.join("-")).then(() => {
+                this.getDataFromServer();
+                this.selected = [];
+              }).catch(() => {
+                this.$message.error(this.filter.saleable?"下架失败！":"上架失败！");
+              })
+            }).catch(() => {
+              this.$message.info(this.filter.saleable?"下架取消！":"上架取消！");
+            })
+          // }).catch(() => {
+          //   this.$router.push("/login");
+          // });
+        }else {
+          this.$message.info("选中后再进行操作！");
+        }
       },
       closeWindow() {
         console.log(1)

@@ -8,6 +8,8 @@ import com.e2buy.item.service.GoodsService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
@@ -28,7 +30,7 @@ import java.util.stream.Collectors;
  **/
 @Service
 public class GoodsServiceImpl implements GoodsService {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(GoodsServiceImpl.class);
     @Autowired
     private SpuMapper spuMapper;
 
@@ -229,5 +231,53 @@ public class GoodsServiceImpl implements GoodsService {
     public Sku querySkuBySkuId(Long skuId) {
         Sku sku = skuMapper.selectByPrimaryKey(skuId);
         return sku;
+    }
+
+    /**
+     * 商品下架
+     * @param id
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void goodsSoldOut(long id) {
+    //下架或者上架spu中的商品
+        Spu oldSpu = this.spuMapper.selectByPrimaryKey(id);
+        Example example = new Example(Sku.class);
+        example.createCriteria().andEqualTo("spuId",id);
+        List<Sku> skuList = this.skuMapper.selectByExample(example);
+        if (oldSpu.getSaleable()){
+            //下架
+            oldSpu.setSaleable(false);
+            this.spuMapper.updateByPrimaryKeySelective(oldSpu);
+            //下架sku中的具体商品
+            for (Sku sku : skuList){
+                sku.setEnable(false);
+                this.skuMapper.updateByPrimaryKeySelective(sku);
+            }
+        }else {
+            //上架
+            oldSpu.setSaleable(true);
+            this.spuMapper.updateByPrimaryKeySelective(oldSpu);
+            //上架sku中的具体商品
+            for (Sku sku : skuList){
+                sku.setEnable(true);
+                this.skuMapper.updateByPrimaryKeySelective(sku);
+            }
+        }
+        //发送消息到mq
+        this.sendMessage(id,"update");
+    }
+    /**
+     * 发送消息到mq，生产者
+     * @param id
+     * @param type
+     */
+    @Override
+    public void sendMessage(Long id, String type) {
+        try {
+            this.amqpTemplate.convertAndSend("item." + type, id);
+        }catch (Exception e){
+            LOGGER.error("{}商品消息发送异常，商品id：{}",type,id,e);
+        }
     }
 }

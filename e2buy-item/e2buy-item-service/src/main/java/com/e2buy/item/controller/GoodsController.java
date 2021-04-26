@@ -120,7 +120,11 @@ public class GoodsController {
     }
 
 
-
+    /**
+     * 根据skuId查找skuId
+     * @param skuId
+     * @return
+     */
     @GetMapping("sku/{skuId}")
     public ResponseEntity<Sku> querySkuBySkuId(@PathVariable("skuId") Long skuId){
         Sku sku=goodsService.querySkuBySkuId(skuId);
@@ -128,6 +132,28 @@ public class GoodsController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(sku);
+    }
+
+
+    /**
+     * 商品上下架
+     * @param ids
+     * @return
+     */
+    @PutMapping("spu/out/{id}")
+    public ResponseEntity<Void> goodsSoldOut(@PathVariable("id") String ids){
+
+        String separator="-";
+        if (ids.contains(separator)){
+            String[] goodsId = ids.split(separator);
+            for (String id:goodsId){
+                this.goodsService.goodsSoldOut(Long.parseLong(id));
+            }
+        }
+        else {
+            this.goodsService.goodsSoldOut(Long.parseLong(ids));
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 

@@ -27,4 +27,8 @@ public interface GoodsService{
     Spu querySpuById(Long id);
 
     Sku querySkuBySkuId(Long skuId);
+
+    void sendMessage(Long id,String type);
+
+    void goodsSoldOut(long id);
 }
