@@ -156,7 +156,25 @@ public class GoodsController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-
+    /**
+     * 删除商品
+     * @param ids
+     * @return
+     */
+    @DeleteMapping("/spu/{id}")
+    public ResponseEntity<Void> deleteGoods(@PathVariable("id") String ids){
+        String separator="-";
+        if (ids.contains(separator)){
+            String[] goodsId = ids.split(separator);
+            for (String id:goodsId){
+                this.goodsService.deleteGoods(Long.parseLong(id));
+            }
+        }
+        else {
+            this.goodsService.deleteGoods(Long.parseLong(ids));
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 
 
 

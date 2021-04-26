@@ -31,4 +31,6 @@ public interface GoodsService{
     void sendMessage(Long id,String type);
 
     void goodsSoldOut(long id);
+
+    void deleteGoods(long parseLong);
 }

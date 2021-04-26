@@ -39,11 +39,11 @@
       v-model="selected"
     >
       <template slot="items" slot-scope="props">
-<!--        <td class="text-xs-center">
+        <td class="text-xs-center">
           <v-checkbox v-model="props.selected" primary hide-details>
 
           </v-checkbox>
-        </td>-->
+        </td>
         <td class="text-xs-center">{{ props.item.id }}</td>
         <td class="text-xs-center">{{ props.item.title }}</td>
         <td class="text-xs-center">{{props.item.cname}}</td>
@@ -52,7 +52,7 @@
           <v-btn icon @click="editGoods(props.item)">
             <i class="el-icon-edit"/>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon @click="deleteItem(props.item.id)">
             <i class="el-icon-delete"/>
           </v-btn>
           <v-btn icon small v-if="props.item.saleable" @click="soldOutPut(props.item.id)">下架</v-btn>
@@ -217,6 +217,29 @@
         }else {
           this.$message.info("选中后再进行操作！");
         }
+      },
+      deleteItem(id){
+        const selectId = this.selected.map( s => {
+          return s.id;
+        });
+        // if (selectId.length === 1 && selectId[0] === id) {
+          // this.verify().then(() => {
+            this.$message.confirm("删除后，不可恢复！").then(() => {
+              this.$http.delete("/item/spu/"+id).then(() => {
+                this.getDataFromServer();
+                this.selected = [];
+              }).catch(() => {
+                this.$message.error("删除失败！");
+              })
+            }).catch(() => {
+              this.$message.info("删除取消！");
+            });
+          // }).catch(() => {
+          //   this.$router.push("/login");
+          // });
+        // }else {
+        //   this.$message.info("选中后再进行操作！");
+        // }
       },
       closeWindow() {
         console.log(1)

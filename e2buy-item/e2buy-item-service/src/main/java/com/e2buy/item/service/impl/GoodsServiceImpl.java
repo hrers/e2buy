@@ -267,6 +267,32 @@ public class GoodsServiceImpl implements GoodsService {
         //发送消息到mq
         this.sendMessage(id,"update");
     }
+
+    /**
+     * 商品删除二合一（多个单个）
+     * @param id
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void deleteGoods(long id) {
+        //删除spu表中的数据
+        this.spuMapper.deleteByPrimaryKey(id);
+        //删除spu_detail中的数据
+        Example example = new Example(SpuDetail.class);
+        example.createCriteria().andEqualTo("spuId",id);
+        this.spuDetailMapper.deleteByExample(example);
+
+        List<Sku> skuList = this.skuMapper.selectByExample(example);
+        for (Sku sku : skuList){
+            //删除sku中的数据
+            this.skuMapper.deleteByPrimaryKey(sku.getId());
+            //删除stock中的数据
+            this.stockMapper.deleteByPrimaryKey(sku.getId());
+        }
+        //发送消息到mq
+        this.sendMessage(id,"delete");
+    }
+
     /**
      * 发送消息到mq，生产者
      * @param id
