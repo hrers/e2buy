@@ -39,4 +39,14 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> categories = categoryMapper.selectByIdList(ids);
         return  categories.stream().map(category -> category.getName()).collect(Collectors.toList());
     }
+
+    /**
+     * 根据品牌id查询分类
+     * @param bid
+     * @return
+     */
+    @Override
+    public List<Category> queryByBrandId(Long bid) {
+        return this.categoryMapper.queryByBrandId(bid);
+    }
 }

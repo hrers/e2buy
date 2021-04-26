@@ -98,6 +98,47 @@ public class BrandServiceImpl implements BrandService {
         return brandMapper.selectByPrimaryKey(id);
     }
 
+    /**
+     * 品牌更新
+     * @param brand
+     * @param categories
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void updateBrand(Brand brand,List<Long> categories) {
+        //删除原来的数据
+        deleteByBrandIdInCategoryBrand(brand.getId());
+
+        // 修改品牌信息
+        this.brandMapper.updateByPrimaryKeySelective(brand);
+
+        //维护品牌和分类中间表
+        for (Long cid : categories) {
+            //todo 循环里面写sql操作非常不可取，后期重写
+            this.brandMapper.insertCategoryBrand(cid, brand.getId());
+        }
+    }
+
+    /**
+     * 删除中间表中的数据
+     * @param bid
+     */
+    @Override
+    public void deleteByBrandIdInCategoryBrand(Long bid) {
+        this.brandMapper.deleteByBrandIdInCategoryBrand(bid);
+    }
+
+    /**
+     *
+     * @param bid
+     */
+    @Override
+    public void deleteBrand(long bid) {
+        //删除品牌信息
+        this.brandMapper.deleteByPrimaryKey(bid);
+        //维护中间表
+        this.brandMapper.deleteByBrandIdInCategoryBrand(bid);
+    }
 
 
 

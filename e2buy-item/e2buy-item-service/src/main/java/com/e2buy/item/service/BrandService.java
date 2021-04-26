@@ -42,4 +42,22 @@ public interface BrandService {
      * @return
      */
     Brand queryBrandById(Long id);
+
+    /**
+     *品牌修改
+     * @param brand
+     * @param categories
+     */
+    void updateBrand(Brand brand, List<Long> categories);
+
+    /**
+     * 删除该品牌下的数据
+     */
+    void deleteByBrandIdInCategoryBrand(Long bid);
+
+    /**
+     * 删除品牌
+     * @param bid
+     */
+    void deleteBrand(long bid);
 }

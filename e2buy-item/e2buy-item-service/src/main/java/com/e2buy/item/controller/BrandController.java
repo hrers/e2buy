@@ -78,7 +78,11 @@ public class BrandController {
 
     }
 
-
+    /**
+     * 通过bid查询品牌
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public ResponseEntity<Brand> queryBrandById(@PathVariable("id")Long id){
         Brand brand=brandService.queryBrandById(id);
@@ -87,5 +91,51 @@ public class BrandController {
         }
         return ResponseEntity.ok(brand);
     }
+
+    /**
+     * 品牌修改
+     * @param brand
+     * @param categories
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<Void> updateBrand(Brand brand,@RequestParam("cids") List<Long> categories){
+        this.brandService.updateBrand(brand,categories);
+        return  ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+
+    /**
+     * 删除tb_brand中的数据,单个删除、多个删除二合一
+     * @param bid
+     * @return
+     */
+    @DeleteMapping("bid/{bid}")
+    public ResponseEntity<Void> deleteBrand(@PathVariable("bid") String bid){
+        String separator="-";
+        if(bid.contains(separator)){
+            String[] ids=bid.split(separator);
+            for (String id:ids){
+                this.brandService.deleteBrand(Long.parseLong(id));
+            }
+        }
+        else {
+            this.brandService.deleteBrand(Long.parseLong(bid));
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    /**
+     * 删除tb_category_brand中的数据
+     * @param bid
+     * @return
+     */
+    @DeleteMapping("cid_bid/{bid}")
+    public ResponseEntity<Void> deleteByBrandIdInCategoryBrand(@PathVariable("bid") Long bid){
+        //System.out.println("删除中间表");
+        this.brandService.deleteByBrandIdInCategoryBrand(bid);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 
 }

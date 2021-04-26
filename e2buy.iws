@@ -4,8 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="将redis服务换成127.0.0.1">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="改一下忽略文件">
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Checkout_at_2021_4_16_22_46__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.shelf/Uncommitted_changes_before_Update_at_2021_4_17_9_04__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-cart/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-cart/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-cart/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-cart/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/BrandMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/BrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/BrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/BrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/BrandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/BrandMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/BrandMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/BrandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/BrandServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/BrandServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/Brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/Brand.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/BrandForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/BrandForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy.iws" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +62,10 @@
     <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/BrandController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/E2buyItemApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/E2buyUserApplication.http" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-registry/src/main/java/com/e2buy/E2buyRegistryApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Layout.vue" root0="FORCE_HIGHLIGHTING" />
@@ -44,8 +74,11 @@
     <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/Login.vue" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-manage-web/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-gateway/src/main/java/com/e2buy/config/E2BuyCorsConfiguration.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-auth/e2buy-auth-service/src/main/java/com/e2buy/auth/E2buyAuthApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/E2buyUserApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/e2buy-portal/register.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-manage-web/src/pages/item/Brand.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/e2buy-user/e2buy-user-service/src/main/java/com/e2buy/user/enums/CheckTypeEnum.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -70,12 +103,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/e2buy-portal/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Users/Awu/git/leyou" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -93,60 +129,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.E2buyUserApplication">
-    <configuration name="JwtTest.testGenerateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="e2buy-auth-common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.e2buy.common.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
-      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
-      <option name="METHOD_NAME" value="testGenerateToken" />
-      <option name="TEST_OBJECT" value="method" />
+  <component name="RunManager" selected="Spring Boot.E2buyItemApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="JwtTest.testParseToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="e2buy-auth-common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.e2buy.common.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
-      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
-      <option name="METHOD_NAME" value="testParseToken" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JwtTest.testRsa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="e2buy-auth-common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.e2buy.common.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.e2buy.common.test" />
-      <option name="MAIN_CLASS_NAME" value="com.e2buy.common.test.JwtTest" />
-      <option name="METHOD_NAME" value="testRsa" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="pay.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/e2buy/e2buy-portal/pay.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="paysuccess.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/e2buy/e2buy-portal/paysuccess.html" useBuiltInWebServerPort="true">
-      <method v="2" />
     </configuration>
     <configuration name="E2buyAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="e2buy-auth-service" />
@@ -230,32 +223,18 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.pay.html" />
-      <item itemvalue="JavaScript Debug.paysuccess.html" />
-      <item itemvalue="JUnit.JwtTest.testGenerateToken" />
-      <item itemvalue="JUnit.JwtTest.testRsa" />
-      <item itemvalue="JUnit.JwtTest.testParseToken" />
+      <item itemvalue="Spring Boot.E2buyRegistryApplication" />
+      <item itemvalue="Spring Boot.E2buyGoodsWebApplication" />
       <item itemvalue="Spring Boot.SmsServiceApplication" />
       <item itemvalue="Spring Boot.E2buyAuthApplication" />
       <item itemvalue="Spring Boot.E2buyOrderApplication" />
       <item itemvalue="Spring Boot.E2buySearchApplication" />
-      <item itemvalue="Spring Boot.E2buyRegistryApplication" />
       <item itemvalue="Spring Boot.E2buyCartApplication" />
-      <item itemvalue="Spring Boot.E2buyGoodsWebApplication" />
       <item itemvalue="Spring Boot.E2buyGatewayApplication" />
       <item itemvalue="Spring Boot.E2buyItemApplication" />
       <item itemvalue="Spring Boot.E2buyUploadApplication" />
       <item itemvalue="Spring Boot.E2buyUserApplication" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.paysuccess.html" />
-        <item itemvalue="JavaScript Debug.pay.html" />
-        <item itemvalue="JUnit.JwtTest.testParseToken" />
-        <item itemvalue="JUnit.JwtTest.testGenerateToken" />
-        <item itemvalue="JUnit.JwtTest.testRsa" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBootOptions">
@@ -290,6 +269,10 @@
       <workItem from="1619017127455" duration="1181000" />
       <workItem from="1619056904263" duration="15000" />
       <workItem from="1619100319411" duration="4513000" />
+      <workItem from="1619364886441" duration="1229000" />
+      <workItem from="1619403949901" duration="691000" />
+      <workItem from="1619417046919" duration="3787000" />
+      <workItem from="1619441840763" duration="7345000" />
     </task>
     <task id="LOCAL-00001" summary="讲数据库mysql5.x改为8.x">
       <created>1618665764576</created>
@@ -347,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619363259433</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="改一下忽略文件">
+      <created>1619363307001</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619363307001</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +362,7 @@
     <MESSAGE value="检查短信模块，写一些注释" />
     <MESSAGE value="fix" />
     <MESSAGE value="将redis服务换成127.0.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="将redis服务换成127.0.0.1" />
+    <MESSAGE value="改一下忽略文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="改一下忽略文件" />
   </component>
 </project>

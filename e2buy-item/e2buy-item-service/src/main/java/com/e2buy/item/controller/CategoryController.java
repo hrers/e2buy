@@ -51,6 +51,11 @@ public class CategoryController {
     }
 
 
+    /**
+     * 查询分类名称
+     * @param ids
+     * @return
+     */
     @GetMapping
     public ResponseEntity<List<String>> queryNamesByIds(@RequestParam("ids")List<Long> ids){
         List<String> names= categoryService.queryNamesByIds(ids);
@@ -62,6 +67,21 @@ public class CategoryController {
         // 200 查询成功
         return ResponseEntity.ok(names);
     }
+
+    /**
+     * 用于修改品牌信息时，商品分类信息的回显
+     * @param bid
+     * @return
+     */
+    @GetMapping("bid/{bid}")
+    public ResponseEntity<List<Category>> queryByBrandId(@PathVariable("bid") Long bid){
+        List<Category> list = this.categoryService.queryByBrandId(bid);
+        if(list == null || list.size() < 1){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(list);
+    }
+
 
 
 

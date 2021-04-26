@@ -18,6 +18,11 @@
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
+        <td class="text-xs-center">
+          <v-checkbox v-model="props.selected" primary hide-details>
+
+          </v-checkbox>
+        </td>
         <td class="text-xs-center">{{ props.item.id }}</td>
         <td class="text-xs-center">{{ props.item.name }}</td>
         <td class="text-xs-center">
@@ -77,6 +82,7 @@
         show: false,// 控制对话框的显示
         oldBrand: {}, // 即将被编辑的品牌数据
         isEdit: false, // 是否是编辑
+        selected:[] //选择的条目
       }
     },
     mounted() { // 渲染后执行
@@ -136,6 +142,24 @@
             // 回显商品分类
             this.oldBrand.categories = data;
           })
+      },
+      deleteBrand(oldBrand){
+        if (this.selected.length === 1 && this.selected[0].id === oldBrand.id) {
+          // this.verify().then(() => {
+            this.$message.confirm('此操作将永久删除该品牌, 是否继续?').then(
+              () => {
+                //发起删除请求，删除单条数据
+                this.$http.delete("/item/brand/bid/" + oldBrand.id).then(() => {
+                  this.getDataFromServer();
+                }).catch()
+              }
+            ).catch(() => {
+              this.$message.info("删除已取消！");
+            });
+          // }).catch(() => {
+          //   this.$router.push("/login");
+          // });
+        }
       },
       closeWindow(){
         // 重新加载数据
