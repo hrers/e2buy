@@ -18,11 +18,11 @@
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
-        <td class="text-xs-center">
+<!--        <td class="text-xs-center">
           <v-checkbox v-model="props.selected" primary hide-details>
 
           </v-checkbox>
-        </td>
+        </td>-->
         <td class="text-xs-center">{{ props.item.id }}</td>
         <td class="text-xs-center">{{ props.item.name }}</td>
         <td class="text-xs-center">
@@ -144,7 +144,7 @@
           })
       },
       deleteBrand(oldBrand){
-        if (this.selected.length === 1 && this.selected[0].id === oldBrand.id) {
+        // if (this.selected.length === 1 && this.selected[0].id === oldBrand.id) {
           // this.verify().then(() => {
             this.$message.confirm('此操作将永久删除该品牌, 是否继续?').then(
               () => {
@@ -159,7 +159,7 @@
           // }).catch(() => {
           //   this.$router.push("/login");
           // });
-        }
+        // }
       },
       closeWindow(){
         // 重新加载数据
