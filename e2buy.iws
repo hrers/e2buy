@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="单个品牌删除已完成">
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/src/main/java/com/e2buy/item/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/mapper/CategoryMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-item/e2buy-item-service/target/classes/com/e2buy/item/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/components/tree/TreeItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/components/tree/TreeItem.vue" afterDir="false" />
+    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="分类增删改测试完成">
       <change beforePath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/Category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-manage-web/src/pages/item/Category.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy.iws" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +244,7 @@
       <workItem from="1619364886441" duration="1229000" />
       <workItem from="1619403949901" duration="691000" />
       <workItem from="1619417046919" duration="3787000" />
-      <workItem from="1619441840763" duration="11740000" />
+      <workItem from="1619441840763" duration="11889000" />
     </task>
     <task id="LOCAL-00001" summary="讲数据库mysql5.x改为8.x">
       <created>1618665764576</created>
@@ -333,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619449731656</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="分类增删改测试完成">
+      <created>1619453833395</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619453833395</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +358,8 @@
     <MESSAGE value="改一下忽略文件" />
     <MESSAGE value="修复一下品牌修改&#10;品牌删除未成功" />
     <MESSAGE value="单个品牌删除已完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="单个品牌删除已完成" />
+    <MESSAGE value="分类增删改测试完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="分类增删改测试完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

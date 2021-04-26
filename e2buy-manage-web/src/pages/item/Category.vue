@@ -73,6 +73,10 @@
       },
       handleClick(node) {
         console.log(node)
+      },
+      reloadData(id){
+        //操作完成后刷新数据
+        this.$http.get("/item/category/list?pid="+id).then().catch();
       }
     }
   };
