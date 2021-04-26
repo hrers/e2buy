@@ -82,7 +82,33 @@ public class CategoryController {
         return ResponseEntity.ok(list);
     }
 
+    /**
+     * 保存
+     * @return
+     */
+    @PostMapping
+    public ResponseEntity<Void> saveCategory(Category category){
+        this.categoryService.saveCategory(category);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
 
-
+    /**
+     * 更新
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<Void> updateCategory(Category category){
+        this.categoryService.updateCategory(category);
+        return  ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+    /**
+     * 删除
+     * @return
+     */
+    @DeleteMapping("cid/{cid}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable("cid") Long id){
+        this.categoryService.deleteCategory(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 
 }

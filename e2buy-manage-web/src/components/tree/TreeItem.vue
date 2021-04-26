@@ -177,7 +177,8 @@
         this.$nextTick(() => this.$refs[this.model.id].focus());
       },
       afterEdit() {
-        if (this.model.beginEdit) {
+        //原来是错的，多了个model
+        if (this.beginEdit) {
           this.beginEdit = false;
           this.handleEdit(this.model.id, this.model.name);
         }

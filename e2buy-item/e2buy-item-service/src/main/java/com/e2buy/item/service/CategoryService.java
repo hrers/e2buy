@@ -15,4 +15,10 @@ public interface CategoryService {
     List<String> queryNamesByIds(List<Long> asList);
 
     List<Category> queryByBrandId(Long bid);
+
+    void saveCategory(Category category);
+
+    void updateCategory(Category category);
+
+    void deleteCategory(Long id);
 }
