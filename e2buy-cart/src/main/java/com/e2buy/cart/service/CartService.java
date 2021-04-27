@@ -105,4 +105,6 @@ public class CartService {
         BoundHashOperations<String, Object, Object> hashOps = this.stringRedisTemplate.boundHashOps(key);
         hashOps.delete(skuId);
     }
+
+
 }

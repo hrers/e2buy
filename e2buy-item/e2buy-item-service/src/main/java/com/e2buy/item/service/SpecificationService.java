@@ -28,4 +28,10 @@ public interface SpecificationService {
     List<SpecParam> queryParams(Long gid, Long cid, Boolean generic, Boolean searching);
 
     List<SpecGroup> queryGroupsWithParam(Long cid);
+
+    void saveParam(SpecParam specParam);
+
+    void updateSpecParam(SpecParam specParam);
+
+    void deleteSpecification(SpecParam specParam);
 }

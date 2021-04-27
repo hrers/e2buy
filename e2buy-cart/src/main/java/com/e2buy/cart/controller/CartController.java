@@ -22,7 +22,6 @@ public class CartController {
     private CartService cartService;
 
     //网关那里已经定义了 "/cart"的全局路径
-
     /**
      *  加入购物车
      * @param cart
@@ -69,5 +68,6 @@ public class CartController {
         this.cartService.deleteCart(skuId);
         return ResponseEntity.ok().build();
     }
+
 
 }

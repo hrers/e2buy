@@ -24,6 +24,7 @@
         <!--logoArea-->
         <div class="logoArea">
             <div class="fl logo"><span class="title">购物车</span></div>
+
         </div>
 
         <!--All goods-->
@@ -70,7 +71,7 @@
                                 <li class="yui3-u-1-8"><span style="line-height:70px " class="sum">{{e2b.formatPrice(cart.price*cart.num)}}</span></li>
                                 <li class="yui3-u-1-8">
                                     <a href="#none" @click="deleteCart(index)">删除</a><br />
-                                    <a href="#none">移到我的关注</a>
+                                   <!-- <a href="#none">移到我的关注</a>-->
                                 </li>
                             </ul>
                         </div>
@@ -122,139 +123,139 @@
             </div>
             <div class="liked">
                 <ul class="sui-nav nav-tabs">
-                    <li class="active">
-                        <a href="#index" data-toggle="tab">猜你喜欢</a>
-                    </li>
-                    <li>
-                        <a href="#profile" data-toggle="tab">特惠换购</a>
-                    </li>
+<!--                    <li class="active">-->
+<!--                        <a href="#index" data-toggle="tab">猜你喜欢</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#profile" data-toggle="tab">特惠换购</a>-->
+<!--                    </li>-->
                 </ul>
                 <div class="clearfix"></div>
-                <div class="tab-content">
-                    <div id="index" class="tab-pane active">
-                        <div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
-                            <div class="carousel-inner">
-                                <div class="active item">
-                                    <ul>
-                                        <li>
-                                            <img src="img/like1.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like2.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like3.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like4.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="item">
-                                    <ul>
-                                        <li>
-                                            <img src="img/like1.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like2.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like3.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <img src="img/like4.png"/>
-                                            <div class="intro">
-                                                <i>Apple苹果iPhone 6s (A1699)</i>
-                                            </div>
-                                            <div class="money">
-                                                <span>$29.00</span>
-                                            </div>
-                                            <div class="incar">
-                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i
-                                                        class="car"></i><span class="cartxt">加入购物车</span></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a>
-                            <a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
-                        </div>
-                    </div>
-                    <div id="profile" class="tab-pane">
-                        <p>特惠选购</p>
-                    </div>
-                </div>
+<!--                <div class="tab-content">-->
+<!--                    <div id="index" class="tab-pane active">-->
+<!--                        <div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">-->
+<!--                            <div class="carousel-inner">-->
+<!--                                <div class="active item">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like1.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like2.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like3.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like4.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="item">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like1.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like2.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like3.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <img src="img/like4.png"/>-->
+<!--                                            <div class="intro">-->
+<!--                                                <i>Apple苹果iPhone 6s (A1699)</i>-->
+<!--                                            </div>-->
+<!--                                            <div class="money">-->
+<!--                                                <span>$29.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="incar">-->
+<!--                                                <a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i-->
+<!--                                                        class="car"></i><span class="cartxt">加入购物车</span></a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a>-->
+<!--                            <a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div id="profile" class="tab-pane">-->
+<!--                        <p>特惠选购</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

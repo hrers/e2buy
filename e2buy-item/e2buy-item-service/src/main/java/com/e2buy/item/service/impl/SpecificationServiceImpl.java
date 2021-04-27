@@ -70,4 +70,32 @@ public class SpecificationServiceImpl implements SpecificationService {
     }
 
 
+    /**
+     * 新增规格参数模板
+     * @param specParam
+     */
+    @Override
+    public void saveParam(SpecParam specParam) {
+        this.specParamMapper.insert(specParam);
+    }
+
+    /**
+     * 更新规格参数模板
+     * @param specParam
+     */
+    @Override
+    public void updateSpecParam(SpecParam specParam) {
+        this.specParamMapper.updateByPrimaryKeySelective(specParam);
+    }
+
+    /**
+     * 删除规格参数模板
+     * @param specParam
+     */
+    @Override
+    public void deleteSpecification(SpecParam specParam) {
+        this.specParamMapper.deleteByPrimaryKey(specParam);
+    }
+
+
 }
