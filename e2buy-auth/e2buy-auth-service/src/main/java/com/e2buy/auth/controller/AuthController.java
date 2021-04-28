@@ -54,7 +54,6 @@ public class AuthController {
             if(userInfo==null){
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
-
             //刷新jwt中的有效时间
             token = JwtUtils.generateToken(userInfo, jwtProperties.getPrivateKey(), jwtProperties.getExpire());
 
