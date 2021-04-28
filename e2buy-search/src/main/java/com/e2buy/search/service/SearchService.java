@@ -78,6 +78,7 @@ public class SearchService {
             map.put("id",sku.getId());
             map.put("title",sku.getTitle());
             map.put("price",sku.getPrice());
+
             //获取sku中的图片，数据库的图片可能是多张，多张是以“，”分隔，获取第一张图片
             map.put("image",StringUtils.isBlank(sku.getImages())?"":StringUtils.split(sku.getImages(),",")[0]);
 
@@ -238,7 +239,12 @@ public class SearchService {
     public void save(Long id) throws IOException {
         Spu spu = goodsClient.querySpuById(id);
         Goods goods = buildGoods(spu);
-        goodsRepository.save(goods);
+        //新增上下架判断,若是上架或者更新---》更新es,若是下架消息--->删除es
+        if(spu.getSaleable()){
+            goodsRepository.save(goods);
+        }else {
+            goodsRepository.delete(goods);
+        }
     }
 
     public void delete(Long id) {

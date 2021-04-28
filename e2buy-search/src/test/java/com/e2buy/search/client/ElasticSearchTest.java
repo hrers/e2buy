@@ -56,8 +56,7 @@ public class ElasticSearchTest {
         do {
             // 分批查询spuBo
             PageResult<SpuBo> pageResult = this.goodsClient.querySpuBoByPage(null, true, page, rows);
-
-            // 遍历spubo集合转化为List<Goods>
+            // 遍历spubo集合转化为List<Goods>,增加上架过滤
             List<Goods> goodsList = pageResult.getItems().stream().map(spuBo -> {
                 try {
                     return this.searchService.buildGoods((Spu) spuBo);
@@ -74,10 +73,5 @@ public class ElasticSearchTest {
             page++;
         } while (rows == 100);
     }
-
-
-
-
-
 
 }
