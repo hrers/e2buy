@@ -161,4 +161,17 @@ public class OrderController {
         PayState payState = this.payHelper.queryOrder(orderId);
         return ResponseEntity.ok(payState.getValue());
     }
+
+    /**
+     * 根据订单编号删除 订单信息
+     * @param orderId
+     * @return
+     */
+    @DeleteMapping("delete/{id}")
+    @ApiOperation(value = "根据订单id删除订单",notes = "删除订单")
+    @ApiImplicitParam(name = "id",value = "订单编号",type = "Long")
+    public ResponseEntity<Void> deleteOrderById(@PathVariable("id") Long orderId){
+        orderService.deleteOrderById(orderId);
+        return ResponseEntity.ok().build();
+    }
 }

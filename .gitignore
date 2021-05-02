@@ -5,6 +5,7 @@
 .mvn
 .publish
 *.iml
+*.yml
 ~$*
 target
 

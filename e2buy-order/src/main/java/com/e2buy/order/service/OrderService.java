@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;
@@ -132,4 +133,17 @@ public class OrderService {
         return count == 1;
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteOrderById(Long orderId) {
+        //删除订单表
+        orderMapper.deleteByPrimaryKey(orderId);
+        Example detailExample = new Example(OrderDetail.class);
+        detailExample.createCriteria().andEqualTo("orderId",orderId);
+        //删除订单细节表
+        detailMapper.deleteByExample(detailExample);
+        Example statusExample = new Example(OrderStatus.class);
+        statusExample.createCriteria().andEqualTo("orderId",orderId);
+        //删除该订单的状态表
+        statusMapper.deleteByExample(statusExample);
+    }
 }

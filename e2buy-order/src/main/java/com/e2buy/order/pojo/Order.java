@@ -1,5 +1,9 @@
 package com.e2buy.order.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -11,6 +15,7 @@ import java.util.List;
 public class Order {
 
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long orderId;// id
     @NotNull
     private Long totalPay;// 总金额

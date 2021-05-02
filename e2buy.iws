@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="静态模板更新">
+    <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="上下架bug修复完成---&gt;监听处理根据上下架标志区别处理">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e2buy-goods-web/target/classes/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-goods-web/target/classes/templates/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-search/src/main/java/com/e2buy/search/service/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/src/main/java/com/e2buy/search/service/SearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-search/src/test/java/com/e2buy/search/client/ElasticSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/src/test/java/com/e2buy/search/client/ElasticSearchTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/target/classes/com/e2buy/search/service/SearchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/pojo/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/src/main/java/com/e2buy/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/pojo/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/pojo/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-order/target/classes/com/e2buy/order/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-order-pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-order-pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-order-send.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-order-send.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-orderDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-orderDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/js/pages/top.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/js/pages/top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-search/target/test-classes/com/e2buy/search/client/ElasticSearchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-search/target/test-classes/com/e2buy/search/client/ElasticSearchTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e2buy.iws" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,18 +119,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ElasticSearchTest.createIndex">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.E2buyOrderApplication">
     <configuration name="ChangeUrlTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="e2buy-item-service" />
       <extension name="coverage">
@@ -151,6 +151,9 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="home-index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/e2buy/e2buy-portal/home-index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
     </configuration>
     <configuration name="E2buyAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="e2buy-auth-service" />
@@ -234,6 +237,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.home-index.html" />
       <item itemvalue="JUnit.ElasticSearchTest.createIndex" />
       <item itemvalue="JUnit.ChangeUrlTest.test" />
       <item itemvalue="Spring Boot.E2buyRegistryApplication" />
@@ -250,6 +254,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.home-index.html" />
         <item itemvalue="JUnit.ElasticSearchTest.createIndex" />
         <item itemvalue="JUnit.ChangeUrlTest.test" />
       </list>
@@ -302,7 +307,14 @@
       <workItem from="1619572656836" duration="1857000" />
       <workItem from="1619575161568" duration="42000" />
       <workItem from="1619592448088" duration="261000" />
-      <workItem from="1619592839356" duration="9077000" />
+      <workItem from="1619592839356" duration="9511000" />
+      <workItem from="1619751577630" duration="4775000" />
+      <workItem from="1619827035573" duration="204000" />
+      <workItem from="1619827320573" duration="3477000" />
+      <workItem from="1619831958557" duration="28295000" />
+      <workItem from="1619960552954" duration="168000" />
+      <workItem from="1619960729171" duration="244000" />
+      <workItem from="1619961060279" duration="7163000" />
     </task>
     <task id="LOCAL-00001" summary="讲数据库mysql5.x改为8.x">
       <created>1618665764576</created>
@@ -423,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619595611340</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="上下架bug修复完成---&gt;监听处理根据上下架标志区别处理">
+      <created>1619602343532</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1619602343532</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +475,8 @@
     <MESSAGE value="单个商品删除，上下架，修改测试完成" />
     <MESSAGE value="一些优化" />
     <MESSAGE value="静态模板更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="静态模板更新" />
+    <MESSAGE value="上下架bug修复完成---&gt;监听处理根据上下架标志区别处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="上下架bug修复完成---&gt;监听处理根据上下架标志区别处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -501,6 +521,14 @@
           <line>49</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.ConnectException" package="java.net" />
+          <option name="timeStamp" value="19" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.netflix.zuul.exception.ZuulException" package="com.netflix.zuul.exception" />
+          <option name="timeStamp" value="20" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
