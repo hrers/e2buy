@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d3c6014-f9ce-48be-a4e6-c9b6c8021f87" name="Default Changelist" comment="更新一下页面参数">
-      <change beforePath="$PROJECT_DIR$/e2buy-portal/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-order-evaluate.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-order-evaluate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-order-pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-order-pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-order-receive.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-order-receive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home-orderDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home-orderDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2buy-portal/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy-portal/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e2buy.iws" beforeDir="false" afterPath="$PROJECT_DIR$/e2buy.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -463,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620049031369</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="更新一下页面参数">
+      <created>1620050367526</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620050367526</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
