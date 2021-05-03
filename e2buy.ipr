@@ -14,8 +14,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="e2buy-goods-web" />
-        <module name="e2buy-item-service" />
         <module name="e2buy-order" />
+        <module name="e2buy-item-service" />
         <module name="e2buy-user-service" />
         <module name="e2buy-registry" />
         <module name="e2buy-auth-common" />
@@ -25,8 +25,8 @@
         <module name="e2buy-common" />
         <module name="e2buy-gateway" />
         <module name="e2buy-item-interface" />
-        <module name="e2buy-upload" />
         <module name="e2buy-search" />
+        <module name="e2buy-upload" />
         <module name="e2buy-auth-service" />
       </profile>
     </annotationProcessing>
@@ -207,7 +207,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/e2buy-order/pom.xml" />
       </list>
     </option>
   </component>
@@ -240,6 +239,16 @@
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="http://maven.aliyun.com/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public-snapshots" />
+      <option name="name" value="local private nexus" />
+      <option name="url" value="http://47.104.244.79:8082/repository/maven-public" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="public-snapshots" />

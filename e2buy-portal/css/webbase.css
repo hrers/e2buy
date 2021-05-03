@@ -265,7 +265,8 @@ ul.brand-list li {
 }
 
 .NavList .all-sort {
-	background: #b1191a;
+	/*background: #b1191a;*/
+	background: green;
 	color: #fff;
 	text-align: center
 }
@@ -275,7 +276,8 @@ ul.brand-list li {
 }
 
 .SortList .all-sort-list {
-	background: #c81623
+	/*background: #c81623*/
+	background: deepskyblue;
 }
 
 .navArea ul.nav li {
