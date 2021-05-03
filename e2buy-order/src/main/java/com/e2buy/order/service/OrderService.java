@@ -7,6 +7,7 @@ import com.e2buy.order.interceptor.LoginInterceptor;
 import com.e2buy.order.mapper.OrderDetailMapper;
 import com.e2buy.order.mapper.OrderMapper;
 import com.e2buy.order.mapper.OrderStatusMapper;
+import com.e2buy.order.mapper.StockMapper;
 import com.e2buy.order.pojo.Order;
 import com.e2buy.order.pojo.OrderDetail;
 import com.e2buy.order.pojo.OrderStatus;
@@ -36,6 +37,9 @@ public class OrderService {
 
     @Autowired
     private OrderStatusMapper statusMapper;
+
+    @Autowired
+    private StockMapper stockMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
@@ -68,6 +72,9 @@ public class OrderService {
         this.detailMapper.insertList(order.getOrderDetails());
 
         logger.debug("生成订单，订单编号：{}，用户id：{}", orderId, user.getId());
+        //减库存
+        order.getOrderDetails().forEach(orderDetail -> this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum()));
+
 
         return orderId;
     }
