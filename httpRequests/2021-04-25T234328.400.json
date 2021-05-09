@@ -1,0 +1,7 @@
+{
+  "timestamp": "2021-04-25T15:43:28.887+0000",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Required String parameter 'code' is not present",
+  "path": "/user/register"
+}
