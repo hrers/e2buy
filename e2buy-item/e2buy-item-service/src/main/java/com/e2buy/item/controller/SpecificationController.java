@@ -1,8 +1,10 @@
 package com.e2buy.item.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.e2buy.item.pojo.SpecGroup;
 import com.e2buy.item.pojo.SpecParam;
 import com.e2buy.item.service.SpecificationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @Author: zjwawu@163.com
@@ -19,6 +22,7 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping("spec")
+@Slf4j
 public class SpecificationController {
 
 
@@ -95,6 +99,7 @@ public class SpecificationController {
      */
     @PutMapping
     public ResponseEntity<Void> updateSpecification(SpecParam specParam){
+        log.info( "请求入参打印：【{}】",specParam.getName());
         this.specificationService.updateSpecParam(specParam);
         return ResponseEntity.status(HttpStatus.OK).build();
     }

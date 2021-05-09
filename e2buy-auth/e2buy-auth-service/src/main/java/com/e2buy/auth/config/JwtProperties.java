@@ -29,6 +29,7 @@ public class JwtProperties {
 
     private String cookieName;
 
+
     private static final Logger logger = LoggerFactory.getLogger(JwtProperties.class);
     
     public String getCookieName() {

@@ -153,8 +153,9 @@ export default {
     deleteParam(id) {
         this.$message.confirm("确认要删除该参数吗？")
         .then(() => {
-            this.$http.delete("/item/spec/param/" + id)
-            .then(() => {
+            // this.$http.delete("/item/spec/param/" + id)
+           this.$http.delete("/item/spec/" + id)
+        .then(() => {
                 this.$message.success("删除成功");
             })
             .catch(() => {
@@ -168,11 +169,12 @@ export default {
     save(){
         const p = {};
         Object.assign(p, this.param);
-        p.segments = p.segments.map(s => s.join("-")).join(",")
+        p.segments = p.segments.map(s => s.join("-")).join(",");
         this.$http({
             method: this.isEdit ? 'put' : 'post',
-            url: '/item/spec/param',
-            data: p,
+          //  url: '/item/spec/param',
+            url: '/item/spec',
+            data: this.param,
         }).then(() => {
             // 关闭窗口
             this.show = false;
@@ -180,7 +182,7 @@ export default {
             this.loadData();
           }).catch(() => {
               this.$message.error("保存失败！");
-            });
+          });
     }
   }
 };

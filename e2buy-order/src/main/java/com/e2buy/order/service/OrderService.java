@@ -65,7 +65,6 @@ public class OrderService {
         orderStatus.setStatus(1);// 初始状态为未付款
 
         this.statusMapper.insertSelective(orderStatus);
-
         // 订单详情中添加orderId
         order.getOrderDetails().forEach(od -> od.setOrderId(orderId));
         // 保存订单详情,使用批量插入功能
@@ -144,6 +143,15 @@ public class OrderService {
     public void deleteOrderById(Long orderId) {
         //删除订单表
         orderMapper.deleteByPrimaryKey(orderId);
+        //查询orderDetail表,将相应的sku数量减掉
+        OrderDetail detail = new OrderDetail();
+        detail.setOrderId(orderId);
+        List<OrderDetail> details = this.detailMapper.select(detail);
+        //取消订单后需要将商品数量恢复回来
+        details.forEach(orderDetail -> {
+            this.stockMapper.increaseStock(orderDetail.getSkuId(),orderDetail.getNum());
+        });
+
         Example detailExample = new Example(OrderDetail.class);
         detailExample.createCriteria().andEqualTo("orderId",orderId);
         //删除订单细节表

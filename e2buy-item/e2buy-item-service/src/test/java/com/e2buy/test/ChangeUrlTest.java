@@ -3,13 +3,17 @@ package com.e2buy.test;
 import com.e2buy.item.mapper.SkuMapper;
 import com.e2buy.item.pojo.Sku;
 import com.e2buy.item.service.GoodsService;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -29,13 +33,10 @@ public class ChangeUrlTest {
             //不知道是不是switchhosts的bug还是，域名访问不了图片
             String replace = images.replace("image.leyou.com", "106.52.158.23");
             System.out.println(replace);
-
-
             Sku record = new Sku();
             record.setId(sku.getId());
             record.setImages(replace);
             skuMapper.updateByPrimaryKeySelective(record);
-
         });
     }
 

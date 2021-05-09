@@ -48,8 +48,6 @@ public class BrandController {
         }
         return ResponseEntity.ok(result);
     }
-
-
     /**
      * 新增品牌
      * @param brand
@@ -61,8 +59,6 @@ public class BrandController {
         this.brandService.saveBrand(brand,cids);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
-
     /**
      * 通过分类id查询品牌列表
      * @param cid
@@ -77,7 +73,6 @@ public class BrandController {
        return ResponseEntity.ok(brands);
 
     }
-
     /**
      * 通过bid查询品牌
      * @param id
@@ -91,7 +86,6 @@ public class BrandController {
         }
         return ResponseEntity.ok(brand);
     }
-
     /**
      * 品牌修改
      * @param brand
@@ -124,7 +118,6 @@ public class BrandController {
         }
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
     /**
      * 删除tb_category_brand中的数据
      * @param bid
@@ -136,6 +129,4 @@ public class BrandController {
         this.brandService.deleteByBrandIdInCategoryBrand(bid);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
-
 }

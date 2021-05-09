@@ -23,12 +23,13 @@ zuul:
       path: /auth/**
       url: http://localhost:8087/auth
     cart-service: /cart/** # 购物车微服务
-      #url: http://localhost:8088/cart
     order-service:
       path: /order/**
       url: http://localhost:8089/order
   add-host-header: true # 携带域名信息
   sensitive-headers:  #覆盖默认敏感头信息
+
+
 e2buy:
   jwt:
     pubKeyPath: D:\\personnalcode\\rsa\\rsa.pub # 公钥地址

@@ -24,7 +24,6 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-
     /**
      * 根据条件分页查询spu
      * @param key
@@ -175,7 +174,4 @@ public class GoodsController {
         }
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
-
-
 }

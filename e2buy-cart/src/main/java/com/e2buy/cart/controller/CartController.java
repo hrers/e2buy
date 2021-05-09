@@ -68,6 +68,4 @@ public class CartController {
         this.cartService.deleteCart(skuId);
         return ResponseEntity.ok().build();
     }
-
-
 }

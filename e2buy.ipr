@@ -9,6 +9,7 @@
       <entry name="!?*.java" />
     </wildcardResourcePatterns>
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -2517,6 +2518,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$PROJECT_DIR$/../../work/tools/apache-maven-3.6.3/maven_repository/org/ow2/asm/asm/5.0.4/asm-5.0.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.projectlombok:lombok:1.16.22">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/../../work/tools/apache-maven-3.6.3/maven_repository/org/projectlombok/lombok/1.16.22/lombok-1.16.22.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/../../work/tools/apache-maven-3.6.3/maven_repository/org/projectlombok/lombok/1.16.22/lombok-1.16.22-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/../../work/tools/apache-maven-3.6.3/maven_repository/org/projectlombok/lombok/1.16.22/lombok-1.16.22-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.reactivestreams:reactive-streams:1.0.2">
