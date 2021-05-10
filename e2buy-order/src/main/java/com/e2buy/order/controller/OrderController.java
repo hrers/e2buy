@@ -42,7 +42,12 @@ public class OrderController {
     @ApiOperation(value = "创建订单接口，返回订单编号", notes = "创建订单")
     @ApiImplicitParam(name = "order", required = true, value = "订单的json对象,包含订单条目和物流信息")
     public ResponseEntity<Long> createOrder(@RequestBody @Valid Order order) {
-        Long id = this.orderService.createOrder(order);
+        Long id = null;
+        try {
+            id = this.orderService.createOrder(order);
+        } catch (Exception e) {
+            return new ResponseEntity("下单商品数量已经超过了库存量",HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(id, HttpStatus.CREATED);
     }
 

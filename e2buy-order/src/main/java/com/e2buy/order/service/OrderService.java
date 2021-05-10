@@ -1,8 +1,10 @@
 package com.e2buy.order.service;
 
+import com.e2buy.common.error.BusinessException;
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.common.pojo.UserInfo;
 import com.e2buy.common.utils.IdWorker;
+import com.e2buy.item.pojo.Stock;
 import com.e2buy.order.interceptor.LoginInterceptor;
 import com.e2buy.order.mapper.OrderDetailMapper;
 import com.e2buy.order.mapper.OrderMapper;
@@ -44,7 +46,7 @@ public class OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     @Transactional
-    public Long createOrder(Order order) {
+    public Long createOrder(Order order) throws Exception {
         // 生成orderId
         long orderId = idWorker.nextId();
         // 获取登录用户
@@ -57,7 +59,6 @@ public class OrderService {
         order.setUserId(user.getId());
         // 保存数据
         this.orderMapper.insertSelective(order);
-
         // 保存订单状态
         OrderStatus orderStatus = new OrderStatus();
         orderStatus.setOrderId(orderId);
@@ -72,9 +73,19 @@ public class OrderService {
 
         logger.debug("生成订单，订单编号：{}，用户id：{}", orderId, user.getId());
         //减库存
-        order.getOrderDetails().forEach(orderDetail -> this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum()));
-
-
+        //order.getOrderDetails().forEach(orderDetail -> this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum()));
+        order.getOrderDetails().forEach(orderDetail -> {
+            //判断减后商品是否小于0
+            Stock example= new Stock();
+            example.setSkuId(orderDetail.getSkuId());
+            Stock stock= stockMapper.selectOne(example);
+            //如果下单后商品的库存量大于0那么可以下单,生成订单商品数量就开始减了
+            if(stock.getStock()-orderDetail.getNum()>0) {
+                this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum());
+            }else {
+                throw new BusinessException("下单商品数量超过了库存量");
+            }
+        });
         return orderId;
     }
 

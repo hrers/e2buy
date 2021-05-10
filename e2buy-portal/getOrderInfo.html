@@ -287,6 +287,8 @@
 						}).then(({data})=>{
 						    // console.log(data);
 						    window.location = "http://www.e2buy.com/pay.html?orderId=" + data+"&actualprice="+e2buy.formatPrice(this.actualPrice);
+						}).catch(()=>{
+							alert("下单商品数量已经超过了库存量");
 						})
                     }).catch(() => {
                         window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
