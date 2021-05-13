@@ -1,7 +1,0 @@
-{
-  "timestamp": "2021-04-25T15:44:13.016+0000",
-  "status": 400,
-  "error": "Bad Request",
-  "message": "Required String parameter 'username' is not present",
-  "path": "/user/query"
-}
