@@ -17,6 +17,7 @@ public class SearchResult extends PageResult<Goods> {
 
     private List<Brand> brands;
 
+    private List<Map<String,Object>> specs;
 
     public List<Map<String, Object>> getCategories() {
         return categories;
@@ -45,10 +46,19 @@ public class SearchResult extends PageResult<Goods> {
         this.brands = brands;
     }
 
-    public SearchResult(Long total, Integer totalPage, List<Goods> items, List<Map<String, Object>> categories, List<Brand> brands) {
+    public SearchResult(Long total, Integer totalPage, List<Goods> items, List<Map<String, Object>> categories, List<Brand> brands, List<Map<String, Object>> specs) {
         super(total, totalPage, items);
         this.categories = categories;
         this.brands = brands;
+        this.specs=specs;
+    }
+
+    public List<Map<String, Object>> getSpecs() {
+        return specs;
+    }
+
+    public void setSpecs(List<Map<String, Object>> specs) {
+        this.specs = specs;
     }
 
     public SearchResult() {

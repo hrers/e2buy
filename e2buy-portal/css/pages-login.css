@@ -4,7 +4,8 @@
 
 .loginArea {
 	height: 487px;
-	background-color: #7e00ff
+	/*background-color: #7e00ff*/
+	/*background-color: deepskyblue;*/
 }
 
 .copyright {
@@ -26,12 +27,14 @@
 }
 
 .login {
-	background: url(../img/loginbg.png);
-	height: 487px
+	background: url(../img/loginbg.png) no-repeat;
+	height: 487px;
 }
 
 .loginform {
+    align-content: center;
 	width: 380px;
+	//background: #fff;
 	background: #fff;
 	float: right;
 	top: 45px;

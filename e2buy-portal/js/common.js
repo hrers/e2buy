@@ -247,7 +247,8 @@ Date.prototype.format = function (format) {
 var has = Object.prototype.hasOwnProperty;
 
 var defaults = {
-    allowDots: false,
+    /*allowDots: false,*/
+    allowDots: true,
     allowPrototypes: false,
     arrayLimit: 20,
     decoder: utils.decode,

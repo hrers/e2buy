@@ -84,8 +84,7 @@
     <script type="text/javascript" src="plugins/jquery/jquery.min.js"></script>
 </head>
 
-<body >
-
+<body>
 <div id="searchApp">
 <div id="nav-bottom">
     <ly-top/>
@@ -117,8 +116,39 @@
             <div class="clearfix"></div>
         </div>-->
         <!--selector-->
-       <!-- <div class="clearfix selector">
-            <div class="type-wrap">
+        <div class="clearfix selector">
+            <div class="type-wrap" v-for="(f,i) in filters" :key="i" v-if="f.k !== '品牌'" v-show="i<5||show">
+                <div class="fl key">{{f.k}}</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li v-for="(option, j) in f.options" :key="j" @click="selectFilter(f.k,option)">
+                            <a>{{option.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap logo" v-else>
+                <div class="fl key brand">{{f.k}}</div>
+                <div class="value logos">
+                    <ul class="logo-list">
+                        <li v-for="(option, j) in f.options" v-if="option.image" @click="selectFilter(f.k,option)" >
+                            <!--<img :src="option.image" />-->
+                            <img :src="option.image"/>
+                        </li>
+                        <li style="text-align: center" v-else @click="selectFilter(f.k,option)">
+                            <a style="line-height: 30px; font-size: 12px" href="#">{{option.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fl ext">
+                    <a href="javascript:void(0);" class="sui-btn">多选</a>
+                </div>
+            </div>
+
+
+
+         <!--   <div class="type-wrap">
                 <div class="fl key">分类</div>
                 <div class="fl value">
                     <ul class="type-list">
@@ -135,25 +165,15 @@
             <div class="type-wrap logo">
                 <div class="fl key brand">品牌</div>
                 <div class="value logos">
+                 &lt;!&ndash;   <ul class="logo-list">
+                        <li  v-for="brand in brands" >
+                            <img :src="brand.image" @click="searchByBrand(brand.name)"/>
+                        </li>
+                    </ul>&ndash;&gt;
                     <ul class="logo-list">
-                        <li><img src="img/_/phone01.png" /></li>
-                        <li><img src="img/_/phone02.png" /></li>
-                        <li><img src="img/_/phone03.png" /></li>
-                        <li><img src="img/_/phone04.png" /></li>
-                        <li><img src="img/_/phone05.png" /></li>
-                        <li><img src="img/_/phone06.png" /></li>
-                        <li><img src="img/_/phone07.png" /></li>
-                        <li><img src="img/_/phone08.png" /></li>
-                        <li><img src="img/_/phone09.png" /></li>
-                        <li><img src="img/_/phone10.png" /></li>
-                        <li><img src="img/_/phone11.png" /></li>
-                        <li><img src="img/_/phone12.png" /></li>
-                        <li><img src="img/_/phone13.png" /></li>
-                        <li><img src="img/_/phone14.png" /></li>
-                        <li><img src="img/_/phone05.png" /></li>
-                        <li><img src="img/_/phone06.png" /></li>
-                        <li><img src="img/_/phone07.png" /></li>
-                        <li style="text-align: center"><a style="line-height: 30px; font-size: 12px" href="#">黑马</a></li>
+                        <li  v-for="brand in brands" >
+                            <img :src="brand.image" @click="searchByBrand(brand.name)"/>
+                        </li>
                     </ul>
                 </div>
                 <div class="fl ext">
@@ -262,15 +282,16 @@
                 <div class="fl ext">
                 </div>
             </div>
+            -->
             <div class="type-wrap" style="text-align: center">
-                <v-btn small flat>
+                <v-btn small flat @click="show=true" v-show="!show" >
                     更多<v-icon>arrow_drop_down</v-icon>
                 </v-btn>
-                <v-btn small="" flat>
+                <v-btn small flat @click="show=false" v-show="show" >
                     收起<v-icon>arrow_drop_up</v-icon>
                 </v-btn>
             </div>
-        </div>-->
+        </div>
         <!--details-->
             <hr>
         <div class="details">
@@ -448,7 +469,8 @@
 </div>
 
 </div>
-
+</div>
+</body>
 <script type="text/javascript">
     var vm = new Vue({
         el: "#searchApp",
@@ -457,10 +479,14 @@
             search: {
                 key: "",
                 page:1,
+                filter: {}
             },
             goodsList: [],
             totalPage: 1,
-            total:0
+            total:0,
+            // brands:[],
+            filters:[],//过滤参数集合
+            show: false
         },
         created: function () {
             if (!location.search) {
@@ -470,6 +496,8 @@
             //将请求字符串对象转换为json对象
             const search=e2b.parse(location.search.substring(1));
             search.page = search.page||1;
+            //对过滤对象进行初始化
+            search.filter=search.filter||{};
             this.search=search;
             this.loadData();
         },
@@ -498,6 +526,22 @@
                     this.goodsList=data.items;
                     this.totalPage=data.totalPage;
                     this.total=data.total;
+                    this.brands=data.brands;
+                    //初始化分类过滤项
+                    this.filters.push({
+                      k:"分类",
+                      options:data.categories
+                    });
+                    //初始化品牌过滤项
+                    this.filters.push({
+                        k:"品牌",
+                        options: data.brands
+                    });
+                    //初始化规格化参数
+                    data.specs.forEach(spec=>{
+                        spec.options=spec.options.map(o=>({name:o}));
+                        this.filters.push(spec);
+                    })
                 }).catch(err=>{
                     //失败操作
                 });
@@ -520,6 +564,15 @@
                 if(this.search.page<this.totalPage){
                     this.search.page++;
                 }
+            },
+            selectFilter(k, o){
+                const obj = {};
+                Object.assign(obj, this.search);
+                if(k === '分类' || k === '品牌'){
+                    o = o.id;
+                }
+                obj.filter[k] = o.name || o;
+                this.search = obj;
             }
         },
         components:{
@@ -533,7 +586,6 @@
 <script type="text/javascript">$(".footer").load("foot.html");</script>
 <!--页面底部END-->
 
-</body >
 <!--购物车单元格 模板-->
 <script type="text/template" id="tbar-cart-item-template">
     <div class="tbar-cart-item">
