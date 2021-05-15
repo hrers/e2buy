@@ -27,7 +27,6 @@ import java.util.logging.Logger;
 @Slf4j
 public class SpecificationController {
 
-
     @Autowired
     private SpecificationService specificationService;
 
@@ -69,12 +68,14 @@ public class SpecificationController {
     }
 
     /**
-     * 保存一个规格参数模板
-     * @param specParam
+     * 保存一个规格模板参数
+     * @param specParamDto
      * @return
      */
     @PostMapping
-    public ResponseEntity<Void> saveSpecification(SpecParam specParam){
+    public ResponseEntity<Void> saveSpecification(@RequestBody SpecParamDto specParamDto){
+        SpecParam specParam = new SpecParam();
+        BeanUtils.copyProperties(specParamDto,specParam);
         this.specificationService.saveParam(specParam);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
