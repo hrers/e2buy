@@ -34,4 +34,10 @@ public interface SpecificationService {
     void updateSpecParam(SpecParam specParam);
 
     void deleteSpecification(SpecParam specParam);
+
+    void saveSpecGroup(SpecGroup specGroup);
+
+    void deleteSpecGroup(Long id);
+
+    void updateSpecGroup(SpecGroup specGroup);
 }

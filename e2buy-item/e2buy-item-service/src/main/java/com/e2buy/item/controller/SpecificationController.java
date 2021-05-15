@@ -1,10 +1,12 @@
 package com.e2buy.item.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.e2buy.item.dto.SpecParamDto;
 import com.e2buy.item.pojo.SpecGroup;
 import com.e2buy.item.pojo.SpecParam;
 import com.e2buy.item.service.SpecificationService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -93,13 +95,16 @@ public class SpecificationController {
     }
 
     /**
-     * 修改一个规格参数模板
-     * @param specParam
+     * 修改一个模板参数
+     * @param specParamDto
      * @return
      */
     @PutMapping
-    public ResponseEntity<Void> updateSpecification(SpecParam specParam){
-        log.info( "请求入参打印：【{}】",specParam.getName());
+    public ResponseEntity<Void> updateSpecification(@RequestBody SpecParamDto specParamDto){
+        log.info( "请求入参打印：【{}】",specParamDto.getName());
+        //segments 字段不匹配重写一个dto
+        SpecParam specParam = new SpecParam();
+        BeanUtils.copyProperties(specParamDto,specParam);
         this.specificationService.updateSpecParam(specParam);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
@@ -113,11 +118,39 @@ public class SpecificationController {
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteSpecification(@PathVariable("id") Long id){
         SpecParam specParam= new SpecParam();
-        specParam.setCid(id);
+//        specParam.setCid(id);
+        specParam.setId(id);
         this.specificationService.deleteSpecification(specParam);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+    /**
+     * 新增规格分组
+     * @param specGroup
+     * @return
+     */
+    @PostMapping("group")
+    public ResponseEntity<Void> insertSpecGroup(@RequestBody SpecGroup specGroup){
+        this.specificationService.saveSpecGroup(specGroup);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 
-    //todo 后端接口没测试，前段页面还有调
+    /**
+     * 删除分组
+     * @param id
+     * @return
+     */
+    @DeleteMapping("group/{id}")
+    public ResponseEntity<Void> deleteSpecGroup(@PathVariable("id") Long id){
+        this.specificationService.deleteSpecGroup(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+
+    @PutMapping("group")
+    public ResponseEntity<Void> updateSpecGroup(@RequestBody SpecGroup specGroup){
+        this.specificationService.updateSpecGroup(specGroup);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 }

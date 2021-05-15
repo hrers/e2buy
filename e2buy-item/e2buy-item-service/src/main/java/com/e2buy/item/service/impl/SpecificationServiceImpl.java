@@ -7,6 +7,7 @@ import com.e2buy.item.pojo.SpecParam;
 import com.e2buy.item.service.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
@@ -97,5 +98,33 @@ public class SpecificationServiceImpl implements SpecificationService {
         this.specParamMapper.deleteByPrimaryKey(specParam);
     }
 
+    /**
+     * 新增分组
+     * @param specGroup
+     */
+    @Override
+    public void saveSpecGroup(@RequestBody SpecGroup specGroup) {
+        this.groupMapper.insert(specGroup);
+    }
+
+    /**
+     * 删除分组
+     * @param id
+     */
+    @Override
+    public void deleteSpecGroup(Long id) {
+        SpecGroup specGroup = new SpecGroup();
+        specGroup.setId(id);
+        this.groupMapper.delete(specGroup);
+    }
+
+    /**
+     * 更新分组信息
+     * @param specGroup
+     */
+    @Override
+    public void updateSpecGroup(SpecGroup specGroup) {
+        groupMapper.updateByPrimaryKeySelective(specGroup);
+    }
 
 }
