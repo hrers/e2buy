@@ -41,5 +41,12 @@ public class GoodsController {
    }
 
 
+   @GetMapping("item/{id}")
+   public Integer getSkuNum(@PathVariable("id") Long id){
+       return goodsService.getSkuNum(id);
+   }
+
+
+
 
 }

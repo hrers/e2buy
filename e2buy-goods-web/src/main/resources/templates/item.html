@@ -159,17 +159,18 @@
 							<div class="fl price">
 								<i>¥</i><em>{{e2buy.formatPrice(sku.price)}}</em><span>降价通知</span>
 							</div>
-							<div class="fr remark"><i>累计评价</i><em>612188</em></div>
+							<!--<div class="fr remark"><i>累计评价</i><em>612188</em></div>-->
+							<div class="fr remark"><i>商品数量</i><em>{{skuNum}}</em></div>
 						</div>
 						<div class="summary-wrap">
-							<div class="fl title">
+						<!--	<div class="fl title">
 								<i>促　　销</i>
 							</div>
 							<div class="fl fix-width">
 								<i class="red-bg">加价购</i>
 								<em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换
 									购热销商品</em>
-							</div>
+							</div>-->
 						</div>
 					</div>
 					<div class="support">
@@ -645,9 +646,11 @@
 			paramMap,
 			indexes,
 			num: 1,
+			skuNum:0
 		},
 		methods: {
 			addCart() {
+			    //todo 判断商品数量
 				//判断是否登录
 				e2buy.http.get("/auth/verify").then(res => {
 					//已登录

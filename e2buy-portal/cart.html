@@ -270,6 +270,7 @@
         data: {
             carts:[],
             e2b,
+            e2buy,
             selected:[],
             check: true
         },
@@ -286,11 +287,23 @@
             }
         },
         created(){
+            //判断登录状态
             e2buy.verify().then(res=>{
-                //直接解构出data
+                //已经登录，直接解构出data
+                const temp=e2buy.store.get("E2BUY_CART");
+                if( temp!== null){
+                   //若本地购物车缓存有数据，则同步到服务器redis中，并删除本地缓存
+                    temp.forEach(c=>{
+                        e2buy.http.post("/cart",{skuId:c.skuId,num:c.num}).then()
+                    });
+                    //合并完事，删除本地缓存
+                    e2buy.store.del("E2BUY_CART");
+                }
+
                 e2buy.http.get("/cart").then(({data})=>{
                     this.carts=data;
                 })
+
             }).catch(()=>{
                 //未登录购物车的查询
                 this.carts=e2buy.store.get("E2BUY_CART")

@@ -83,7 +83,7 @@ public class OrderService {
             if(stock.getStock()-orderDetail.getNum()>0) {
                 this.stockMapper.reduceStock(orderDetail.getSkuId(), orderDetail.getNum());
             }else {
-                throw new BusinessException("下单商品数量超过了库存量");
+                throw new BusinessException(orderDetail.getTitle()+"数量超过了库存量");
             }
         });
         return orderId;

@@ -87,4 +87,14 @@ public class GoodsService {
         map.put("paramMap", paramMap);
         return map;
     }
+
+    /**
+     * 返回sku的数量
+     * @param id
+     * @return
+     */
+    public Integer getSkuNum(Long id) {
+        //todo 看一下是集中返回还是单个查询
+       return null;
+    }
 }
