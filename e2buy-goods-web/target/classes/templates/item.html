@@ -184,10 +184,13 @@
 						</div>
 						<div class="summary-wrap">
 							<div class="fl title">
-								<i>配 送 至</i>
+								<!--<i>配 送 至</i>-->
+
+								<i>商品数量</i>
 							</div>
 							<div class="fl fix-width">
-								<em class="t-gray">上海 <span>有货</span></em>
+								<!--<em class="t-gray">上海 <span>有货</span></em>-->
+								<em class="t-gray"><span><em>{{skuNum}}</em></span></em>
 							</div>
 						</div>
 					</div>
@@ -214,7 +217,7 @@
 									<div class="controls">
 										<input autocomplete="off" type="text" disabled value="1" minnum="1" class="itxt"
 											   v-model="num"/>
-										<a href="javascript:void(0)" class="increment plus" @click="num++">+</a>
+										<a href="javascript:void(0)" class="increment plus" @click="num<skuNum?num++:num=skuNum">+</a>
 										<a href="javascript:void(0)" class="increment mins"
 										   @click="num <=1 ? 1 : num--">-</a>
 									</div>
@@ -652,6 +655,11 @@
 			addCart() {
 			    //todo 判断商品数量
 				//判断是否登录
+				//加入购物车的数量不能超过库存量,因为从一个sku转到另一个sku时，Num不变
+				if(this.num>this.skuNum){
+				    this.num=this.skuNum;
+				}
+
 				e2buy.http.get("/auth/verify").then(res => {
 					//已登录
 					e2buy.http.post("/cart",{skuId:this.sku.id,num:this.num}).then(res=>{
@@ -687,7 +695,12 @@
 		computed: {
 			sku() {
 				const index = Object.values(this.indexes).join("_");
-				return skus.find(sku => sku.indexes == index);
+				// return skus.find(sku => sku.indexes == index);
+				const sku=skus.find(sku => sku.indexes == index);
+				e2buy.http.get("/item/stock/"+sku.id).then(({data}) => {
+					this.skuNum= data;
+				})
+				return sku;
 			},
 			images() {
 				return this.sku.images ? this.sku.images.split(",") : "";

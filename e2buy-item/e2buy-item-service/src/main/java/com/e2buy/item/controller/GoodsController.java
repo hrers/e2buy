@@ -174,4 +174,11 @@ public class GoodsController {
         }
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+
+    @GetMapping("stock/{skuId}")
+    public ResponseEntity<Integer> querySkuNum(@PathVariable("skuId")Long skuId){
+        Integer num= this.goodsService.querySkuNum(skuId);
+        return ResponseEntity.ok(num);
+    }
 }

@@ -95,6 +95,7 @@ public class GoodsService {
      */
     public Integer getSkuNum(Long id) {
         //todo 看一下是集中返回还是单个查询
+
        return null;
     }
 }

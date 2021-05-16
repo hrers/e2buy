@@ -293,6 +293,12 @@ public class GoodsServiceImpl implements GoodsService {
         this.sendMessage(id,"delete");
     }
 
+    @Override
+    public Integer querySkuNum(Long skuId) {
+        Stock stock = this.stockMapper.selectByPrimaryKey(skuId);
+        return stock.getStock();
+    }
+
     /**
      * 发送消息到mq，生产者
      * @param id

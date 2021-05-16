@@ -33,4 +33,6 @@ public interface GoodsService{
     void goodsSoldOut(long id);
 
     void deleteGoods(long parseLong);
+
+    Integer querySkuNum(Long skuId);
 }
