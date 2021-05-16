@@ -655,7 +655,6 @@
 						//跳转到购物车页面
 						window.location = "http://www.e2buy.com/cart.html"
 					})
-
 				}).catch(() => {
 					//未登录,保存到localStorage
 					//先去查询购物车信息
@@ -674,7 +673,6 @@
 							ownSpec: this.sku.ownSpec,
 							price: this.sku.price,
 							num: this.num
-
 						})
 					}
 					e2buy.store.set("E2BUY_CART", carts)

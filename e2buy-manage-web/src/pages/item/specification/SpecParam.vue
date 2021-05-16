@@ -136,11 +136,19 @@ export default {
         });
     },
     editParam(param) {
+      //若未登录啥事不做
+      this.verify().then(() => {
         this.param = param;
         this.isEdit = true;
         this.show = true;
+      }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
     },
     addParam() {
+      //若未登录啥事不做
+      this.verify().then(() => {
       this.param = {
           cid: this.group.cid,
           groupId: this.group.id,
@@ -149,8 +157,14 @@ export default {
           searching:false,
           generic:false}
       this.show = true;
+      }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
     },
     deleteParam(id) {
+      //若未登录啥事不做
+      this.verify().then(() => {
         this.$message.confirm("确认要删除该参数吗？")
         .then(() => {
             // this.$http.delete("/item/spec/param/" + id)
@@ -163,11 +177,16 @@ export default {
                 this.$message.error("删除失败");
             })
         })
+      }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
     },
     formatBoolean(boo) {
       return boo ? "是" : "否";
     },
     save(){
+      this.verify().then(() => {
         const p = {};
         Object.assign(p, this.param);
         p.segments = p.segments.map(s => s.join("-")).join(",");
@@ -184,6 +203,10 @@ export default {
           }).catch(() => {
               this.$message.error("保存失败！");
           });
+      }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
     }
   }
 };

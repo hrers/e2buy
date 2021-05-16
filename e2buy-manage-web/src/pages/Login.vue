@@ -20,7 +20,7 @@
                     :append-icon="e1 ? 'visibility' : 'visibility_off'"
                     :append-icon-cb="() => (e1 = !e1)"
                     :type="e1 ? 'text' : 'password'"
-                 ></v-text-field>
+                  ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -34,7 +34,7 @@
     </v-content>
     <v-dialog v-model="dialog" width="300px">
       <v-alert icon="warning" color="error" :value="true">
-      用户名和密码不能为空
+        用户名和密码不能为空
       </v-alert>
     </v-dialog>
   </v-app>
@@ -42,21 +42,52 @@
 
 <script>
 export default {
-  data: () => ({
-    username: "",
-    password: "",
-    dialog: false,
-    e1:false
-  }),
+  data(){
+    return{
+      username: '',
+      password: '',
+      dialog: false,
+      e1:false,
+      backPath:''
+    }
+  },
+  beforeRouteEnter(to,from,next){
+    next(vm => {
+      vm._data.backPath = from.path;
+    });
+  },
   methods: {
-    doLogin() {
+   /* doLogin() {
       if (!this.username || !this.password) {
         this.dialog = true;
         return false;
       }
       console.log(this.username + " ... " + this.password);
       this.$router.push("/");
+    }*/
+    doLogin() {
+      if (!this.username || !this.password) {
+        this.dialog = true;
+        return false;
+      }
+      const form ={};
+      form.username = this.username;
+      form.password = this.password;
+
+      this.$http.post("/auth/accredit", this.$qs.stringify(form)).then(resp =>{
+        if (resp.status === 200){
+          //页面跳转
+          if (this.backPath === "/"){
+            this.$router.push("/index/dashboard");
+          } else {
+            this.$router.push(this.backPath);
+          }
+        }
+      }).catch(() => {
+        this.$message.error("账号或者密码错误！");
+      });
     }
   }
 };
 </script>
+

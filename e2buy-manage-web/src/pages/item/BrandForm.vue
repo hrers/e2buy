@@ -70,6 +70,7 @@
           params.letter = letter.toUpperCase();
           // 将数据提交到后台
           // this.$http.post('/item/brand', this.$qs.stringify(params))
+          this.verify().then(() => {
           this.$http({
             method: this.isEdit ? 'put' : 'post',
             url: '/item/brand',
@@ -82,6 +83,10 @@
             .catch(() => {
               this.$message.error("保存失败！");
             });
+        }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
         }
       },
       clear() {

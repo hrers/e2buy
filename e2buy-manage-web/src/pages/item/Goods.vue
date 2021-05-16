@@ -156,6 +156,12 @@
       },
       addGoods() {
         // 修改标记  false不是修改---修改也是用同一个页面
+        //若未登录啥事不做
+        this.verify().then(() => {
+        }).catch(() => {
+          alert("还未登录,请登录");
+          this.$router.push("/login");
+        });
         this.isEdit = false;
         // 控制弹窗可见：
         this.show = true;
@@ -164,6 +170,12 @@
       },
       //async 将js默认的异步操作改为同步操作
       async editGoods(oldGoods) {
+        //若未登录啥事不做
+        this.verify().then(() => {
+        }).catch(() => {
+          alert("还未登录,请登录");
+          this.$router.push("/login");
+        });
         // 发起请求，查询商品详情和skus
         oldGoods.spuDetail = await this.$http.loadData("/item/spu/detail/" + oldGoods.id);
         oldGoods.skus = await this.$http.loadData("/item/sku/list?id=" + oldGoods.id);
@@ -179,7 +191,8 @@
           return s.id;
         });
         // if (selectId.length === 1 && selectId[0] === id) {
-        //   this.verify().then(() => {
+        // this.$http.put    return this.$http.get("/auth/verify");
+           this.verify().then(() => {
             this.$http.put("/item/spu/out/" + id).then(() => {
               this.$message.success("操作成功！");
               this.getDataFromServer();
@@ -187,9 +200,10 @@
             }).catch(() => {
               this.$message.error("操作失败！");
             });
-          // }).catch(() => {
-          //   this.$router.push("/login");
-          // });
+          }).catch(() => {
+            alert("还未登录,请登录");
+            this.$router.push("/login");
+          });
         // }else {
         //   this.$message.info("选中后再进行操作！");
         // }
@@ -223,7 +237,7 @@
           return s.id;
         });
         // if (selectId.length === 1 && selectId[0] === id) {
-          // this.verify().then(() => {
+          this.verify().then(() => {
             this.$message.confirm("删除后，不可恢复！").then(() => {
               this.$http.delete("/item/spu/"+id).then(() => {
                 this.getDataFromServer();
@@ -234,9 +248,10 @@
             }).catch(() => {
               this.$message.info("删除取消！");
             });
-          // }).catch(() => {
-          //   this.$router.push("/login");
-          // });
+          }).catch(() => {
+            alert("还未登录,请登录");
+            this.$router.push("/login");
+          });
         // }else {
         //   this.$message.info("选中后再进行操作！");
         // }
