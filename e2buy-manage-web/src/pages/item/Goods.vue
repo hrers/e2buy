@@ -158,15 +158,15 @@
         // 修改标记  false不是修改---修改也是用同一个页面
         //若未登录啥事不做
         this.verify().then(() => {
-        }).catch(() => {
-          alert("还未登录,请登录");
-          this.$router.push("/login");
-        });
         this.isEdit = false;
         // 控制弹窗可见：
         this.show = true;
         // 把oldBrand变为null
         this.oldGoods = {};
+        }).catch(() => {
+          alert("还未登录,请登录");
+          this.$router.push("/login");
+        });
       },
       //async 将js默认的异步操作改为同步操作
       async editGoods(oldGoods) {

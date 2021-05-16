@@ -81,13 +81,13 @@ export default {
       editGroup(group){
         //若未登录啥事不做
         this.verify().then(() => {
+          Object.assign(this.group, group);
+          this.show = true;
+          this.isEdit = true;
         }).catch(() => {
           alert("还未登录,请登录");
           this.$router.push("/login");
         });
-          Object.assign(this.group, group);
-          this.show = true;
-          this.isEdit = true;
       },
       addGroup(){
         //若未登录啥事不做
