@@ -3,7 +3,8 @@ var menus = [
     action: "home",
     title: "首页",
     path:"/index",
-    items: [{ title: "统计", path: "/dashboard" }]
+   /* items: [{ title: "统计", path: "/dashboard" }]*/
+    items: [{ title: "", path: "/dashboard" }]
   },
   {
     action: "apps",

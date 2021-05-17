@@ -322,6 +322,7 @@
                  })
             },
            incr(cart){
+              //todo 调用item.html那个接口判断数量是否已经超过了库存量
                cart.num++;
                e2buy.verify().then(res=>{
                     e2buy.http.put("/cart",{skuId:cart.skuId,num:cart.num});

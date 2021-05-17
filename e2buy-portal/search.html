@@ -299,7 +299,7 @@
                 <div class="navbar-inner filter">
                     <ul class="sui-nav">
                         <li class="active">
-                            <a href="#">综合</a>
+                            <!--<a href="#">综合</a>-->
                         </li>
 <!--                        <li>-->
 <!--                            <a href="#">销量</a>-->
@@ -374,10 +374,10 @@
                             <a href="#">下一页»</a>
                         </li>
                     </ul>
-                    <div><span>共10页&nbsp;</span><span>
+                    <div><span>共{{totalPage}}页&nbsp;</span><span>
       到第
       <input type="text" class="page-num">
-      页 <button class="page-confirm" onclick="alert(1)">确定</button></span></div>
+      页 <button class="page-confirm" @click="navPage">确定</button></span></div>
                 </div>
             </div>
         </div>
@@ -558,11 +558,13 @@
             prev(){
                if(this.search.page>1){
                   this.search.page--;
+                  this.loadData();
                }
             },
             next(){
                 if(this.search.page<this.totalPage){
                     this.search.page++;
+                    this.loadData();
                 }
             },
             selectFilter(k, o){
@@ -573,6 +575,9 @@
                 }
                 obj.filter[k] = o.name || o;
                 this.search = obj;
+            },
+            navPage(){
+                this.search.page = this.$refs.page.value ;
             }
         },
         components:{

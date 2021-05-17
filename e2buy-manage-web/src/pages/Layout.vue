@@ -51,18 +51,18 @@
       </v-list>
     </v-navigation-drawer>
     <!-- 顶部工具条 -->
-    <v-toolbar
+<!--    <v-toolbar
       app
       dark
       :color="dark ? 'secondary' : 'primary'"
     >
-      <!-- 隐藏左侧菜单的按钮-->
+      &lt;!&ndash; 隐藏左侧菜单的按钮&ndash;&gt;
       <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
-      <!-- 收起左侧菜单的按钮-->
+      &lt;!&ndash; 收起左侧菜单的按钮&ndash;&gt;
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"/>
       </v-btn>
-      <!-- 切换黑暗主题 -->
+      &lt;!&ndash; 切换黑暗主题 &ndash;&gt;
       <v-flex xs1>
         <v-switch
           :label="dark ? '暗黑' : '明亮'"
@@ -71,20 +71,20 @@
           hide-details
         />
       </v-flex>
-      <!-- 顶部导航标题 -->
+      &lt;!&ndash; 顶部导航标题 &ndash;&gt;
       <v-flex xs3></v-flex>
       <v-toolbar-title v-text="title"/>
       <v-spacer/>
 
-      <!-- 调色板 -->
+      &lt;!&ndash; 调色板 &ndash;&gt;
       <v-btn icon @click.stop="dark = !dark">
         <v-icon>invert_colors</v-icon>
       </v-btn>
-      <!-- 顶部导航用户菜单 -->
+      &lt;!&ndash; 顶部导航用户菜单 &ndash;&gt;
       <v-btn icon @click.stop="dark = !dark">
         <v-icon>account_box</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-toolbar>-->
     <!--中间内容主体-->
     <v-content>
       <v-breadcrumbs>

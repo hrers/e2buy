@@ -13,10 +13,10 @@ const lyTop = {
                         <div class='search'> \
                             <form action='' class='sui-form form-inline'> \
                                 <!--searchAutoComplete--> \
-                                <div class='input-append'> \
+                                <div class='input-append'  > \
                                     <input type='text' id='autocomplete' v-model='key' \
-                                           class='input-error input-xxlarge'/> \
-                                    <button @click='search' class='sui-btn btn-xlarge btn-danger' type='button'>搜索</button> \
+                                           class='input-error input-xxlarge' /> \
+                                    <button @click='search' class='sui-btn btn-xlarge btn-danger' style='background-color: green' type='button'>搜索</button> \
                                 </div> \
                             </form> \
                         </div> \
@@ -36,7 +36,7 @@ const lyTop = {
                         <div class='fr shopcar'> \
                             <div class='show-shopcar' id='shopcar'> \
                                 <span class='car'></span> \
-                                <a class='sui-btn btn-default btn-xlarge' href='cart.html' target='_blank'> \
+                                <a class='sui-btn btn-default btn-xlarge' href='../cart.html' target='_blank'> \
                                     <span>我的购物车</span> \
                                     <i class='shopnum'>0</i> \
                                 </a> \
@@ -50,7 +50,7 @@ const lyTop = {
                 </div> \
                 <div class='yui3-g NavList'> \
                     <div class='yui3-u Left all-sort'> \
-                        <h4>易趣买购物</h4> \
+                       <!-- <h4>易趣买购物</h4> -->\
                     </div> \
                     <div class='yui3-u Center navArea'> \
                         <ul class='nav'> \
