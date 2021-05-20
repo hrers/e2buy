@@ -1,6 +1,7 @@
 package com.e2buy.order.controller;
 
 import com.e2buy.common.pojo.PageResult;
+import com.e2buy.dto.SaleResult;
 import com.e2buy.order.pojo.Order;
 import com.e2buy.order.service.OrderService;
 import com.e2buy.utils.PayHelper;
@@ -97,6 +98,29 @@ public class OrderController {
         return ResponseEntity.ok(result);
     }
 
+
+
+    //todo 查询所有订单信息（商家接口)
+    /**
+     *
+     * @param page
+     * @param rows
+     * @param status
+     * @return
+     */
+    @GetMapping("list/back")
+    public ResponseEntity<PageResult<Order>> queryUserOrderListByAdmin(
+            @RequestParam(value = "page", defaultValue = "1") Integer page,
+            @RequestParam(value = "rows", defaultValue = "5") Integer rows,
+            @RequestParam(value = "status", required = false) Integer status) {
+        PageResult<Order> result = this.orderService.queryUserOrderListBack(page, rows, status);
+        if (result == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+
     /**
      * 更新订单状态
      *
@@ -179,4 +203,13 @@ public class OrderController {
         orderService.deleteOrderById(orderId);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("getSaleResult")
+    public ResponseEntity<SaleResult> getSaleResult(){
+        SaleResult saleResult=orderService.getSaleResult();
+        return ResponseEntity.ok(saleResult);
+    }
+
+
+
 }

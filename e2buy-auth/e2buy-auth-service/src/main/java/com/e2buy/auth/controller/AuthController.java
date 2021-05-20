@@ -45,6 +45,28 @@ public class AuthController {
         return ResponseEntity.ok(null);
     }
 
+    /**
+     * 后台验证
+     * @param username
+     * @param password
+     * @param response
+     * @param request
+     * @return
+     */
+    @PostMapping("/accredit/back")
+    public ResponseEntity<Void> accreditBack(@RequestParam("username") String username,
+                                         @RequestParam("password")String password,
+                                         HttpServletResponse response,
+                                         HttpServletRequest request){
+        String token=authService.accreditBack(username,password);
+        if(StringUtils.isBlank(token)){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        CookieUtils.setCookie(request,response,this.jwtProperties.getCookieName(),token,this.jwtProperties.getExpire()*60);//以秒为单位
+        return ResponseEntity.ok(null);
+    }
+
+
     @GetMapping("verify")
     public ResponseEntity<UserInfo> verify(@CookieValue("E2BUY_TOKEN")String token
             ,HttpServletRequest request,HttpServletResponse response) {

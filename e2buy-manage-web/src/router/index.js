@@ -29,8 +29,9 @@ export default new Router({
         route("/item/brand",'/item/Brand',"Brand"),
         route("/item/list",'/item/Goods',"Goods"),
         route("/item/specification",'/item/specification/Specification',"Specification"),
-        route("/user/statistics",'/item/Statistics',"Statistics"),
-        route("/trade/promotion",'/trade/Promotion',"Promotion")
+        route("/trade/statistics",'/trade/Statistics',"Statistics"),
+        route("/trade/dashboard",'/trade/Dashboard',"Dashboard"),
+        route("/trade/promotion",'/trade/Promotion',"Promotion"),
       ]
     }
   ]

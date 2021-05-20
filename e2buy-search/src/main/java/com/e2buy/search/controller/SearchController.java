@@ -31,7 +31,8 @@ import java.util.stream.Collectors;
  * @Desc:
  **/
 @Controller
-public class SearchController implements InitializingBean {
+public class SearchController {
+    //public class SearchController implements InitializingBean {
 
     @Autowired
     private SearchService searchService;
@@ -61,7 +62,6 @@ public class SearchController implements InitializingBean {
     }
 
 
-    @Override
     public void afterPropertiesSet() throws Exception {
         // 创建索引
         this.elasticsearchTemplate.createIndex(Goods.class);

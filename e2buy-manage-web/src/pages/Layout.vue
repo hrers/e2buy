@@ -129,6 +129,10 @@
     name: 'App',
     watch: {},
     created() {
+      this.verify().catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
       menus.forEach(m => {
         const p1 = m.path.slice(1);
         this.menuMap[p1] = {name: m.title};

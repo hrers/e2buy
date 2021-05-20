@@ -29,6 +29,16 @@ public class User {
 
     @JsonIgnore
     private String salt;// 密码的盐值
+    
+    private Integer role;//用户类别 0：普通用户 1：商家用户(管理员)
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

@@ -11,4 +11,7 @@ public interface OrderMapper extends Mapper<Order> {
     List<Order> queryOrderList(
             @Param("userId") Long userId,
             @Param("status") Integer status);
+
+    List<Order> queryOrderListBack(
+            @Param("status") Integer status);
 }

@@ -152,12 +152,10 @@ $(function(){
                                                     <li>等待买家付款</li>
                                                     <li><a href="orderDetail.html" class="btn">订单详情 </a></li>
                                                 </ul>
-
-
                                             </td>
                                             <td width="10%" class="center">
                                                 <ul class="unstyled">
-                                                    <li><a href="#" class="sui-btn btn-info">立即付款</a></li>
+                                                    <li><a href="#" class="sui-btn btn-info" @click="pay(order.orderId,order.actualPay)">立即付款</a></li>
                                                     <button @click="cancelOrder(order.orderId)">取消订单</button>
                                                 </ul>
                                             </td>
@@ -300,7 +298,6 @@ $(function(){
                 page:1,
                 rows:100
             }
-
         },
         components:{
             lyTop:() => import('./js/pages/top.js')
@@ -353,6 +350,9 @@ $(function(){
             cancelOrder(orderId){
                 e2buy.http.delete("/order/delete/"+orderId);
                 window.location = 'http://www.e2buy.com/home-order-pay.html';
+            },
+            pay(orderId,actualPay){
+                window.location = 'http://www.e2buy.com/pay.html?orderId='+orderId+'&actualprice='+e2buy.formatPrice(actualPay);
             }
         },
         watch:{

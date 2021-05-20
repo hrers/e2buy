@@ -154,7 +154,8 @@ $(function(){
                                         </td>
                                         <td width="10%" class="center">
                                             <ul class="unstyled">
-                                                <li><a href="#" class="sui-btn btn-info">立即付款</a></li>
+                                           <!--     这里暂时不管是否已经付款，在未付款页面付款即可-->
+                                               <!-- <li><a href="#" class="sui-btn btn-info"  @click="pay(order.orderId,order.actualPay)">立即付款</a></li>-->
                                                 <button @click="cancelOrder(order.orderId)">取消订单</button>
                                             </ul>
                                         </td>
@@ -350,6 +351,9 @@ $(function(){
             cancelOrder(orderId){
                 e2buy.http.delete("/order/delete/"+orderId);
                 window.location = 'http://www.e2buy.com/home-index.html';
+            },
+            pay(orderId,actualPay){
+                window.location = 'http://www.e2buy.com/pay.html?orderId='+orderId+'&actualprice='+e2buy.formatPrice(actualPay);
             }
         },
         watch:{

@@ -22,4 +22,14 @@
         </if>
         ORDER BY o.create_time DESC
     </select>
+
+
+    <select id="queryOrderListBack" resultMap="orderWithDetail">
+        SELECT DISTINCT
+            o.order_id,o.actual_pay,o.buyer_nick, o.total_pay,o.create_time, os.status
+        FROM tb_order o
+                 LEFT JOIN tb_order_status os ON os.order_id = o.order_id
+                 LEFT JOIN tb_order_detail od ON od.order_id = o.order_id
+        where os.status = 2
+    </select>
 </mapper>

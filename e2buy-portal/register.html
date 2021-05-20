@@ -75,6 +75,19 @@
                     </div>
                     <span style="color: red;">{{ errors.first('phone') }}</span>
                 </div>
+
+                <div class="control-group" v-show="false">
+                    <label class="control-label">是否管理员：</label>
+                    <div class="controls">
+                        <select class="input-xfat" name="role" v-model="user.role" >
+                            <option value ="0">普通用户</option>
+                            <option value ="1">管理员</option>
+                        </select>
+                    </div>
+                    <span style="color: red;">{{ errors.first('phone') }}</span>
+                </div>
+
+
                 <div class="control-group">
                     <label class="control-label">短信验证码：</label>
                     <div class="controls">
@@ -90,7 +103,7 @@
                 <div class="control-group">
                     <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <div class="controls">
-                        <input name="m1" type="checkbox" value="2" checked=""><span>同意协议并注册《易趣买用户协议》</span>
+                        <input name="m1" type="checkbox" value="2" checked=""><span>同意《易趣买用户协议》</span>
                     </div>
                 </div>
                 <div class="control-group">
@@ -150,7 +163,8 @@
                 password: '',
                 confirmPassword: '',
                 phone: '',
-                code: ''
+                code: '',
+                role: ''
             },
             check: {
                 username: false

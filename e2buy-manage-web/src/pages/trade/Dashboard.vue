@@ -63,7 +63,18 @@
               name: '销量',
               type: 'bar',
               data: [this.todayMoney,this.totalMoney],
-
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: true, //开启显示
+                    position: 'top', //在上方显示
+                    textStyle: { //数值样式
+                      color: 'black',
+                      fontSize: 16
+                    }
+                  }
+                }
+              }
             }]
           };
 

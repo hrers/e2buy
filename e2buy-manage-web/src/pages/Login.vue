@@ -77,15 +77,23 @@ export default {
       this.$http.post("/auth/accredit", this.$qs.stringify(form)).then(resp =>{
         if (resp.status === 200){
           //页面跳转
-          if (this.backPath === "/"){
-            this.$router.push("/index/dashboard");
-          } else {
-            this.$router.push(this.backPath);
-          }
+          this.$http.post("/auth/accredit/back", this.$qs.stringify(form)).then(resp =>{
+            if (resp.status === 200){
+              if (this.backPath === "/"){
+                this.$router.push("/index/dashboard");
+              } else {
+                this.$router.push(this.backPath);
+              }
+            }
+          }).catch(() => {
+            this.$message.error("后台系统需要管理员权限,你不是管理员!");
+          });
         }
       }).catch(() => {
         this.$message.error("账号或者密码错误！");
       });
+
+
     }
   }
 };
