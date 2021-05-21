@@ -16,6 +16,7 @@ import com.e2buy.order.pojo.OrderDetail;
 import com.e2buy.order.pojo.OrderStatus;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.aspectj.weaver.ast.Or;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.awt.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -216,44 +218,101 @@ public class OrderService {
          * FROM tb_order
          *  WHERE to_days(create_time) = to_days(now());
          */
-        List<Order> orders = orderMapper.selectAll();
-        int day = new Date().getDay();
+//        List<Order> orders = orderMapper.selectAll();
+        //todo 暂时只要已支付(status=2)的订单信息,如果后续加上退货还要处理退货之后的事情
+        List<Order> orders=orderMapper.selectWithStatus(2);
+
 
         Calendar calendar = Calendar.getInstance();
-        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        calendar.setTime(orders.get(0).getCreateTime());
-
-        //今天 总的
-        long todayMoney= orders.stream().filter(o->o.getCreateTime().getDay()==day).mapToLong(Order::getActualPay).sum();
-        long totalMoney= orders.stream().mapToLong(Order::getActualPay).sum();
-        SaleResult saleResult = new SaleResult();
-
+        int currentDayOfMonth= calendar.get(Calendar.DAY_OF_MONTH);
+        int currentDayOfYear= calendar.get(Calendar.DAY_OF_YEAR);
+        int currentWeekOfMonth= calendar.get(Calendar.WEEK_OF_MONTH);
+        int currentYear=calendar.get(Calendar.YEAR);
+        int currentMonth=calendar.get(Calendar.MONTH);//calender返回的月份 一月：0
+        SimpleDateFormat sdf =   new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
+        //今天销售额
+        long todayMoney = orders.stream().filter(o -> {
+            Date date = null;
+            try {
+                date = sdf.parse(sdf.format(o.getCreateTime()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTime(date);
+            int orderDayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+            return currentDayOfYear== orderDayOfYear && calendar.get(Calendar.YEAR) == currentYear;
+        }).mapToLong(Order::getActualPay).sum();
+        //过去七天
+        long toweekMoney = orders.stream().filter(o -> {
+            Date date = null;
+            try {
+                date = sdf.parse(sdf.format(o.getCreateTime()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTime(date);
+            int orderMonth= calendar.get(Calendar.MONTH);
+            int orderWeekOfOrderMonth = calendar.get(Calendar.WEEK_OF_MONTH);
+            return orderWeekOfOrderMonth == currentWeekOfMonth &&orderMonth==currentMonth && calendar.get(Calendar.YEAR) == currentYear;
+        }).mapToLong(Order::getActualPay).sum();
+        //本月销售额
+        long tomonthMoney = orders.stream().filter(o -> {
+            Date date = null;
+            try {
+                date = sdf.parse(sdf.format(o.getCreateTime()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTime(date);
+            int orderMonth = calendar.get(Calendar.MONTH);
+            return orderMonth == currentMonth && calendar.get(Calendar.YEAR) == currentYear;
+        }).mapToLong(Order::getActualPay).sum();
+        //今年年度销售额
+        long toyearMoney = orders.stream().filter(o -> {
+            Date date = null;
+            try {
+                date = sdf.parse(sdf.format(o.getCreateTime()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTime(date);
+            int orderYear = calendar.get(Calendar.YEAR);
+            return orderYear== currentYear;
+        }).mapToLong(Order::getActualPay).sum();
+        //总销售额
+        long totalMoney = orders.stream().mapToLong(Order::getActualPay).sum();
         //获取过去几天
         Long[] sales = new Long[5];
         for (int i = 0; i < sales.length; i++) {
-           sales[i]=0L;
+            sales[i] = 0L;
         }
+        //本年季度统计
         orders.forEach(order -> {
-          int d= Integer.parseInt(order.getCreateTime().toString().split(" ")[2]);
-          switch (dayOfMonth-d){
-              case 0:
-                  sales[0]+=order.getActualPay();
-                  break;
-              case 1:
-                  sales[1]+=order.getActualPay();
-                  break;
-              case 2:
-                  sales[2]+=order.getActualPay();
-                  break;
-              case 3:
-                  sales[3]+=order.getActualPay();
-                  break;
-              default:
-                  sales[4]+=order.getActualPay();
-                  break;
-          }
+            Date date = null;
+            try {
+                date = sdf.parse(sdf.format(order.getCreateTime()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTime(date);
+            if (currentYear == calendar.get(Calendar.YEAR)) {
+                if (calendar.get(Calendar.MONTH) >= 0 && calendar.get(Calendar.MONTH) <= 2) {
+                    sales[0] += order.getActualPay();
+                } else if (calendar.get(Calendar.MONTH) >= 3 && calendar.get(Calendar.MONTH) <= 5) {
+                    sales[1] += order.getActualPay();
+                } else if (calendar.get(Calendar.MONTH) >= 6 && calendar.get(Calendar.MONTH) <= 8) {
+                    sales[2] += order.getActualPay();
+                } else if (calendar.get(Calendar.MONTH) >= 9 && calendar.get(Calendar.MONTH) <= 11) {
+                    sales[3] += order.getActualPay();
+                }
+            }
         });
+
+        SaleResult saleResult = new SaleResult();
         saleResult.setTodayMoney(todayMoney);
+        saleResult.setToweekMoney(toweekMoney);
+        saleResult.setTomonthMoney(tomonthMoney);
+        saleResult.setToyearMoney(toyearMoney);
         saleResult.setTotalMoney(totalMoney);
         saleResult.setSales(sales);
         return  saleResult;
@@ -261,9 +320,42 @@ public class OrderService {
 
     @Test
     public void test(){
-//        Calendar calendar= Calendar.getInstance();
-//        int dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
-//        System.out.println(dayofMonth);
+
+        Calendar calendar= Calendar.getInstance();
+        int dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        int dayofYear= calendar.get(Calendar.DAY_OF_YEAR);
+        System.out.println("month");
+        System.out.println(calendar.get(Calendar.MONTH));
+        System.out.println("month");
+        System.out.println(dayofMonth);
+        System.out.println(dayofYear);
+        SimpleDateFormat sdf =   new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
+        Date date = null;
+        try {
+            date = sdf.parse( " 2021-04-21 00:44:40 " );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("************************");
+        String format = sdf.format(date);
+        try {
+            Date parse = sdf.parse(format);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("orderMonth");
+        System.out.println(calendar.get(Calendar.MONTH));
+        System.out.println("orderMonth");
+
+        System.out.println(format);
+        System.out.println("************************");
+        calendar.setTime(date);
+        int i = calendar.get(Calendar.DAY_OF_MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        System.out.println("year"+year);
+        System.out.println(i);
+
+
 
     }
 }

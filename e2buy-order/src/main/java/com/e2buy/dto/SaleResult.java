@@ -8,6 +8,9 @@ package com.e2buy.dto;
 
 public class SaleResult {
     private Long todayMoney;
+    private Long toweekMoney;
+    private Long tomonthMoney;
+    private Long toyearMoney;
     private Long totalMoney;
     private Long[] sales;
 
@@ -17,6 +20,30 @@ public class SaleResult {
 
     public void setTodayMoney(Long todayMoney) {
         this.todayMoney = todayMoney;
+    }
+
+    public Long getToweekMoney() {
+        return toweekMoney;
+    }
+
+    public void setToweekMoney(Long toweekMoney) {
+        this.toweekMoney = toweekMoney;
+    }
+
+    public Long getTomonthMoney() {
+        return tomonthMoney;
+    }
+
+    public void setTomonthMoney(Long tomonthMoney) {
+        this.tomonthMoney = tomonthMoney;
+    }
+
+    public Long getToyearMoney() {
+        return toyearMoney;
+    }
+
+    public void setToyearMoney(Long toyearMoney) {
+        this.toyearMoney = toyearMoney;
     }
 
     public Long getTotalMoney() {

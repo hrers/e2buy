@@ -21,7 +21,9 @@ var menus = [
     title: "销售管理",
     path:"/trade",
     items: [
-      { title: "订单列表", path: "/statistics" },
+      { title: "已支付订单", path: "/statistics" },
+      { title: "待发货订单", path: "/sending" },
+      { title: "待收货订单", path: "/sended" },
       { title: "销售统计", path: "/dashboard" }
     ]
   },

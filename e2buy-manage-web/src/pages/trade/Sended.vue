@@ -72,7 +72,7 @@ export default {
           params:{
             page:this.pagination.page,//当前页
             rows:this.pagination.rowsPerPage,//每页大小
-            status:2 //已支付的订单
+            status:3//已支付，未发货
           }
         }).then(({data:{items,total}})=> { // 这里使用箭头函数
           this.orders=items;

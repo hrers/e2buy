@@ -30,8 +30,6 @@
     name: "dashboard",
     data(){
       return {
-        todayMondy:0,
-        totalMoney:0,
         sales:[]
       }
     },
@@ -51,7 +49,7 @@
               data:['销量']
             },
             xAxis: {
-              data: ["今日销售额","总销售额"]
+              data: ["今日","本周","本月","今年销售额","总销售额"]
             },
             yAxis: {
               type:'value',
@@ -62,7 +60,19 @@
             series: [{
               name: '销量',
               type: 'bar',
-              data: [this.todayMoney,this.totalMoney],
+              data: [this.todayMoney,this.toweekMoney,this.tomonthMoney,this.toyearMoney,this.totalMoney],
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: true, //开启显示
+                    position: 'top', //在上方显示
+                    textStyle: { //数值样式
+                      color: 'black',
+                      fontSize: 16
+                    }
+                  }
+                }
+              }
 
             }]
           };
@@ -89,11 +99,10 @@
                   }
                 },
                 data:[
-                  {value:this.sales[0], name:'今天'},
-                  {value:this.sales[1], name:'昨天'},
-                  {value:this.sales[2], name:'前天'},
-                  {value:this.sales[3], name:'大前天'},
-                  {value:this.sales[4], name:'其他'}
+                  {value:this.sales[0], name:'第一季度'},
+                  {value:this.sales[1], name:'第二季度'},
+                  {value:this.sales[2], name:'第三季度'},
+                  {value:this.sales[3], name:'第四季度'}
                 ]
               }
             ],
@@ -120,11 +129,11 @@
     methods:{
       getDataFromServer(){
         this.$http.get("/order/getSaleResult").then(resp=>{
-          //今天和总共
-          this.todayMoney=this.$format(resp.data.todayMoney);
-          this.totalMoney=this.$format(resp.data.totalMoney);
-          this.todayMoney=this.todayMoney/1000;
-          this.totalMoney=this.totalMoney/1000;
+          this.todayMoney=this.$format(resp.data.todayMoney)/1000;
+          this.toweekMoney=this.$format(resp.data.toweekMoney)/1000;
+          this.tomonthMoney=this.$format(resp.data.tomonthMoney)/1000;
+          this.toyearMoney=this.$format(resp.data.toyearMoney)/1000;
+          this.totalMoney=this.$format(resp.data.totalMoney)/1000;
 
 
           //过去5天
@@ -132,9 +141,6 @@
           this.sales[1]=this.$format(resp.data.sales[1]);
           this.sales[2]=this.$format(resp.data.sales[2]);
           this.sales[3]=this.$format(resp.data.sales[3]);
-          this.sales[4]=this.$format(resp.data.sales[4]);
-
-
         })
       }
     }

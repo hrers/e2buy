@@ -14,4 +14,6 @@ public interface OrderMapper extends Mapper<Order> {
 
     List<Order> queryOrderListBack(
             @Param("status") Integer status);
+
+    List<Order> selectWithStatus(@Param("status") Integer status);
 }
