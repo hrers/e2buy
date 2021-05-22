@@ -211,5 +211,50 @@ public class OrderController {
     }
 
 
+    /**
+     * 商家根据订单编号取消订单信息
+     * todo 暂时和调用用户的接口，后续可以做区别处理
+     */
+    @DeleteMapping("admin/cancelOrder/{orderId}")
+    public ResponseEntity<Void> adminCancelOrderById(@PathVariable("orderId") Long orderId){
+       orderService.deleteOrderById(orderId);
+       return ResponseEntity.ok().build();
+    }
+
+    /**
+     * 商家确认发货
+     */
+    @PutMapping("admin/sendOrder/{orderId}")
+    public ResponseEntity<Void> adminSendOrderByOrderId(@PathVariable("orderId") Long orderId){
+       orderService.sendOrderByOrderId(orderId);
+       return ResponseEntity.ok().build();
+    }
+
+    /**
+     * 用户确认收货
+     */
+    @PutMapping("/confirmReceived/{orderId}")
+    public ResponseEntity<Void> confirmReceivedByOrderId(@PathVariable("orderId")Long orderId){
+        orderService.confirmReceived(orderId);
+        return ResponseEntity.ok().build();
+    }
+
+
+    @GetMapping("saledNumBySku/{skuId}")
+    public ResponseEntity<String> querySaledNumBySku(@PathVariable("skuId")Long skuId){
+        Integer intNum=this.orderService.querySaledNumBySkuId(skuId);
+        String strNum="";
+        if(intNum==null){
+           strNum="0";
+        }else {
+            strNum=intNum.toString();
+        }
+        return ResponseEntity.ok(strNum);
+    }
+
+
+
+
+
 
 }

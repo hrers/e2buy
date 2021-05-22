@@ -35,4 +35,5 @@ public interface GoodsService{
     void deleteGoods(long parseLong);
 
     Integer querySkuNum(Long skuId);
+
 }

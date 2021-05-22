@@ -32,6 +32,7 @@ export default new Router({
         route("/trade/statistics",'/trade/Statistics',"Statistics"),
         route("/trade/sending",'/trade/Sending',"Sending"),
         route("/trade/sended",'/trade/Sended',"Sended"),
+        route("/trade/finished",'/trade/Finished',"Finished"),
         route("/trade/dashboard",'/trade/Dashboard',"Dashboard"),
         route("/trade/promotion",'/trade/Promotion',"Promotion"),
       ]

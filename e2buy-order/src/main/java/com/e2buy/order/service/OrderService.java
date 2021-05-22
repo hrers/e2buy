@@ -5,6 +5,7 @@ import com.e2buy.common.pojo.PageResult;
 import com.e2buy.common.pojo.UserInfo;
 import com.e2buy.common.utils.IdWorker;
 import com.e2buy.dto.SaleResult;
+import com.e2buy.item.pojo.SpuDetail;
 import com.e2buy.item.pojo.Stock;
 import com.e2buy.order.interceptor.LoginInterceptor;
 import com.e2buy.order.mapper.OrderDetailMapper;
@@ -16,6 +17,7 @@ import com.e2buy.order.pojo.OrderDetail;
 import com.e2buy.order.pojo.OrderStatus;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.tomcat.jni.Status;
 import org.aspectj.weaver.ast.Or;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -355,7 +357,27 @@ public class OrderService {
         System.out.println("year"+year);
         System.out.println(i);
 
+    }
 
+    public void sendOrderByOrderId(Long orderId) {
+        OrderStatus example= new OrderStatus();
+        example.setOrderId(orderId);
+        // status:3已发货未确认
+        example.setStatus(3);
+        statusMapper.updateByPrimaryKeySelective(example);
+    }
 
+    public void confirmReceived(Long orderId) {
+        OrderStatus example= new OrderStatus();
+        example.setOrderId(orderId);
+        // status:3已发货未确认
+        example.setStatus(4);
+        statusMapper.updateByPrimaryKeySelective(example);
+    }
+
+    public Integer querySaledNumBySkuId(Long skuId) {
+        //todo 已售数量：已经付款的
+        Integer num=orderMapper.querySaledSkuNumBySkuId(skuId);
+        return num;
     }
 }

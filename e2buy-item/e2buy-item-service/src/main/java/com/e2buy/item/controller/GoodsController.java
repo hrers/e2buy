@@ -181,4 +181,9 @@ public class GoodsController {
         Integer num= this.goodsService.querySkuNum(skuId);
         return ResponseEntity.ok(num);
     }
+
+
+
+
+
 }

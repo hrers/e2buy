@@ -24,6 +24,7 @@ var menus = [
       { title: "已支付订单", path: "/statistics" },
       { title: "待发货订单", path: "/sending" },
       { title: "待收货订单", path: "/sended" },
+      { title: "交易成功订单", path: "/finished" },
       { title: "销售统计", path: "/dashboard" }
     ]
   },

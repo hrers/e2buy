@@ -299,6 +299,8 @@ public class GoodsServiceImpl implements GoodsService {
         return stock.getStock();
     }
 
+
+
     /**
      * 发送消息到mq，生产者
      * @param id

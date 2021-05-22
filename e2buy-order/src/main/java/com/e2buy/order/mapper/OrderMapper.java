@@ -16,4 +16,6 @@ public interface OrderMapper extends Mapper<Order> {
             @Param("status") Integer status);
 
     List<Order> selectWithStatus(@Param("status") Integer status);
+
+    Integer querySaledSkuNumBySkuId(@Param("skuId")Long skuId);
 }
