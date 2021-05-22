@@ -161,7 +161,8 @@
 								<i>¥</i><em>{{e2buy.formatPrice(sku.price)}}</em><span>降价通知</span>
 							</div>
 							<!--<div class="fr remark"><i>累计评价</i><em>612188</em></div>-->
-							<div class="fr remark"><i>商品数量</i><em>{{skuNum}}</em></div>
+				<!--			<div class="fr remark"><i>库存数量</i><em>{{skuNum}}</em></div>
+							<div class="fr remark"><i>累计已售</i><em>{{saledNum}}</em></div>-->
 						</div>
 						<div class="summary-wrap">
 						<!--	<div class="fl title">
@@ -186,12 +187,20 @@
 						<div class="summary-wrap">
 							<div class="fl title">
 								<!--<i>配 送 至</i>-->
-
 								<i>商品数量</i>
 							</div>
 							<div class="fl fix-width">
 								<!--<em class="t-gray">上海 <span>有货</span></em>-->
 								<em class="t-gray"><span><em>{{skuNum}}</em></span></em>
+							</div>
+                            <br>
+							<div class="fl title">
+								<!--<i>配 送 至</i>-->
+								<i>已售</i>
+							</div>
+							<div class="fl fix-width">
+								<!--<em class="t-gray">上海 <span>有货</span></em>-->
+								<em class="t-gray"><span><em>{{saledNum}}</em></span></em>
 							</div>
 						</div>
 					</div>
@@ -529,7 +538,8 @@
 			paramMap,
 			indexes,
 			num: 1,
-			skuNum:0
+			skuNum:0,
+			saledNum:0 //已售数量
 		},
 		methods: {
 			addCart() {
@@ -579,6 +589,9 @@
 				const sku=skus.find(sku => sku.indexes == index);
 				e2buy.http.get("/item/stock/"+sku.id).then(({data}) => {
 					this.skuNum= data;
+				})
+				e2buy.http.get("/order/saledNumBySku/"+sku.id).then(({data}) => {
+					this.saledNum= data;
 				})
 				return sku;
 			},
