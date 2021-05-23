@@ -44,7 +44,7 @@
 							  <div>
 								  <div :class="{con:true,name:true,selected:i === selectedAddress}"><a href="javascript:;" @click.stop="selectedAddress=i" >{{a.name}}<span title="点击取消选择"></span>&nbsp;</a></div>
 								<div class="con address">{{a.state + a.city + a.district + a.address}} <span>{{a.phone}}</span>
-									<span class="base" v-if="a.default">默认地址</span>
+									<span class="base" v-if="a.isDefault==1">默认地址</span>
 									<span class="edittext"><a data-toggle="modal" data-target=".edit" data-keyboard="false" >编辑</a>&nbsp;&nbsp;<a href="javascript:;">删除</a></span>
 								</div>
 								<div class="clearfix"></div>
@@ -65,41 +65,58 @@
 						      		 <div class="control-group">
 									    <label class="control-label">收货人：</label>
 									    <div class="controls">
-									      <input type="text" class="input-medium">
-									    </div>
-									  </div>
-									   
-									   <div class="control-group">
-									    <label class="control-label">详细地址：</label>
-									    <div class="controls">
-									      <input type="text" class="input-large">
+									      <input type="text" class="input-medium" v-model="newAddress.name">
 									    </div>
 									  </div>
 									   <div class="control-group">
-									    <label class="control-label">联系电话：</label>
+									    <label class="control-label">手机号：</label>
 									    <div class="controls">
-									      <input type="text" class="input-medium">
+									      <input type="text" class="input-large" v-model="newAddress.phone">
 									    </div>
 									  </div>
 									   <div class="control-group">
-									    <label class="control-label">邮箱：</label>
+									    <label class="control-label">省份：</label>
 									    <div class="controls">
-									      <input type="text" class="input-medium">
+									      <input type="text" class="input-medium" v-model="newAddress.state">
 									    </div>
 									  </div>
 									   <div class="control-group">
-									    <label class="control-label">地址别名：</label>
+									    <label class="control-label">城市：</label>
 									    <div class="controls">
-									      <input type="text" class="input-medium">
-									    </div>
-									    <div class="othername">
-									    	建议填写常用地址：<a href="#" class="sui-btn btn-default">家里</a>　<a href="#" class="sui-btn btn-default">父母家</a>　<a href="#" class="sui-btn btn-default">公司</a>
+									      <input type="text" class="input-medium" v-model="newAddress.city">
 									    </div>
 									  </div>
+									   <div class="control-group">
+									    <label class="control-label">区：</label>
+									    <div class="controls">
+									      <input type="text" class="input-medium" v-model="newAddress.district">
+									    </div>
+									  </div>
+									<div class="control-group">
+										<label class="control-label">详细地址：</label>
+										<div class="controls">
+											<input type="text" class="input-medium" v-model="newAddress.address">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">邮编：</label>
+										<div class="controls">
+											<input type="text" class="input-medium" v-model="newAddress.code">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">是否默认：</label>
+										<div class="controls">
+                                            <select v-model="newAddress.isDefault">
+                                                <option value="1">是</option>
+												<option value="0">否</option>
+											</select>
+										</div>
+									</div>
 						      	</form>
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large">确定</button>
+						        <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large" @click="submitAddress">确定</button>
 						        <button type="button" data-dismiss="modal" class="sui-btn btn-default btn-large">取消</button>
 						      </div>
 						    </div>
@@ -119,7 +136,7 @@
 					<div class="step-cont">
 						<ul class="payType">
 							<li :class="{selected: order.paymentType == 1}" @click="order.paymentType = 1" >微信付款<span title="点击取消选择"></span></li>
-							<li :class="{selected: order.paymentType == 2}" @click="order.paymentType = 2" >货到付款<span title="点击取消选择"></span></li>
+						<!--	<li :class="{selected: order.paymentType == 2}" @click="order.paymentType = 2" >货到付款<span title="点击取消选择"></span></li>-->
 						</ul>
 					</div>
 					<div class="hr"></div>
@@ -208,35 +225,23 @@
             el:"#orderInfoApp",
             data:{
                 e2buy,
-                addresses:[// 可选地址列表,假数据，需要从后台查询
-					{
-					    name:"张建武",// 收件人姓名
-						phone:"15800000000",// 电话
-						state:"辽宁",// 省份
-						city:"大连",// 城市
-						district:"金普新区",// 区
-						address:"大连大学",// 街道地址
-						zipCode:"221100", // 邮编
-						default: true
-					},
-                    {
-                        name:"张三",// 收件人姓名
-                        phone:"13600000000",// 电话
-                        state:"北京",// 省份
-                        city:"北京",// 城市
-                        district:"朝阳区",// 区
-                        address:"天堂路 3号楼",// 街道地址
-                        zipCode:"100000", // 邮编
-                        default: false
-                    }
-				],
+                addresses:[],
 				selectedAddress: 0,
 				order: {
                     paymentType: 1,
 					postFee: 0
 				},
 				fanxian: 0,
-				carts: []
+				carts: [],
+				newAddress:{
+                	name:'',
+					phone:'',
+					state:'',
+					city:'',
+					district:'',
+					address:'',
+					isDefault:''
+				}
             },
 			created(){
 				e2buy.verify().then(res => {
@@ -244,6 +249,15 @@
 				}).catch(() => {
                     window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
 				})
+				e2buy.verify().then(()=>{
+					e2buy.http.get("/order/address/list").then(data=>{
+						this.addresses=data.data;
+					})
+				}).catch(() => {
+					window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
+				})
+
+
 			},
 			computed:{
                 total(){
@@ -268,7 +282,7 @@
                             receiverCity: address.city,
                             receiverDistrict: address.district,
                             receiverAddress: address.address,
-                            receiverZip: address.zipCode,
+                            receiverZip: address.code,
                             invoiceType: 0,
                             sourceType: 1,
 						};
@@ -293,6 +307,15 @@
                     }).catch(() => {
                         window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
                     })
+				},
+				submitAddress(){
+					e2buy.http.post("/order/address", this.newAddress).then(()=>{
+						alert("新增地址成功");
+						window.location="http://www.e2buy.com/getOrderInfo.html";
+
+					}).catch(()=>{
+						alert("新增地址失败");
+					})
 				}
 			},
 			components:{
