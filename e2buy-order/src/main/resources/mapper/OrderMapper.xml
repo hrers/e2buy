@@ -43,10 +43,7 @@
         FROM tb_order o
         LEFT JOIN tb_order_status os ON os.order_id = o.order_id
         LEFT JOIN tb_order_detail od ON od.order_id = o.order_id
-        WHERE 1=1
-        <if test="status != null and status != 0">
-            AND os.status IN (2,3)
-        </if>
+        WHERE os.status IN (2,3,4)
         ORDER BY o.create_time DESC
     </select>
 

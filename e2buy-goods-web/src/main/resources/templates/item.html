@@ -539,7 +539,8 @@
 			indexes,
 			num: 1,
 			skuNum:0,
-			saledNum:0 //已售数量
+			saledNum:0, //已售数量
+			lastSkuIndex:"0_0_0"
 		},
 		methods: {
 			addCart() {
@@ -549,7 +550,6 @@
 				if(this.num>this.skuNum){
 				    this.num=this.skuNum;
 				}
-
 				e2buy.http.get("/auth/verify").then(res => {
 					//已登录
 					e2buy.http.post("/cart",{skuId:this.sku.id,num:this.num}).then(res=>{
@@ -586,14 +586,23 @@
 			sku() {
 				const index = Object.values(this.indexes).join("_");
 				// return skus.find(sku => sku.indexes == index);
-				const sku=skus.find(sku => sku.indexes == index);
-				e2buy.http.get("/item/stock/"+sku.id).then(({data}) => {
-					this.skuNum= data;
-				})
-				e2buy.http.get("/order/saledNumBySku/"+sku.id).then(({data}) => {
-					this.saledNum= data;
-				})
-				return sku;
+				//const sku=skus.find(sku => sku.indexes == index);
+				let sku=skus.find(sku => sku.indexes == index);
+				if(sku!=null){
+					e2buy.http.get("/item/stock/" + sku.id).then(({data}) => {
+						this.skuNum = data;
+					})
+					e2buy.http.get("/order/saledNumBySku/" + sku.id).then(({data}) => {
+						this.saledNum = data;
+					})
+					this.lastSkuIndex=index;
+					return sku;
+				}else {
+				    //todo 如果商品不存在，直接重新加载
+					alert("抱歉,你选的商品没货");
+					location.reload();
+					// return skus.find(sku=>sku.indexes==this.lastSkuIndex);
+				}
 			},
 			images() {
 				return this.sku.images ? this.sku.images.split(",") : "";
