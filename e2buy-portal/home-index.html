@@ -100,15 +100,15 @@ $(function(){
                     </div>
                     <div class="order-detail">
                         <div class="orders">
-                            <div class="choose-order">
-                              <!--  <div class="sui-pagination pagination-large top-pages">
+                           <!-- <div class="choose-order">
+                                <div class="sui-pagination pagination-large top-pages">
                                     <ul>
-                                        <li class="prev disabled"><a href="#">上一页</a></li>
+                                        <li class="prev disabled"><a href="#" @click="prev()">上一页</a></li>
 
-                                        <li class="next"><a href="#">下一页</a></li>
+                                        <li class="next"><a href="#" @click="next() ">下一页</a></li>
                                     </ul>
-                                </div>-->
-                            </div>
+                                </div>
+                            </div>-->
 
                             <!--order1-->
                             <div v-for="(order,index) in orders">
@@ -168,17 +168,17 @@ $(function(){
 
 
                         </div>
-                      <!--  <div class="choose-order">
+                     <!--   <div class="choose-order">
                             <div class="sui-pagination pagination-large top-pages">
                                 <ul>
-                                    <li class="prev disabled"><a href="#">«上一页</a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
+                                    <li class="prev disabled"><a href="#" @click="prev()">«上一页</a></li>
+                                    <li :class="{active: query.page==index(i)}" v-for="i in Math.min(5,totalPage)" @click="query.page=index(i)">
+                                        <a href="#">{{index(i)}}</a>
+                                    </li>
                                     <li class="dotted"><span>...</span></li>
-                                    <li class="next"><a href="#">下一页»</a></li>
+                                    <li class="next"><a href="#" @click="next()">下一页»</a></li>
                                 </ul>
-                                <div><span>共10页&nbsp;</span><span>
+                                <div><span>共{{totalPage}}页&nbsp;</span><span>
                                         到
                                         <input type="text" class="page-num"><button class="page-confirm" onclick="alert(1)">确定</button>
                                         页</span></div>
@@ -298,7 +298,9 @@ $(function(){
                 status:0,
                 page:1,
                 rows:100
-            }
+            },
+            total:0,
+            totalPage:0
 
         },
         components:{
@@ -335,9 +337,11 @@ $(function(){
                         return data;
                         }
                     ]
-                }).then(({data:{items,total}}) => {
+                }).then(({data:{items,total,totalPage}}) => {
                         // console.log(data.items); //这条语句会报错
                         this.orders = items;
+                        this.total=total;
+                        this.totalPage=totalPage;
                     }).catch(() => {
                         this.orders = [];
                     })
@@ -353,7 +357,28 @@ $(function(){
             },
             pay(orderId,actualPay){
                 window.location = 'http://www.e2buy.com/pay.html?orderId='+orderId+'&actualprice='+e2buy.formatPrice(actualPay);
-            }
+            },
+            index(i){
+                if(this.query.page<=3||this.totalPage<=5){
+                    return i;
+                } else if (this.query.page>=this.totalPage-2){
+                    return this.totalPage-5+i;
+                }else {
+                    return this.query.page-3+i;
+                }
+            },
+            prev(){
+                if(this.query.page>1){
+                    this.query.page--;
+                    this.loadOrder();
+                }
+            },
+            next(){
+                if(this.query.page<this.totalPage){
+                    this.query.page++;
+                    this.loadOrder();
+                }
+            },
         },
         watch:{
             'query':{

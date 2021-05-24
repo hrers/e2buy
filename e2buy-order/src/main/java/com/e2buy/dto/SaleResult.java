@@ -1,5 +1,8 @@
 package com.e2buy.dto;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+
 /**
  * @Author: zhangjianwu
  * @Date: 2021/5/20 17:59
@@ -13,6 +16,15 @@ public class SaleResult {
     private Long toyearMoney;
     private Long totalMoney;
     private Long[] sales;
+    private List<PlaceDto> places;
+
+    public List<PlaceDto> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(List<PlaceDto> places) {
+        this.places = places;
+    }
 
     public Long getTodayMoney() {
         return todayMoney;

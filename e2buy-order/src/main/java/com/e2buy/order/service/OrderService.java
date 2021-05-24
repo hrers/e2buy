@@ -4,6 +4,7 @@ import com.e2buy.common.error.BusinessException;
 import com.e2buy.common.pojo.PageResult;
 import com.e2buy.common.pojo.UserInfo;
 import com.e2buy.common.utils.IdWorker;
+import com.e2buy.dto.PlaceDto;
 import com.e2buy.dto.SaleResult;
 import com.e2buy.item.pojo.SpuDetail;
 import com.e2buy.item.pojo.Stock;
@@ -30,8 +31,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
 
 @Service
@@ -129,8 +129,7 @@ public class OrderService {
             UserInfo user = LoginInterceptor.getLoginUser();
             // 创建查询条件
             Page<Order> pageInfo = (Page<Order>) this.orderMapper.queryOrderList(user.getId(), status);
-
-            return new PageResult<>(pageInfo.getTotal(), pageInfo);
+            return new PageResult<>(pageInfo.getTotal(),pageInfo.getPages(), pageInfo);
         } catch (Exception e) {
             logger.error("查询订单出错", e);
             return null;
@@ -309,8 +308,14 @@ public class OrderService {
                 }
             }
         });
+        //统计一下地方
+       //SELECT receiver_state,COUNT(*) num FROM tb_order GROUP BY receiver_state ORDER BY num DESC  LIMIT 0,5
+        List<PlaceDto> places=orderMapper.selectWithCity();
+
+
 
         SaleResult saleResult = new SaleResult();
+        saleResult.setPlaces(places);
         saleResult.setTodayMoney(todayMoney);
         saleResult.setToweekMoney(toweekMoney);
         saleResult.setTomonthMoney(tomonthMoney);

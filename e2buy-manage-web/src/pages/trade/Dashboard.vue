@@ -16,6 +16,14 @@
           </v-card-text>
         </v-card>
       </v-flex>
+
+      <v-flex xs10 md6>
+        <v-card>
+          <v-card-text className="px2">
+            <div ref="places" style="width: 100%;height:350px"></div>
+          </v-card-text>
+        </v-card>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -30,7 +38,8 @@ export default {
   name: "dashboard",
   data() {
     return {
-      sales: []
+      sales: [],
+      places: []
     }
   },
   mounted() {
@@ -119,6 +128,45 @@ export default {
             }
           }
         })
+
+
+        var placesOption = {
+          title: {
+            text: '销售统计'
+          },
+          tooltip: {},
+          legend: {
+            data: ['销量']
+          },
+          xAxis: {
+            data: [this.places[0].city, this.places[1].city, this.places[2].city, this.places[3].city, this.places[4].city]
+          },
+          yAxis: {
+            type: 'value',
+            axisLabel: {
+              formatter: '{value}(单)'
+            }
+          },
+          series: [{
+            name: '销量',
+            type: 'bar',
+            data: [this.places[0].num, this.places[1].num, this.places[2].num, this.places[3].num, this.places[4].num],
+            itemStyle: {
+              normal: {
+                label: {
+                  show: true, //开启显示
+                  position: 'top', //在上方显示
+                  textStyle: { //数值样式
+                    color: 'black',
+                    fontSize: 16
+                  }
+                }
+              }
+            }
+          }]
+        };
+        var category = echarts.init(this.$refs.places);
+        category.setOption(placesOption);
       })
     }, 500)
 
@@ -134,13 +182,13 @@ export default {
         this.tomonthMoney = this.$format(resp.data.tomonthMoney) / 1000;
         this.toyearMoney = this.$format(resp.data.toyearMoney) / 1000;
         this.totalMoney = this.$format(resp.data.totalMoney) / 1000;
-
-
-        //过去5天
+        //季度统计
         this.sales[0] = this.$format(resp.data.sales[0]);
         this.sales[1] = this.$format(resp.data.sales[1]);
         this.sales[2] = this.$format(resp.data.sales[2]);
         this.sales[3] = this.$format(resp.data.sales[3]);
+        //地点统计
+        this.places = resp.data.places;
       })
     }
   }

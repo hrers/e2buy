@@ -99,7 +99,6 @@ public class OrderController {
     }
 
 
-
     //todo 查询所有订单信息（商家接口)
     /**
      *
@@ -210,7 +209,6 @@ public class OrderController {
         return ResponseEntity.ok(saleResult);
     }
 
-
     /**
      * 商家根据订单编号取消订单信息
      * todo 暂时和调用用户的接口，后续可以做区别处理
@@ -240,6 +238,11 @@ public class OrderController {
     }
 
 
+    /**
+     * 获取已销售数量
+     * @param skuId
+     * @return
+     */
     @GetMapping("saledNumBySku/{skuId}")
     public ResponseEntity<String> querySaledNumBySku(@PathVariable("skuId")Long skuId){
         Integer intNum=this.orderService.querySaledNumBySkuId(skuId);
