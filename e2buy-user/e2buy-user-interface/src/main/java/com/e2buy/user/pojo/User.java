@@ -29,8 +29,18 @@ public class User {
 
     @JsonIgnore
     private String salt;// 密码的盐值
+
+    private String image;
     
     private Integer role;//用户类别 0：普通用户 1：商家用户(管理员)
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Integer getRole() {
         return role;

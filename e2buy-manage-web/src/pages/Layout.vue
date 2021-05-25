@@ -99,9 +99,9 @@
     </v-content>
   </v-app>
 </template>
-
 <script>
   import menus from "../menu";
+  import Cookies from "../jquery.cookie"
 
   export default {
     data() {
@@ -110,7 +110,8 @@
         drawer: true,// 左侧导航是否隐藏
         miniVariant: false,// 左侧导航是否收起
         title: 'E2BUY商城后台管理',// 顶部导航条名称,
-        menuMap: {}
+        menuMap: {},
+        user:{}
       }
     },
     computed: {
@@ -129,6 +130,21 @@
     name: 'App',
     watch: {},
     created() {
+  /*    const token = Cookies.get("E2BUY_TOKEN");*/
+  /*    if (token) {
+        // 有token，曾经登录过，查询用户信息
+        this.$http.get("/user/" + token)
+          .then(resp => {
+            this.user = resp.data;
+            // 查询订单信息
+          }).catch(() => {
+          alert("还未登录,请登录");
+          this.$router.push("/login");
+        });
+      } else {
+        // 去登录
+        this.gotoLogin();
+      }*/
       this.verify().catch(() => {
         alert("还未登录,请登录");
         this.$router.push("/login");
@@ -143,7 +159,6 @@
     }
   }
 </script>
-
 <style scoped>
   .box {
     width: 90%;

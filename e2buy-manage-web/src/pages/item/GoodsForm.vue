@@ -106,7 +106,7 @@
                   </td>
                   <!--enable展示为checkbox-->
                   <td class="text-xs-center" v-else-if="k === 'enable'">
-                    <v-checkbox v-model="props.item[k]"/>
+                    <v-checkbox v-model="props.item[k]" />
                   </td>
                   <!--indexes和images不展示，其它展示为普通文本-->
                   <td class="text-xs-center" v-else-if="k !== 'images' && k !== 'indexes'">{{v.v}}</td>

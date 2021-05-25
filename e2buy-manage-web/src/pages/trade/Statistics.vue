@@ -8,15 +8,14 @@
       :total-items="totalOrders"
       :loading="loading"
       class="elevation-1"
-      select-all
       v-model="selected"
     >
       <template slot="items" slot-scope="props">
-        <td class="text-xs-center">
+<!--        <td class="text-xs-center">
           <v-checkbox v-model="selected" v-show="false" primary hide-details>
 
           </v-checkbox>
-        </td>
+        </td>-->
         <td class="text-xs-center">{{ props.item.buyerNick}}</td>
         <td class="text-xs-center">{{ props.item.orderId }}</td>
         <td class="text-xs-center">{{ $format(props.item.totalPay)}}</td>
@@ -47,7 +46,7 @@ export default {
       ],
       orders:[],
       step: 1, // 子组件中的步骤线索引，默认为1
-      selected:[], //选择的条目
+      //selected:[], //选择的条目
       total:0
     }
   },

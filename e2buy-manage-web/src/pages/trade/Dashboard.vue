@@ -3,15 +3,15 @@
     <v-layout row wrap>
       <v-flex xs10 md6>
         <v-card>
-          <v-card-text className="px2">
+          <v-card-text class="px2">
             <div ref="sale" style="width: 100%;height:350px"></div>
           </v-card-text>
         </v-card>
       </v-flex>
 
       <v-flex xs10 md6>
-        <v-card>
-          <v-card-text className="px2">
+        <v-card >
+          <v-card-text class="px2">
             <div ref="pie" style="width: 100%;height:350px"></div>
           </v-card-text>
         </v-card>
@@ -36,22 +36,23 @@ require('echarts/lib/chart/pie');
 
 export default {
   name: "dashboard",
-  data() {
+  data(){
     return {
-      sales: [],
-      places: []
+      sales:[],
+      places:[]
     }
+  },
+  watch:{
   },
   mounted() {
     this.getDataFromServer();
     setTimeout(() => {
       this.$nextTick(() => {
         var sale = echarts.init(this.$refs.sale);
-
         // 指定图表的配置项和数据
         var option = {
           title: {
-            text: '销售统计'
+            text: '销售统计',
           },
           tooltip: {},
           legend: {
@@ -85,20 +86,17 @@ export default {
 
           }]
         };
-
         // 使用刚指定的配置项和数据显示图表。
         sale.setOption(option);
-
         const pie = echarts.init(this.$refs.pie);
-
         pie.setOption({
           roseType: 'angle',
           title: {
-            text: '访问来源'
+            text: '季度统计'
           },
           series: [
             {
-              name: '访问来源',
+              name: '季度统计',
               type: 'pie',
               radius: '55%',
               label: {
@@ -128,8 +126,6 @@ export default {
             }
           }
         })
-
-
         var placesOption = {
           title: {
             text: '销售统计'
@@ -165,33 +161,32 @@ export default {
             }
           }]
         };
-        var category = echarts.init(this.$refs.places);
-        category.setOption(placesOption);
+        var place= echarts.init(this.$refs.places);
+        place.setOption(placesOption);
       })
     }, 500)
-
   },
-  created() {
-
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
-  methods: {
-    getDataFromServer() {
-      this.$http.get("/order/getSaleResult").then(resp => {
-        this.todayMoney = this.$format(resp.data.todayMoney) / 1000;
-        this.toweekMoney = this.$format(resp.data.toweekMoney) / 1000;
-        this.tomonthMoney = this.$format(resp.data.tomonthMoney) / 1000;
-        this.toyearMoney = this.$format(resp.data.toyearMoney) / 1000;
-        this.totalMoney = this.$format(resp.data.totalMoney) / 1000;
+  methods:{
+    getDataFromServer(){
+      this.$http.get("/order/getSaleResult").then(resp=>{
+        this.todayMoney=this.$format(resp.data.todayMoney)/1000;
+        this.toweekMoney=this.$format(resp.data.toweekMoney)/1000;
+        this.tomonthMoney=this.$format(resp.data.tomonthMoney)/1000;
+        this.toyearMoney=this.$format(resp.data.toyearMoney)/1000;
+        this.totalMoney=this.$format(resp.data.totalMoney)/1000;
         //季度统计
-        this.sales[0] = this.$format(resp.data.sales[0]);
-        this.sales[1] = this.$format(resp.data.sales[1]);
-        this.sales[2] = this.$format(resp.data.sales[2]);
-        this.sales[3] = this.$format(resp.data.sales[3]);
+        this.sales[0]=this.$format(resp.data.sales[0]);
+        this.sales[1]=this.$format(resp.data.sales[1]);
+        this.sales[2]=this.$format(resp.data.sales[2]);
+        this.sales[3]=this.$format(resp.data.sales[3]);
         //地点统计
-        this.places = resp.data.places;
+        this.places=resp.data.places;
       })
     }
-  }
+  },
 }
 </script>
 

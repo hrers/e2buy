@@ -42,34 +42,35 @@
         places:[]
       }
     },
-    mounted(){
-        this.getDataFromServer();
+    watch:{
+    },
+    mounted() {
+      this.getDataFromServer();
       setTimeout(() => {
         this.$nextTick(() => {
           var sale = echarts.init(this.$refs.sale);
-
           // 指定图表的配置项和数据
           var option = {
             title: {
-              text: '销售统计'
+              text: '销售统计',
             },
             tooltip: {},
             legend: {
-              data:['销量']
+              data: ['销量']
             },
             xAxis: {
-              data: ["今日","本周","本月","今年销售额","总销售额"]
+              data: ["今日", "本周", "本月", "今年销售额", "总销售额"]
             },
             yAxis: {
-              type:'value',
-              axisLabel:{
-                formatter:'{value}(k)'
+              type: 'value',
+              axisLabel: {
+                formatter: '{value}(k)'
               }
             },
             series: [{
               name: '销量',
               type: 'bar',
-              data: [this.todayMoney,this.toweekMoney,this.tomonthMoney,this.toyearMoney,this.totalMoney],
+              data: [this.todayMoney, this.toweekMoney, this.tomonthMoney, this.toyearMoney, this.totalMoney],
               itemStyle: {
                 normal: {
                   label: {
@@ -85,20 +86,17 @@
 
             }]
           };
-
           // 使用刚指定的配置项和数据显示图表。
           sale.setOption(option);
-
           const pie = echarts.init(this.$refs.pie);
-
           pie.setOption({
             roseType: 'angle',
             title: {
-              text: '访问来源'
+              text: '季度统计'
             },
-            series : [
+            series: [
               {
-                name: '访问来源',
+                name: '季度统计',
                 type: 'pie',
                 radius: '55%',
                 label: {
@@ -107,11 +105,11 @@
                     formatter: '{b}:({d}%)' //自定义显示格式(b:name, c:value, d:百分比)
                   }
                 },
-                data:[
-                  {value:this.sales[0], name:'第一季度'},
-                  {value:this.sales[1], name:'第二季度'},
-                  {value:this.sales[2], name:'第三季度'},
-                  {value:this.sales[3], name:'第四季度'}
+                data: [
+                  {value: this.sales[0], name: '第一季度'},
+                  {value: this.sales[1], name: '第二季度'},
+                  {value: this.sales[2], name: '第三季度'},
+                  {value: this.sales[3], name: '第四季度'}
                 ]
               }
             ],
@@ -128,11 +126,9 @@
               }
             }
           })
-
-
           var placesOption = {
             title: {
-              text: '销售统计'
+              text: '销售统计',
             },
             tooltip: {},
             legend: {
@@ -165,14 +161,13 @@
               }
             }]
           };
-          var category= echarts.init(this.$refs.places);
-          category.setOption(placesOption);
+          var place= echarts.init(this.$refs.places);
+          place.setOption(placesOption);
         })
       }, 500)
-
     },
-    created() {
-
+    beforeDestroy() {
+      clearInterval(this.timer);
     },
     methods:{
       getDataFromServer(){
@@ -191,7 +186,7 @@
           this.places=resp.data.places;
         })
       }
-    }
+    },
   }
 </script>
 
