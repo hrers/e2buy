@@ -93,8 +93,8 @@
                     <div class="controls">
                         <input type="text" placeholder="短信验证码" class="input-xfat input-xlarge" style="width: 120px;"
                                v-model="user.code" name="code" v-validate="'required'" data-vv-as="验证码">
-                        <span class="code-span" @click="createVerifyCode">
-                               获取短信验证码
+                        <span class="code-span" @click="createVerifyCode" >
+                               {{this.codeMessage}}
                         </span>
                     </div>
                     <span style="color: red;">{{ errors.first('code') }}</span>
@@ -168,7 +168,9 @@
             },
             check: {
                 username: false
-            }
+            },
+            // codeFlag: true,
+            codeMessage:'获取短信验证码',
         },
         created() {
             this.$validator.extend('useful', {
@@ -198,6 +200,8 @@
         },
         methods: {
             createVerifyCode() {// 生成短信验证码
+                // this.codeFlag=false;
+                this.codeMessage='短信已发送';
                 this.$validator.validate("phone").then(r => {
                     if (r) {
                         e2buy.http.post("/user/code", "phone=" + this.user.phone);
