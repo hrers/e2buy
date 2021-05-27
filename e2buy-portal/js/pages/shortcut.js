@@ -5,7 +5,7 @@ const shortcut = {
             <ul class='fl'> \
                <li class='f-item'>易趣买欢迎您！</li> \
                <li class='f-item' v-if='user && user.username'>\
-               尊敬的会员，<span style='color: red;'>{{user.username}}</span>\
+               尊敬的会员，<span style='color: red;'>{{user.username}}<!--<a href='javascript:void(0)' @click='logout'>  退出登录 </a>--></span>\
                </li>\
                <li v-else class='f-item'> \
                    请<a href='javascript:void(0)' @click='gotoLogin'>登录</a>　 \
@@ -53,6 +53,10 @@ const shortcut = {
     methods: {
         gotoLogin() {
             window.location = "login.html?returnUrl=" + window.location;
+        },
+        logout() {
+            localStorage.clear();
+            window.location = 'http://www.e2buy.com'
         }
     }
 }

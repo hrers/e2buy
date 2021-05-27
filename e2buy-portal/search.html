@@ -142,7 +142,7 @@
                     </ul>
                 </div>
                 <div class="fl ext">
-                    <a href="javascript:void(0);" class="sui-btn">多选</a>
+                    <a href="javascript:void(0);" class="sui-btn"><!--多选--></a>
                 </div>
             </div>
 
@@ -375,8 +375,8 @@
                         </li>
                     </ul>
                     <div><span>共{{totalPage}}页&nbsp;</span><span>
-      到第
-      <input type="text" class="page-num">
+      第
+      <input type="text" class="page-num" v-model="toPage">
       页 <button class="page-confirm" @click="navPage">确定</button></span></div>
                 </div>
             </div>
@@ -486,7 +486,8 @@
             total:0,
             // brands:[],
             filters:[],//过滤参数集合
-            show: false
+            show: false,
+            toPage:1
         },
         created: function () {
             if (!location.search) {
@@ -577,7 +578,14 @@
                 this.search = obj;
             },
             navPage(){
-                this.search.page = this.$refs.page.value ;
+                if(this.toPage>=1&&this.toPage<=this.totalPage){
+                    // this.search.page--;
+                    this.search.page=this.toPage;
+                    this.loadData();
+                }else {
+                    alert("你选择的页数不符合要求");
+                    this.toPage=this.search.page;
+                }
             }
         },
         components:{
