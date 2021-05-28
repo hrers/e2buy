@@ -42,7 +42,7 @@ export default {
         {text: '总金额', align: 'center', sortable: false, value: 'title'},
         {text: '实际付款', align: 'center', sortable: false, value: 'cname'},
         {text: '创建时间', align: 'center', value: 'bname', sortable: false,},
-        /*      {text: '操作', align: 'center', sortable: false}*/
+/*        {text: '操作', align: 'center', sortable: false}*/
       ],
       orders:[],
       step: 1, // 子组件中的步骤线索引，默认为1

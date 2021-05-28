@@ -64,7 +64,7 @@
             yAxis: {
               type: 'value',
               axisLabel: {
-                formatter: '{value}(k)'
+                formatter: '{value}(万)'
               }
             },
             series: [{
@@ -172,11 +172,11 @@
     methods:{
       getDataFromServer(){
         this.$http.get("/order/getSaleResult").then(resp=>{
-          this.todayMoney=this.$format(resp.data.todayMoney)/1000;
-          this.toweekMoney=this.$format(resp.data.toweekMoney)/1000;
-          this.tomonthMoney=this.$format(resp.data.tomonthMoney)/1000;
-          this.toyearMoney=this.$format(resp.data.toyearMoney)/1000;
-          this.totalMoney=this.$format(resp.data.totalMoney)/1000;
+          this.todayMoney=this.$format(resp.data.todayMoney)/10000;
+          this.toweekMoney=this.$format(resp.data.toweekMoney)/10000;
+          this.tomonthMoney=this.$format(resp.data.tomonthMoney)/10000;
+          this.toyearMoney=this.$format(resp.data.toyearMoney)/10000;
+          this.totalMoney=this.$format(resp.data.totalMoney)/10000;
           //季度统计
           this.sales[0]=this.$format(resp.data.sales[0]);
           this.sales[1]=this.$format(resp.data.sales[1]);

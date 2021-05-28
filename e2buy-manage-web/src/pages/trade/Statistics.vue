@@ -21,6 +21,9 @@
         <td class="text-xs-center">{{ $format(props.item.totalPay)}}</td>
         <td class="text-xs-center">{{$format(props.item.actualPay)}}</td>
         <td class="text-xs-center">{{ props.item.createTime}}</td>
+        <td class="justify-center layout px-0">
+          <v-btn icon small @click="cancel(props.item.orderId)">取消订单</v-btn>
+        </td>
       </template>
     </v-data-table>
 
@@ -42,7 +45,7 @@ export default {
         {text: '总金额', align: 'center', sortable: false, value: 'title'},
         {text: '实际付款', align: 'center', sortable: false, value: 'cname'},
         {text: '创建时间', align: 'center', value: 'bname', sortable: false,},
-        /*      {text: '操作', align: 'center', sortable: false}*/
+        {text: '操作', align: 'center', sortable: false}
       ],
       orders:[],
       step: 1, // 子组件中的步骤线索引，默认为1
@@ -103,6 +106,19 @@ export default {
       // 将步骤调整到1
       this.step = 1;
     },
+    cancel(orderId){
+      this.verify().then(() => {
+        // 发起请求
+        this.$http.delete("/order/admin/cancelOrder/"+orderId).then(()=> { // 这里使用箭头函数
+          this.getDataFromServer();
+          // 完成赋值后，把加载状态赋值为false
+          this.loading = false;
+        })
+      }).catch(() => {
+        alert("还未登录,请登录");
+        this.$router.push("/login");
+      });
+    }
   }
 }
 

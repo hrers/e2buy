@@ -130,6 +130,7 @@ $(function(){
                                                         <img :src="orderdetail.image" style="width: 15%; min-width: 15%;"  />
                                                         <a href="#" class="block-text">{{orderdetail.title}}</a>
                                                         <span class="guige">规格:{{orderdetail.ownSpec}}</span>
+                                                        <span></span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -149,8 +150,15 @@ $(function(){
                                             </td>
                                             <td width="10%" class="center">
                                                 <ul class="unstyled">
-                                                    <li>等待买家付款</li>
-                                                    <li><a href="orderDetail.html" class="btn">订单详情 </a></li>
+                                                    <!-- <li>等待卖家付款{{order.status}}</li>-->
+                                                    <li v-if="order.status==1">待付款</li>
+                                                    <li v-if="order.status==2">已付款</li>
+                                                    <li v-if="order.status==3">已发货,未确认</li>
+                                                    <li v-if="order.status==4">交易成功 </li>
+                                                    <li v-if="order.status==5">交易关闭</li>
+                                                    <li v-if="order.status==6">已评价</li>
+
+                                                    <!-- <li><a href="home-orderDetail.html" class="btn">订单详情 </a></li>-->
                                                 </ul>
                                             </td>
                                             <td width="10%" class="center">

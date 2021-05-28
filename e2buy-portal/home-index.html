@@ -114,7 +114,8 @@ $(function(){
                             <div v-for="(order,index) in orders">
                             <div class="choose-title" >
                                 <label data-toggle="checkbox" class="checkbox-pretty ">
-                                  <!--  <input type="checkbox" checked="checked"><span>-->{{e2b.formatDate(order.createTime)}}　订单编号：{{order.orderId}} 店铺：E2Buy自营 <a>和我联系</a></span>
+                                  <!--  <input type="checkbox" checked="checked"><span>-->
+                                    {{e2b.formatDate(order.createTime)}}　订单编号：{{order.orderId}} 店铺：E2Buy自营 <a>和我联系</a></span>
                                  </label>
                                  <!-- <a class="sui-btn btn-info share-btn">分享</a>-->
                             </div>
@@ -124,9 +125,11 @@ $(function(){
                                         <td width="35%" >
                                             <div class="typographic"  :key="index">
                                                 <div v-for="orderdetail in order.orderDetails">
-                                                    <img :src="orderdetail.image" style="width: 15%; min-width: 15%;"  />
+                                                    <img :src="orderdetail.image"
+                                                         style="width: 15%; min-width: 15%;"/>
                                                     <a href="#" class="block-text">{{orderdetail.title}}</a>
                                                     <span class="guige">规格:{{orderdetail.ownSpec}}</span>
+                                                    <span></span>
                                                 </div>
                                             </div>
                                         </td>
@@ -148,8 +151,15 @@ $(function(){
                                         </td>
                                         <td width="10%" class="center">
                                             <ul class="unstyled">
-                                                <li>等待卖家付款</li>
-                                                <li><a href="home-orderDetail.html" class="btn">订单详情 </a></li>
+                                               <!-- <li>等待卖家付款{{order.status}}</li>-->
+                                                <li v-if="order.status==1">待付款</li>
+                                                <li v-if="order.status==2">已付款</li>
+                                                <li v-if="order.status==3">已发货,未确认</li>
+                                                <li v-if="order.status==4">交易成功 </li>
+                                                <li v-if="order.status==5">交易关闭</li>
+                                                <li v-if="order.status==6">已评价</li>
+
+                                               <!-- <li><a href="home-orderDetail.html" class="btn">订单详情 </a></li>-->
                                             </ul>
                                         </td>
                                         <td width="10%" class="center">
@@ -392,3 +402,9 @@ $(function(){
 </script>
 </body>
 </html>
+<script>
+    import SpecGroup from "../e2buy-manage-web/src/pages/item/specification/SpecGroup";
+    export default {
+        components: {SpecGroup}
+    }
+</script>
