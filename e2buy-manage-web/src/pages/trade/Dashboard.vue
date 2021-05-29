@@ -45,6 +45,7 @@ export default {
   watch:{
   },
   mounted() {
+    this.adminCheck();
     this.getDataFromServer();
     setTimeout(() => {
       this.$nextTick(() => {
@@ -172,11 +173,11 @@ export default {
   methods:{
     getDataFromServer(){
       this.$http.get("/order/getSaleResult").then(resp=>{
-        this.todayMoney=this.$format(resp.data.todayMoney)/10000;
-        this.toweekMoney=this.$format(resp.data.toweekMoney)/10000;
-        this.tomonthMoney=this.$format(resp.data.tomonthMoney)/10000;
-        this.toyearMoney=this.$format(resp.data.toyearMoney)/10000;
-        this.totalMoney=this.$format(resp.data.totalMoney)/10000;
+        this.todayMoney=parseFloat(this.$format(resp.data.todayMoney)/10000).toFixed(2);
+        this.toweekMoney=parseFloat(this.$format(resp.data.toweekMoney)/10000).toFixed(2);
+        this.tomonthMoney=parseFloat(this.$format(resp.data.tomonthMoney)/10000).toFixed(2);;
+        this.toyearMoney=parseFloat(this.$format(resp.data.toyearMoney)/10000).toFixed(2);;
+        this.totalMoney=parseFloat(this.$format(resp.data.totalMoney)/10000).toFixed(2);;
         //季度统计
         this.sales[0]=this.$format(resp.data.sales[0]);
         this.sales[1]=this.$format(resp.data.sales[1]);

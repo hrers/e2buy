@@ -549,7 +549,8 @@ const e2b = e2buy = {
         del(key) {
             return localStorage.removeItem(key);
         }
-    },
+    }
+    ,
     /**
      * 将整数价格变为小数
      * @param val

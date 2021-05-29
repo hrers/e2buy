@@ -50,6 +50,9 @@ export default {
       showGroup:true, // 是否展示分组
     };
   },
+  mounted() {
+    this.adminCheck();
+  },
   methods: {
     // 分类点击后的弹窗
     handleClick(node) {

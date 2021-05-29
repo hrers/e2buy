@@ -63,6 +63,9 @@ export default {
       isEdit: false, // 是否是编辑
     };
   },
+  mounted() {
+    this.adminCheck();
+  },
   watch:{
       cid(){
           this.loadData();

@@ -56,6 +56,7 @@ export default {
     }
   },
   mounted() { // 渲染后执行
+    this.adminCheck();
     // 查询数据
     this.getDataFromServer();
   },

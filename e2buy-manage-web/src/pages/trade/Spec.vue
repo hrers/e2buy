@@ -53,6 +53,7 @@ export default {
   mounted() { // 渲染后执行
     // 查询数据
     //alert(this.$route.query.orderId);
+    this.adminCheck();
     this.getDataFromServer();
   },
   methods:{

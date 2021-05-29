@@ -111,6 +111,9 @@ export default {
       isEdit: false
     };
   },
+  mounted() {
+    this.adminCheck();
+  },
   watch: {
     group:{
       deep:true,

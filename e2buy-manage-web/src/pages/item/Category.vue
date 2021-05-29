@@ -22,6 +22,9 @@
         isEdit:true,
       }
     },
+    mounted() {
+      this.adminCheck();
+    },
     methods: {
       handleAdd(node) {
         // alert("add");

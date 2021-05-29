@@ -22,6 +22,18 @@ Vue.config.productionTip = false
 Vue.prototype.verify = function () {
   return this.$http.get("/auth/verify")
 };
+Vue.prototype.adminCheck=function () {
+  this.verify().then(resp => {
+    //暂时使用这个方式验证管理员，后期优化
+    if (resp.data.username !== "admin") {
+      alert("当前用户不是管理员,请以管理员账号登录");
+      this.$router.push("/login");
+    }
+  }).catch(() => {
+    alert("还未登录,请登录");
+    this.$router.push("/login");
+  });
+};
 
 /* eslint-disable no-new */
 new Vue({
