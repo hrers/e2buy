@@ -22,6 +22,7 @@
         <td class="text-xs-center">{{$format(props.item.actualPay)}}</td>
         <td class="text-xs-center">{{ props.item.createTime}}</td>
         <td class="justify-center layout px-0">
+          <v-btn icon small @click="spec(props.item.orderId)">详情</v-btn>
           <v-btn icon small @click="send(props.item.orderId)">发货</v-btn>
           <v-btn icon small @click="cancel(props.item.orderId)">取消</v-btn>
         </td>
@@ -132,6 +133,15 @@ export default {
         alert("还未登录,请登录");
         this.$router.push("/login");
       });
+    },
+    spec(orderId){
+      // this.$router.push("/trade/spec/${orderId}");
+      this.$router.push({
+        path:'/trade/spec',
+        query:{
+          orderId:orderId
+        }
+      })
     }
   }
 }

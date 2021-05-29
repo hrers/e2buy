@@ -35,6 +35,7 @@ export default new Router({
         route("/trade/finished",'/trade/Finished',"Finished"),
         route("/trade/dashboard",'/trade/Dashboard',"Dashboard"),
         route("/trade/promotion",'/trade/Promotion',"Promotion"),
+        route("/trade/spec",'/trade/Spec',"Spec"),
       ]
     }
   ]

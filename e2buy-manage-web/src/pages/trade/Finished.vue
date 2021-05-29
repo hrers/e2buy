@@ -21,6 +21,9 @@
         <td class="text-xs-center">{{ $format(props.item.totalPay)}}</td>
         <td class="text-xs-center">{{$format(props.item.actualPay)}}</td>
         <td class="text-xs-center">{{ props.item.createTime}}</td>
+        <td class="justify-center layout px-0">
+          <v-btn icon small @click="spec(props.item.orderId)">详情</v-btn>
+        </td>
       </template>
     </v-data-table>
 
@@ -42,7 +45,7 @@ export default {
         {text: '总金额', align: 'center', sortable: false, value: 'title'},
         {text: '实际付款', align: 'center', sortable: false, value: 'cname'},
         {text: '创建时间', align: 'center', value: 'bname', sortable: false,},
-        /*      {text: '操作', align: 'center', sortable: false}*/
+        {text: '操作', align: 'center', sortable: false}
       ],
       orders:[],
       step: 1, // 子组件中的步骤线索引，默认为1
@@ -103,6 +106,15 @@ export default {
       // 将步骤调整到1
       this.step = 1;
     },
+    spec(orderId){
+      // this.$router.push("/trade/spec/${orderId}");
+      this.$router.push({
+        path:'/trade/spec',
+        query:{
+          orderId:orderId
+        }
+      })
+    }
   }
 }
 

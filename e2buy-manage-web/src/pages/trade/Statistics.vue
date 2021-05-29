@@ -23,6 +23,7 @@
         <td class="text-xs-center">{{ props.item.createTime}}</td>
         <td class="justify-center layout px-0">
           <v-btn icon small @click="cancel(props.item.orderId)">取消订单</v-btn>
+          <v-btn icon small @click="spec(props.item.orderId)">详情</v-btn>
         </td>
       </template>
     </v-data-table>
@@ -49,8 +50,9 @@ export default {
       ],
       orders:[],
       step: 1, // 子组件中的步骤线索引，默认为1
-      //selected:[], //选择的条目
-      total:0
+      selected:[], //选择的条目
+      total:0,
+
     }
   },
   mounted() { // 渲染后执行
@@ -118,6 +120,15 @@ export default {
         alert("还未登录,请登录");
         this.$router.push("/login");
       });
+    },
+    spec(orderId){
+      // this.$router.push("/trade/spec/${orderId}");
+      this.$router.push({
+        path:'/trade/spec',
+        query:{
+          orderId:orderId
+        }
+      })
     }
   }
 }
