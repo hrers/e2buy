@@ -63,6 +63,7 @@ $(function(){
 							<dd><a href="home-order-send.html"  >待发货</a></dd>
 							<dd><a href="home-order-receive.html" >待收货</a></dd>
 							<dd><a href="home-order-evaluate.html"  class="list-active">待评价</a></dd>
+                            <dd><a href="home-order-requestCancel.html" >申请退款</a></dd>
 						</dl>
 					<!--	<dl>
 							<dt><i>·</i> 我的中心</dt>
@@ -229,6 +230,8 @@ $(function(){
             },
             evaluate:{
                 orderId:0,
+                userId:0,
+                username:"",
                 message:""
             }
         },
@@ -278,11 +281,12 @@ $(function(){
             toEvaluate(orderId){
                 this.evaluate.orderId=orderId;
             },
-            submitEvaluate(){
-                // 查询订单信息
-                e2buy.http.post("/order/evaluate/create",this.evaluate,{
+            submitEvaluate() {
+                this.evaluate.userId=this.user.id;
+                this.evaluate.username=this.user.username;
+                e2buy.http.post("/order/evaluate/create", this.evaluate, {
                     transformResponse: [
-                        function(data){
+                        function (data) {
                             return data;
                         }
                     ]
@@ -290,7 +294,7 @@ $(function(){
                     alert("评论成功");
                     this.loadOrder();
                 }).catch(() => {
-                    alert("评论失败");
+                        alert("评论失败");
                     }
                 )
             }

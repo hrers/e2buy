@@ -34,4 +34,10 @@ public class EvaluateService {
         orderStatusMapper.updateByPrimaryKeySelective(example);
         evaluateMapper.insertSelective(evaluate);
     }
+
+    public Evaluate queryEvaluateByOrderId(Long orderId) {
+        Evaluate example = new Evaluate();
+        example.setOrderId(orderId);
+        return evaluateMapper.selectOne(example);
+    }
 }

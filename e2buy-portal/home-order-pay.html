@@ -62,6 +62,7 @@ $(function(){
 							<dd><a href="home-order-send.html"  >待发货</a></dd>
 							<dd><a href="home-order-receive.html" >待收货</a></dd>
 							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+                            <dd><a href="home-order-requestCancel.html" >申请退款</a></dd>
 						</dl>
 					<!--	<dl>
 							<dt><i>·</i> 我的中心</dt>
@@ -124,13 +125,15 @@ $(function(){
                                 <table class="sui-table table-bordered order-datatable">
                                     <tbody>
                                         <tr>
-                                            <td width="35%" >
-                                                <div class="typographic"  :key="index">
+                                            <td width="35%">
+                                                <div class="typographic" :key="index">
                                                     <div v-for="orderdetail in order.orderDetails">
-                                                        <img :src="orderdetail.image" style="width: 15%; min-width: 15%;"  />
+                                                    <span>
+                                                        <img :src="orderdetail.image"
+                                                             style="width: 15%; min-width: 15%;"/>
                                                         <a href="#" class="block-text">{{orderdetail.title}}</a>
                                                         <span class="guige">规格:{{orderdetail.ownSpec}}</span>
-                                                        <span></span>
+                                                    </span>
                                                     </div>
                                                 </div>
                                             </td>
@@ -175,116 +178,10 @@ $(function(){
                             </div>
                             </div>
 
-                            <!--<div class="choose-order">
-                                <label data-toggle="checkbox" class="checkbox-pretty checked">
-                                        <input type="checkbox" checked="checked"><span>全选</span>
-                                    </label>
-                                <a href="" class="sui-btn btn-info btn-bordered hepay-btn">合并付款</a>
-                                <div class="sui-pagination pagination-large top-pages">
-                                    <ul>
-                                        <li class="prev disabled"><a href="#">«上一页</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li class="dotted"><span>...</span></li>
-                                        <li class="next"><a href="#">下一页»</a></li>
-                                    </ul>
-                                    <div><span>共10页&nbsp;</span><span>
-                                            到
-                                            <input type="text" class="page-num"><button class="page-confirm" onclick="alert(1)">确定</button>
-                                            页</span></div>
-                                </div>
-                            </div>-->
 
                             <div class="clearfix"></div>
                         </div>
 
-                       <!-- <div class="like-title">
-                            <div class="mt">
-                                <span class="fl"><strong>热卖单品</strong></span>
-                            </div>
-                        </div>
-                        <div class="like-list">
-                            <ul class="yui3-g">
-                                <li class="yui3-u-1-4">
-                                    <div class="list-wrap">
-                                        <div class="p-img">
-                                            <img src="img/_/itemlike01.png" />
-                                        </div>
-                                        <div class="attr">
-                                            <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-                                        </div>
-                                        <div class="price">
-                                            <strong>
-											<em>¥</em>
-											<i>3699.00</i>
-										</strong>
-                                        </div>
-                                        <div class="commit">
-                                            <i class="command">已有6人评价</i>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="yui3-u-1-4">
-                                    <div class="list-wrap">
-                                        <div class="p-img">
-                                            <img src="img/_/itemlike02.png" />
-                                        </div>
-                                        <div class="attr">
-                                            <em>Apple苹果iPhone 6s/6s Plus 16G 64G 128G</em>
-                                        </div>
-                                        <div class="price">
-                                            <strong>
-											<em>¥</em>
-											<i>4388.00</i>
-										</strong>
-                                        </div>
-                                        <div class="commit">
-                                            <i class="command">已有700人评价</i>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="yui3-u-1-4">
-                                    <div class="list-wrap">
-                                        <div class="p-img">
-                                            <img src="img/_/itemlike03.png" />
-                                        </div>
-                                        <div class="attr">
-                                            <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-                                        </div>
-                                        <div class="price">
-                                            <strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-                                        </div>
-                                        <div class="commit">
-                                            <i class="command">已有700人评价</i>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="yui3-u-1-4">
-                                    <div class="list-wrap">
-                                        <div class="p-img">
-                                            <img src="img/_/itemlike04.png" />
-                                        </div>
-                                        <div class="attr">
-                                            <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
-                                        </div>
-                                        <div class="price">
-                                            <strong>
-											<em>¥</em>
-											<i>4088.00</i>
-										</strong>
-                                        </div>
-                                        <div class="commit">
-                                            <i class="command">已有700人评价</i>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>-->
                     </div>
                 </div>
             </div>

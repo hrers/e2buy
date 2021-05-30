@@ -16,4 +16,6 @@ public interface UserService {
     Boolean register(User user, String code);
 
     User queryUser(String username, String password);
+
+    void changePassword(String username,Long userId, String newPassword);
 }

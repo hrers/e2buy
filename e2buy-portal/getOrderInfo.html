@@ -88,7 +88,12 @@
 									   <div class="control-group">
 									    <label class="control-label">城市：</label>
 									    <div class="controls">
-									      <input type="text" class="input-medium" v-model="newAddress.city">
+									      <!--<input type="text" class="input-medium" v-model="newAddress.city">-->
+											<select class="input-xfat" name="role" v-model="newAddress.city">
+												<option v-for="city in citys[2]" :value="city" :key="city" name="city">
+													{{city}}
+												</option>
+											</select>
 									    </div>
 									  </div>
 									   <div class="control-group">
@@ -230,6 +235,7 @@
             el:"#orderInfoApp",
             data:{
                 e2buy,
+				user:{},
                 addresses:[],
 				selectedAddress: 0,
 				order: {
@@ -245,16 +251,19 @@
 					city:'',
 					district:'',
 					address:'',
-					isDefault:''
+					isDefault:'',
+					userId:''
 				},
 				states:['河北省','山西省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省',
 					'福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','海南省','四川省'
 					,'贵州省','云南省','陕西省','甘肃省','青海省','台湾省',
 					'北京市','上海市','重庆市','天津市','内蒙古自治区','广西壮族自治区',
-					'西藏自治区','宁夏回族自治区','新疆维吾尔自治区','香港特别行政区','澳门特别行政区']
+					'西藏自治区','宁夏回族自治区','新疆维吾尔自治区','香港特别行政区','澳门特别行政区'],
+				citys:[[],[],['沈阳市','大连市','鞍山市','抚顺市','本溪市','丹东市','锦州市','营口市','阜新市','辽阳市','铁岭市','朝阳市','盘锦市','葫芦岛市']]
             },
 			created(){
 				e2buy.verify().then(res => {
+					this.user = res.data;
 					this.carts = e2buy.store.get("E2BUY_SELECTED");
 				}).catch(() => {
                     window.location = "http://www.e2buy.com/login.html?returnUrl=http://www.e2buy.com/getOrderInfo.html"
@@ -319,6 +328,7 @@
                     })
 				},
 				submitAddress(){
+                	this.newAddress.userId=this.user.id;
 					e2buy.http.post("/order/address", this.newAddress).then(()=>{
 						alert("新增地址成功");
 						window.location="http://www.e2buy.com/getOrderInfo.html";

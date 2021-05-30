@@ -1,15 +1,13 @@
-package com.e2buy.order.pojo;
+package com.e2buy.dto;
 
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * @Author: zhangjianwu
- * @Date: 2021/5/22 12:24
- * @Desc: 评论微服务暂时先不做，在订单微服务里面完成吧
+ * @Date: 2021/5/30 12:09
+ * @Desc:
  **/
-@Table(name = "tb_evaluate")
-public class Evaluate {
+public class EvaluateDto {
 
     private Long id;
     private Long orderId;
@@ -18,22 +16,6 @@ public class Evaluate {
     private String message;
     private Date createTime;// 创建时间
     private Date updateTime;// 更新时间
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public Long getId() {
         return id;
@@ -49,6 +31,22 @@ public class Evaluate {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getMessage() {

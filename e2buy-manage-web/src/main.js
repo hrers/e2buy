@@ -34,7 +34,13 @@ Vue.prototype.adminCheck=function () {
     this.$router.push("/login");
   });
 };
-
+Vue.prototype.logout= function () {
+  Cookies.remove("E2BUY_TOKEN",{
+    path:"/",
+    domain:"e2buy.com"
+  });
+  this.$router.push("/");
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

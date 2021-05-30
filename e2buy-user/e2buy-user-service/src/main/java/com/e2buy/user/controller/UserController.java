@@ -64,9 +64,9 @@ public class UserController {
     public ResponseEntity<Void> register(@Valid User user, @RequestParam("code") String code){
        Boolean boo=userService.register(user,code);
        if(boo==null||!boo){
-           return ResponseEntity.status(HttpStatus.CREATED).build();
+           return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
        }
-       return new ResponseEntity<>(HttpStatus.CREATED);
+       return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 
@@ -86,6 +86,22 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return ResponseEntity.ok(user);
+    }
+
+    @PutMapping("changePassword")
+    public ResponseEntity<Void> changePassword(
+            @RequestParam("username") String username,
+            @RequestParam("userId") Long userId,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword
+    ) {
+        User user = this.userService.queryUser(username, oldPassword);
+        if(user==null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }else {
+           this.userService.changePassword(username,userId,newPassword);
+        }
+        return ResponseEntity.ok().build();
     }
 
 }

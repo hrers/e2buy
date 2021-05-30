@@ -20,6 +20,16 @@ public class Address {
     private String code;
     private Integer isDefault;
 
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public Long getId() {
         return id;
     }

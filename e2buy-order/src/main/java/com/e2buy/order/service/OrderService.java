@@ -385,4 +385,20 @@ public class OrderService {
         Integer num=orderMapper.querySaledSkuNumBySkuId(skuId);
         return num;
     }
+
+    public void requestCancelOrderByOrderId(Long orderId) {
+        //申请退款
+        OrderStatus example= new OrderStatus();
+        example.setOrderId(orderId);
+        //7：为申请退款
+        example.setStatus(7);
+        statusMapper.updateByPrimaryKeySelective(example);
+    }
+
+    public void continueOrderByOrderId(Long orderId) {
+        OrderStatus example= new OrderStatus();
+        example.setOrderId(orderId);
+        example.setStatus(2);
+        statusMapper.updateByPrimaryKeySelective(example);
+    }
 }

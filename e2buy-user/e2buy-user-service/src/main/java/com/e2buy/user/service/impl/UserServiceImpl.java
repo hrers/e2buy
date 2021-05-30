@@ -117,10 +117,29 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         // 校验密码
+        String password1 = user.getPassword();
+        String s = CodecUtils.md5Hex(password, user.getSalt());
+
         if (!user.getPassword().equals(CodecUtils.md5Hex(password, user.getSalt()))) {
             return null;
         }
         // 用户名密码都正确
         return user;
+    }
+
+    @Override
+    public void changePassword(String username,Long userId, String newPassword) {
+        User record = new User();
+        record.setId(userId);
+        record.setUsername(username);
+        //更新盐
+        String salt= CodecUtils.generateSalt();
+        record.setSalt(salt);
+        // 对密码加密
+        record.setPassword(CodecUtils.md5Hex(newPassword, salt));
+        //todo 先不强制更新时间，直接改创建时间，后期想要优化再改
+        record.setCreated(new Date());
+        // 添加到数据库
+        this.userMapper.updateByPrimaryKeySelective(record);
     }
 }

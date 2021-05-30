@@ -17,18 +17,31 @@ var menus = [
     ]
   },
 {
-    action: "people",
+    action: "attach_money",
     title: "销售管理",
     path:"/trade",
     items: [
       { title: "已支付订单", path: "/statistics" },
       { title: "待发货订单", path: "/sending" },
+      { title: "申请退款订单", path: "/requestCancel" },
       { title: "待收货订单", path: "/sended" },
       { title: "交易成功订单", path: "/finished" },
+      { title: "已评价订单", path: "/evaluated" },
       { title: "销售统计", path: "/dashboard" },
    /*   { title: "订单详情", path: "/spec"}*/
     ]
   },
+  {
+    action: "people",
+    title: "用户管理",
+    path:"/user",
+    items: [
+      // { title: "权限管理", path: "/list" },
+      // { title: "角色管理", path: "/role" },
+      { title: "修改密码", path: "/changePassword"},
+      { title: "退出登录", path: "/logout" }
+    ]
+  }
 /*  {
     action: "attach_money",
     title: "销售管理",
@@ -50,6 +63,7 @@ var menus = [
       { title: "人员管理", path: "/member" }
     ]
   }*/
+
 ]
 
 export default menus;

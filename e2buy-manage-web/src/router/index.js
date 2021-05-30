@@ -31,11 +31,16 @@ export default new Router({
         route("/item/specification",'/item/specification/Specification',"Specification"),
         route("/trade/statistics",'/trade/Statistics',"Statistics"),
         route("/trade/sending",'/trade/Sending',"Sending"),
+        route("/trade/requestCancel",'/trade/RequestCancel',"requestCancel"),
         route("/trade/sended",'/trade/Sended',"Sended"),
         route("/trade/finished",'/trade/Finished',"Finished"),
+        route("/trade/evaluated",'/trade/Evaluated',"Evaluated"),
         route("/trade/dashboard",'/trade/Dashboard',"Dashboard"),
         route("/trade/promotion",'/trade/Promotion',"Promotion"),
         route("/trade/spec",'/trade/Spec',"Spec"),
+        route("/trade/comment",'/trade/Comment',"Comment"),
+        route("/user/logout",'/user/Logout',"Logout"),
+        route("/user/changePassword",'/user/ChangePassword',"ChangePassword")
       ]
     }
   ]

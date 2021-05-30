@@ -63,6 +63,7 @@ $(function(){
                         <dd><a href="home-order-send.html"  >待发货</a></dd>
                         <dd><a href="home-order-receive.html" >待收货</a></dd>
                         <dd><a href="home-order-evaluate.html" >待评价</a></dd>
+                        <dd><a href="home-order-requestCancel.html" >申请退款</a></dd>
                     </dl>
                   <!--  <dl>
                         <dt><i>·</i> 我的中心</dt>
@@ -122,14 +123,15 @@ $(function(){
                             <table class="sui-table table-bordered order-datatable">
                                 <tbody>
                                     <tr >
-                                        <td width="35%" >
-                                            <div class="typographic"  :key="index">
+                                        <td width="35%">
+                                            <div class="typographic" :key="index">
                                                 <div v-for="orderdetail in order.orderDetails">
-                                                    <img :src="orderdetail.image"
-                                                         style="width: 15%; min-width: 15%;"/>
-                                                    <a href="#" class="block-text">{{orderdetail.title}}</a>
-                                                    <span class="guige">规格:{{orderdetail.ownSpec}}</span>
-                                                    <span></span>
+                                                    <span>
+                                                        <img :src="orderdetail.image"
+                                                             style="width: 15%; min-width: 15%;"/>
+                                                        <a href="#" class="block-text">{{orderdetail.title}}</a>
+                                                        <span class="guige">规格:{{orderdetail.ownSpec}}</span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </td>

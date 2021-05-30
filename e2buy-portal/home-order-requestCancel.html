@@ -161,7 +161,7 @@ $(function(){
                                             </td>
                                             <td width="10%" class="center">
                                                 <ul class="unstyled">
-                                                    <li><a href="#" class="sui-btn btn-info" @click="cancelOrder(order.orderId)">申请退款</a></li>
+                                                    <li><a href="#" class="sui-btn btn-info" @click="continueOrder(order.orderId)">取消申请退款</a></li>
                           <!--                          <button @click="cancelOrder(order.orderId)">取消订单</button>-->
                                                 </ul>
                                             </td>
@@ -295,7 +295,7 @@ $(function(){
             user: {},
             orders:[],
             query:{
-                status:2,
+                status:7,
                 page:1,
                 rows:100
             }
@@ -330,7 +330,6 @@ $(function(){
             },
             loadOrder(){
                 // 查询订单信息
-
                 e2buy.http.get("/order/list?"+ e2buy.stringify(this.query))
                     .then(({data:{items,total}}) => {
                         // console.log(data.items); //这条语句会报错
@@ -339,21 +338,18 @@ $(function(){
                         this.orders = [];
                     }
                 )
-
-
             },
             formatDate:e2buy.formatDate,
             formatPrice: e2buy.formatPrice,
             getTotalPrice(order){
                 return order.orderDetails.map(d => d.num * d.price).reduce((v1,v2) => v1 + v2, 0);
             },
-            cancelOrder(orderId){
+            continueOrder(orderId){
                 //不直接刪了，还是走申请
                 // e2buy.http.delete("/order/delete/"+orderId);
-                e2buy.http.put("/order/requestCancel/"+orderId);
-                //  e2buy.http.put("/order/requestCancel/"+orderId);
-                window.location = 'http://www.e2buy.com/home-order-send.html';
-                //  window.location = 'http://www.e2buy.com/home-order-requestCancel.html';
+                 e2buy.http.put("/order/continue/"+orderId);
+                // window.location = 'http://www.e2buy.com/home-order-send.html';
+                 window.location = 'http://www.e2buy.com/home-order-requestCancel.html';
             }
         },
         watch:{

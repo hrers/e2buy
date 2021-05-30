@@ -220,6 +220,30 @@ public class OrderController {
     }
 
     /**
+     * 用户申请退款
+     * @param orderId
+     * @return
+     */
+    @PutMapping("requestCancel/{orderId}")
+    public ResponseEntity<Void> requestCancelOrderByOrderId(@PathVariable("orderId") Long orderId){
+        orderService.requestCancelOrderByOrderId(orderId);
+        return ResponseEntity.ok().build();
+    }
+
+    /**
+     * 取消退款申请,将订单转为已付款待发货状态
+     * @param orderId
+     * @return
+     */
+    @PutMapping("continue/{orderId}")
+    public ResponseEntity<Void> continueOrderByOrderId(@PathVariable("orderId")Long orderId){
+        orderService.continueOrderByOrderId(orderId);
+        return ResponseEntity.ok().build();
+    }
+
+
+
+    /**
      * 商家确认发货
      */
     @PutMapping("admin/sendOrder/{orderId}")
