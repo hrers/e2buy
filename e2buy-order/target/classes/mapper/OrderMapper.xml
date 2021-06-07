@@ -51,7 +51,7 @@
     <select id="querySaledSkuNumBySkuId" resultType="integer">
         SELECT SUM(num) FROM tb_order_detail tod
         LEFT JOIN tb_order_status tos ON tos.order_id=tod.order_id
-        WHERE tos.status in (2,3,4) AND tod.sku_id=#{skuId}
+        WHERE tos.status in (2,3,4,6,7) AND tod.sku_id=#{skuId}
     </select>
 
 

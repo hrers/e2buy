@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
         }
         // 校验密码
         String password1 = user.getPassword();
-        String s = CodecUtils.md5Hex(password, user.getSalt());
+        CodecUtils.md5Hex(password, user.getSalt());
 
         if (!user.getPassword().equals(CodecUtils.md5Hex(password, user.getSalt()))) {
             return null;

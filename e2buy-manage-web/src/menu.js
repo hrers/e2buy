@@ -21,7 +21,7 @@ var menus = [
     title: "销售管理",
     path:"/trade",
     items: [
-      { title: "已支付订单", path: "/statistics" },
+     /* 好像和代发货重复了{ title: "已支付订单", path: "/statistics" },*/
       { title: "待发货订单", path: "/sending" },
       { title: "申请退款订单", path: "/requestCancel" },
       { title: "待收货订单", path: "/sended" },

@@ -50,6 +50,11 @@
         </v-layout>
       </v-container>
     </v-content>
+    <v-dialog v-model="dialog" width="300px">
+      <v-alert icon="warning" color="error" :value="true">
+        用户名和密码不能为空
+      </v-alert>
+    </v-dialog>
   </v-app>
 </template>
 
