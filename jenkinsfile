@@ -7,6 +7,6 @@ node {
        echo 'build code'
     }
     stage('Results') {
-       echo 'deal code'
+       echo 'deploy code'
     }
 }
