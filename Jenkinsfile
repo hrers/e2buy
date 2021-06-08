@@ -3,7 +3,7 @@ def github_auth= 'hrers'
 node {
     def mvnHome
     stage('拉取代码') { // for display purposes
-      checkout([$class: 'GitSCM', branches: [[name: "${branch}"]], extensions: [],
+      checkout([$class: 'GitSCM', branches: [[name: "*/${branch}"]], extensions: [],
        userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
     stage('构建代码') {
