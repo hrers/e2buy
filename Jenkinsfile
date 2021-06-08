@@ -1,12 +1,12 @@
 node {
     def mvnHome
-    stage('Preparation') { // for display purposes
+    stage('拉取代码') { // for display purposes
       echo 'pull code'
     }
-    stage('Build') {
+    stage('构建代码') {
        echo 'build code'
     }
-    stage('Results') {
+    stage('发布代码') {
        echo 'deploy code'
     }
 }
