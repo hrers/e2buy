@@ -8,7 +8,7 @@ node {
     }
     stage('构建代码') {
        sh "mvn -f e2buy-common clean install"
-       sh "mvn -f ${branch} clean package"
+       sh "mvn -f ${project_name} clean package"
     }
     stage('发布代码') {
        echo 'deploy code'
