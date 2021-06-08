@@ -1,4 +1,4 @@
-def project_url= 'https://github.cnpmjs.org/hrers/e2buy.git'
+def project_url= 'https://github.com.cnpmjs.org/hrers/e2buy.git'
 def github_auth= 'hrers'
 def github_branch='test_jenkins'
 node {
